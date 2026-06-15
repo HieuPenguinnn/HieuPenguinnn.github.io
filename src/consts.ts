@@ -1,9 +1,9 @@
-export const SITE_TITLE = 'hieuPenguinnn Blog';
-export const SITE_DESCRIPTION = 'CVE & CTF writeups by hieuPenguinnn';
-export const SITE_AUTHOR = 'hieuPenguinnn';
+export const SITE_TITLE = 'HieuPenguinnn Blog';
+export const SITE_DESCRIPTION = 'CVE & CTF writeups by HieuPenguinnn';
+export const SITE_AUTHOR = 'HieuPenguinnn';
 export const SITE_URL = 'https://santisify.top';
 export const SITE_AVATAR = '/avt.jpg';
-export const SITE_COVER = 'https://santisify.top/_vercel/image?url=_astro%2Fcf2227.wczNDBh1.webp&w=1920&q=100';
+export const SITE_COVER = '/behind.jfif';
 
 export const PAGE_SIZE = 10;
 
@@ -13,5 +13,5 @@ export const NAV_ITEMS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: 'GitHub', href: 'https://github.com/hieuPenguinnn', icon: 'github' },
+  { name: 'GitHub', href: 'https://github.com/HieuPenguinnn', icon: 'github' },
 ];
