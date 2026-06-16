@@ -113,5 +113,5 @@ Read the flag via the `/item/flag` endpoint:
 ### Flag
 
 ```text
-"GPNCTF{and_one_0R_7w0_rces_lAt3r_7hEy_8UIl7_hAPPily_evEr_aFtEr}"
+GPNCTF{and_one_or_Tw0_RCes_LaTer_tH3Y_8u1Lt_H4pP1LY_3Ver_Af73R}
 ```

@@ -140,5 +140,5 @@ Read the new notification:
 ### Flag
 
 ```text
-GPNCTF{and_as_41way5_th3_pro8lEm_Wa5_dn5}
+GPNCTF{and_aS_aLwAyS_tH3_PrOB13m_wA5_dns}
 ```
