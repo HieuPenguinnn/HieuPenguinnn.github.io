@@ -1,4 +1,4 @@
-# 🍥 hieuuPenguin Blog
+# 🍥 HieuuPenguin Blog
 
 ![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen)
 ![npm >= 9](https://img.shields.io/badge/npm-%3E%3D9-blue)
