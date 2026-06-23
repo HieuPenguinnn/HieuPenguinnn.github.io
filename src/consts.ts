@@ -13,5 +13,7 @@ export const NAV_ITEMS = [
 ];
 
 export const SOCIAL_LINKS = [
+  { name: 'Telegram', href: 'https://t.me/hieupenguinnn', icon: 'telegram' },
   { name: 'GitHub', href: 'https://github.com/HieuPenguinnn', icon: 'github' },
+  { name: 'Email', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=ngdinhhieu207@gmail.com', icon: 'mail' },
 ];
