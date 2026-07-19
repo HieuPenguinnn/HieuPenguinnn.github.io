@@ -42,6 +42,15 @@ const postData = filtered.map((p) => ({
 }));
 
 const displayName = category!.split('/').pop()!;
+
+// Optional final scoreboard shown at the top of a CTF category page
+const SCOREBOARDS: Record<string, { image: string; caption: string }> = {
+  'SekaiCTF 2026': {
+    image: '/ctf/sekaictf-2026-scoreboard.png',
+    caption: 'Final scoreboard — #2 (team W4llz)',
+  },
+};
+const scoreboard = SCOREBOARDS[category!];
 ---
 
 <BlogLayout title={displayName}>
@@ -52,5 +61,23 @@ const displayName = category!.split('/').pop()!;
       ({filtered.length} challenges)
     </span>
   </h1>
+  {
+    scoreboard && (
+      <figure class="mb-10 rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 bg-white dark:bg-[var(--color-card-dark)]">
+        <img
+          src={scoreboard.image}
+          alt={`${displayName} scoreboard`}
+          class="w-full"
+          loading="lazy"
+        />
+        <figcaption class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800 flex items-center gap-2">
+          <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
+          </svg>
+          {scoreboard.caption}
+        </figcaption>
+      </figure>
+    )
+  }
   <PostList posts={postData} hideCover />
 </BlogLayout>
