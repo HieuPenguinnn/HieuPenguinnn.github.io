@@ -19,7 +19,6 @@ interface Props {
 const {
   title,
   description,
-  date,
   slug,
   tags = [],
   category,
@@ -33,10 +32,6 @@ const {
 
 const wordCount = body ? getWordCount(body) : 0;
 const readingTime = body ? getReadingTime(body) : 0;
-
-function formatDate(d: Date) {
-  return d.toISOString().split('T')[0];
-}
 ---
 
 <article
@@ -95,10 +90,6 @@ function formatDate(d: Date) {
             Draft
           </span>
         )}
-      </div>
-
-      <div class="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500 mb-3">
-        <time datetime={formatDate(date)}>{formatDate(date)}</time>
       </div>
 
       <h2 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">

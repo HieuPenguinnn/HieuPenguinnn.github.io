@@ -25,10 +25,6 @@ const { Content, headings } = await render(post);
 const body = post.body || '';
 const wordCount = getWordCount(body);
 const readingTime = getReadingTime(body);
-
-function formatDate(d: Date) {
-  return d.toISOString().split('T')[0];
-}
 ---
 <PostLayout title={post.data.title} description={post.data.description} headings={headings} cover={coverSrc}>
   <header class="mb-8">
@@ -49,11 +45,6 @@ function formatDate(d: Date) {
       </span>
     )}
     <h1 class="text-3xl font-bold mb-4">{post.data.title}</h1>
-    <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400 dark:text-gray-500">
-      <time datetime={formatDate(post.data.date)}>
-        {formatDate(post.data.date)}
-      </time>
-    </div>
     {post.data.tags && post.data.tags.length > 0 && (
       <div class="flex flex-wrap gap-2 mt-4">
         {post.data.tags.map((tag: string) => (
