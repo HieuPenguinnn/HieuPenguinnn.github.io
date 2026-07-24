@@ -1,7 +1,7 @@
 export const SITE_TITLE = 'HieuPenguinnn Blog';
 export const SITE_DESCRIPTION = 'CVE & CTF writeups by HieuPenguinnn';
 export const SITE_AUTHOR = 'HieuPenguinnn';
-export const SITE_URL = 'https://santisify.top';
+export const SITE_URL = 'https://hieupenguinnn.blog';
 export const SITE_AVATAR = '/avt.jpg';
 export const SITE_COVER = '/behind.jfif';
 

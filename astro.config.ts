@@ -5,7 +5,7 @@ import rehypeKatex from 'rehype-katex';
 import { unified } from '@astrojs/markdown-remark';
 
 export default defineConfig({
-  site: 'https://HieuPenguinnn.github.io',
+  site: 'https://hieupenguinnn.blog',
   devToolbar: { enabled: false },
   integrations: [mdx()],
   markdown: {
