@@ -6,40 +6,49 @@ const allPosts = await getCollection('blog');
 const sorted = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const totalPosts = sorted.length;
-const cveCount = sorted.filter((p) => p.data.category === 'CVE').length;
-const ctfCount = totalPosts - cveCount;
-const categoryMap = new Map<
-  string,
-  { count: number; recentPosts: typeof allPosts; displayName: string }
->();
-const tagMap = new Map<string, number>();
+const cvePosts = sorted.filter((p) => p.data.category === 'CVE');
+const ctfPosts = sorted.filter((p) => p.data.category && p.data.category !== 'CVE');
+const cveCount = cvePosts.length;
+const ctfCount = ctfPosts.length;
 
-for (const post of sorted) {
-  const cat = post.data.category;
-  if (cat) {
-    const rootCat = cat.split('/')[0];
-    if (!categoryMap.has(rootCat)) {
-      categoryMap.set(rootCat, { count: 0, recentPosts: [], displayName: rootCat });
-    }
-    const entry = categoryMap.get(rootCat)!;
-    entry.count++;
-    if (entry.recentPosts.length < 3) {
-      entry.recentPosts.push(post);
-    }
-  }
-
+// Vulnerability classes are children of CVE (derived from CVE post tags,
+// minus the generic platform/label tags).
+const GENERIC_TAGS = new Set(['CVE', 'WordPress']);
+const vulnMap = new Map<string, number>();
+for (const post of cvePosts) {
   for (const tag of post.data.tags || []) {
-    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+    if (GENERIC_TAGS.has(tag)) continue;
+    vulnMap.set(tag, (vulnMap.get(tag) || 0) + 1);
   }
 }
 
-const allCategories = Array.from(categoryMap.entries());
-const allTags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]);
+// CTF events are children of CTF (grouped by root category).
+const ctfEventMap = new Map<string, number>();
+for (const post of ctfPosts) {
+  const root = post.data.category!.split('/')[0];
+  ctfEventMap.set(root, (ctfEventMap.get(root) || 0) + 1);
+}
 
-const CATEGORY_LIMIT = 5;
-const TAG_LIMIT = 15;
+const categoryTree = [
+  {
+    label: 'CVE',
+    href: '/categories/CVE',
+    count: cveCount,
+    children: Array.from(vulnMap.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([label, count]) => ({ label, href: `/tags/${label}`, count })),
+  },
+  {
+    label: 'CTF',
+    href: '/writeups',
+    count: ctfCount,
+    children: Array.from(ctfEventMap.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([label, count]) => ({ label, href: `/categories/${label}`, count })),
+  },
+];
 
-const randomPosts = sorted
+const randomPosts = [...sorted]
   .sort(() => Math.random() - 0.5)
   .slice(0, 5);
 
@@ -83,6 +92,11 @@ function slugify(post: (typeof sorted)[0]) {
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           )}
+          {link.icon === 'wordpress' && (
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM1.211 12c0-1.564.336-3.05.935-4.39l5.15 14.106c-3.6-1.75-6.086-5.44-6.086-9.716zM12 22.79c-1.06 0-2.084-.156-3.052-.44l3.242-9.42 3.32 9.098c.022.053.048.101.078.148A10.75 10.75 0 0 1 12 22.79zm1.488-15.87c.65-.034 1.235-.102 1.235-.102.582-.069.514-.922-.068-.888 0 0-1.749.137-2.879.137-1.062 0-2.845-.137-2.845-.137-.582-.034-.65.854-.069.888 0 0 .551.068 1.135.102l1.681 4.607-2.362 7.083-3.931-11.69c.65-.033 1.234-.101 1.234-.101.583-.069.514-.922-.068-.888 0 0-1.748.137-2.879.137-.202 0-.44-.005-.693-.013C4.911 3.037 8.235 1.211 12 1.211c2.804 0 5.357 1.072 7.275 2.829-.046-.003-.091-.009-.139-.009-1.062 0-1.816.925-1.816 1.919 0 .89.514 1.643 1.062 2.533.411.72.89 1.643.89 2.977 0 .923-.354 1.994-.821 3.488l-1.075 3.591-3.888-11.618zm6.888.855a10.72 10.72 0 0 1 1.34 5.225c0 3.966-2.15 7.43-5.346 9.298l3.286-9.498c.614-1.535.818-2.762.818-3.855 0-.396-.026-.763-.072-1.17z"/>
+            </svg>
+          )}
         </a>
       ))}
     </div>
@@ -104,73 +118,50 @@ function slugify(post: (typeof sorted)[0]) {
   </div>
 
   {
-    allCategories.length > 0 && (
-      <div class="bg-white dark:bg-[var(--color-card-dark)] rounded-2xl shadow-sm p-5"
-        data-sidebar-section="categories"
-      >
+    categoryTree.length > 0 && (
+      <div class="bg-white dark:bg-[var(--color-card-dark)] rounded-2xl shadow-sm p-5">
         <h2 class="text-sm font-semibold mb-3 text-gray-900 dark:text-gray-100">
           Categories
         </h2>
-        <div class="sidebar-expand-list flex flex-wrap gap-2">
-          {allCategories.map(([name, info], i) => (
-            <a
-              href={`/categories/${name}`}
-              class={`text-xs px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors ${
-                i >= CATEGORY_LIMIT ? 'hidden sidebar-extra' : ''
-              }`}
-            >
-              {info.displayName}
-              <span class="ml-1 opacity-60">({info.count})</span>
-            </a>
-          ))}
+        <div class="font-mono text-xs leading-6 text-gray-600 dark:text-gray-300">
+          {categoryTree.map((node, ni) => {
+            const parentLast = ni === categoryTree.length - 1;
+            return (
+              <>
+                <a
+                  href={node.href}
+                  class="group flex items-center hover:text-primary transition-colors"
+                >
+                  <span class="select-none whitespace-pre text-gray-400 dark:text-gray-600 group-hover:text-primary/60">
+                    {parentLast ? '└── ' : '├── '}
+                  </span>
+                  <span class="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-primary">
+                    {node.label}
+                  </span>
+                  <span class="ml-1 text-gray-400 dark:text-gray-600">({node.count})</span>
+                </a>
+                {node.children.map((child, ci) => {
+                  const childLast = ci === node.children.length - 1;
+                  return (
+                    <a
+                      href={child.href}
+                      class="group flex items-center hover:text-primary transition-colors"
+                    >
+                      <span class="select-none whitespace-pre text-gray-400 dark:text-gray-600">
+                        {parentLast ? '    ' : '│   '}
+                      </span>
+                      <span class="select-none whitespace-pre text-gray-400 dark:text-gray-600 group-hover:text-primary/60">
+                        {childLast ? '└── ' : '├── '}
+                      </span>
+                      <span class="truncate">{child.label}</span>
+                      <span class="ml-1 text-gray-400 dark:text-gray-600">({child.count})</span>
+                    </a>
+                  );
+                })}
+              </>
+            );
+          })}
         </div>
-        {
-          allCategories.length > CATEGORY_LIMIT && (
-            <button
-              type="button"
-              class="sidebar-toggle-btn mt-3 text-xs text-primary hover:underline"
-              data-expanded="false"
-            >
-              Show all ({allCategories.length})
-            </button>
-          )
-        }
-      </div>
-    )
-  }
-
-  {
-    allTags.length > 0 && (
-      <div class="bg-white dark:bg-[var(--color-card-dark)] rounded-2xl shadow-sm p-5"
-        data-sidebar-section="tags"
-      >
-        <h2 class="text-sm font-semibold mb-3 text-gray-900 dark:text-gray-100">
-          Tags
-        </h2>
-        <div class="sidebar-expand-list flex flex-wrap gap-2">
-          {allTags.map(([tag, count], i) => (
-            <a
-              href={`/tags/${tag}`}
-              class={`text-xs px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors ${
-                i >= TAG_LIMIT ? 'hidden sidebar-extra' : ''
-              }`}
-            >
-              {tag}
-              <span class="ml-1 opacity-60">({count})</span>
-            </a>
-          ))}
-        </div>
-        {
-          allTags.length > TAG_LIMIT && (
-            <button
-              type="button"
-              class="sidebar-toggle-btn mt-3 text-xs text-primary hover:underline"
-              data-expanded="false"
-            >
-              Show all ({allTags.length})
-            </button>
-          )
-        }
       </div>
     )
   }

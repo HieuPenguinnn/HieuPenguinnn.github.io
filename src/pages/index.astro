@@ -22,6 +22,6 @@ const cvePosts = allPosts
 
 <BlogLayout>
   <Hero />
-  <PostList posts={cvePosts} heading="CVE" />
+  <PostList posts={cvePosts.slice(0, 4)} heading="CVE" headingHref="/categories/CVE" />
   <CTFList />
 </BlogLayout>

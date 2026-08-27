@@ -49,7 +49,7 @@ After normalizing the path, it is equivalent to:
 /var/www/html/pwn.php
 ```
 
-That is, the attacker can write a file outside the `uploads/` directory — specifically, write a PHP webshell into the web root.
+That is, the attacker can write a file outside the `uploads/` directory - specifically, write a PHP webshell into the web root.
 
 This is a **Zip Slip / Path Traversal during archive extraction** bug.
 

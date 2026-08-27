@@ -55,7 +55,7 @@ Access `/?file=config.php`:
 
 ```php
 <?php
-// BrickWorks Co. — Application Configuration
+// BrickWorks Co. - Application Configuration
 // WARNING: Do not expose this file publicly!
 
 // The admin dashboard is located at /dashboard-admin.php.
