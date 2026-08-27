@@ -146,7 +146,7 @@ This repository is ready for GitHub Pages deployment.
 
 2. Push the repository to GitHub.
 
-3. In **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
+3. In **Settings -> Pages**, set the build and deployment source to **GitHub Actions**.
 
 4. Push to `main` and wait for the deploy workflow to finish.
 
