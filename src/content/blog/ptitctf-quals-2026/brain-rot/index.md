@@ -33,15 +33,13 @@ File `package.json` xác nhận phiên bản Vite là `5.4.14`.
 
 ![alt text](./image-2.png)
 
-Vite có endpoint đặc biệt `/@fs/` dùng để phục vụ các file nằm ngoài thư mục root của project theo đường dẫn tuyệt đối trên filesystem. Trong chế độ dev, endpoint này bình thường chỉ cho phép truy cập những file nằm trong danh sách được phép (allow list).
+Vite có endpoint đặc biệt `/@fs/` dùng để phục vụ các file nằm ngoài thư mục root của project theo đường dẫn tuyệt đối trên filesystem.
 
 ![alt text](./image-3.png)
 
 ## Bypass CVE-2025-30208
 
 CVE-2025-30208 là lỗ hổng của Vite dev server: có thể vượt qua cơ chế allow list của `/@fs/` bằng cách thêm query string `?raw??` hoặc `?import&raw??` vào cuối đường dẫn. Vite dùng dấu `?` để cắt bỏ query khi kiểm tra allow list, nhưng phần `??` dư ra khiến chuỗi sau khi xử lý không còn khớp với đường dẫn thực, làm bước kiểm tra bị bỏ qua và file vẫn được đọc và trả về nguyên văn.
-
-Nhờ đó có thể đọc file tùy ý trên hệ thống, ví dụ đọc thẳng file flag qua đường dẫn tuyệt đối:
 
 ![alt text](./image-5.png)
 
