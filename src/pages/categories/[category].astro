@@ -49,6 +49,14 @@ const SCOREBOARDS: Record<string, { image: string; caption: string }> = {
     image: '/ctf/sekaictf-2026-scoreboard.png',
     caption: 'Final scoreboard - #2 (team W4llz)',
   },
+  'PTITCTF Quals 2026': {
+    image: '/ctf/ptitctf-quals-2026-scoreboard.png',
+    caption: 'Final scoreboard - #2 (team Kuramaa)',
+  },
+  'PTITCTF Finals 2026': {
+    image: '/ctf/ptitctf-finals-2026-scoreboard.png',
+    caption: 'Final Jeopardy - #10 (team Kuramaa)',
+  },
 };
 const scoreboard = SCOREBOARDS[category!];
 ---
@@ -77,6 +85,29 @@ const scoreboard = SCOREBOARDS[category!];
           {scoreboard.caption}
         </figcaption>
       </figure>
+    )
+  }
+  {
+    category === 'PTITCTF Finals 2026' && (
+      <section class="mb-10">
+        <p class="mb-4 text-gray-700 dark:text-gray-300">
+          Đội mình vào được chung kết Attack - Defense và đạt được giải Ba chung cuộc.
+        </p>
+        <figure class="rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 bg-white dark:bg-[var(--color-card-dark)]">
+          <img
+            src="/ctf/ptitctf-finals-2026-ad-top.png"
+            alt="PTITCTF Finals 2026 Attack - Defense scoreboard"
+            class="w-full"
+            loading="lazy"
+          />
+          <figcaption class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800 flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
+            </svg>
+            Attack - Defense final scoreboard - #6 (team Kuramaa)
+          </figcaption>
+        </figure>
+      </section>
     )
   }
   <PostList posts={postData} hideCover />
