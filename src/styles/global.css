@@ -196,7 +196,7 @@ body {
   --tw-prose-pre-bg: #070c18;
 }
 
-.prose :where(code):not(:where([class~='not-prose'] *)) {
+.prose :where(code):not(:where([class~='not-prose'] *)):not(:where(pre *)) {
   font-family: var(--font-family-mono);
   font-weight: 500;
   font-size: 0.875em;
@@ -216,6 +216,22 @@ body {
   border: 1px solid #1e293b;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
   font-family: var(--font-family-mono);
+}
+
+.prose pre code {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: inherit;
+}
+
+.prose code,
+.prose pre,
+.prose pre code {
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'calt' 0;
 }
 
 .prose img {
