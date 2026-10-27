@@ -1,29 +1,84 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_AUTHOR } from '../consts';
+import { SITE_AUTHOR, SITE_AVATAR, SOCIAL_LINKS } from '../consts';
 ---
 
 <BaseLayout title="About">
-  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
-    <article class="prose max-w-none">
-      <h1>About</h1>
-      <p>
-        Hi, I am {SITE_AUTHOR}.
-      </p>
-      <p>
-        I'm a cybersecurity student at Posts and Telecommunications Institute of Technology (PTIT),
-        focusing mainly on Web Exploitation and real-world web security research.
-      </p>
-      <p>
-        I am a member of the <strong>W4llz</strong> team. Visit our team website:
-        <a href="https://w4llz.me/" target="_blank" rel="noreferrer">w4llz.me</a>.
-      </p>
-      <p>
-        I publish analyses of CVEs I find during my research, along with writeups on some CVEs discovered by other researchers.
-      </p>
-      <p>
-        Most posts are security research notes - vulnerability breakdowns and challenge writeups. I hope you find something useful.
-      </p>
-    </article>
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 font-mono">
+    
+    <div class="rounded-2xl bg-white/90 dark:bg-[#0b1324]/90 border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-950/30 overflow-hidden">
+      
+      <div class="flex items-center justify-between px-4 py-2.5 bg-slate-100 dark:bg-[#070b14] border-b border-slate-200 dark:border-slate-800 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+          <span class="ml-2 text-slate-500 dark:text-slate-400">~/research/dossier.md</span>
+        </div>
+        <span class="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30">
+          CLEARANCE: LEVEL_4
+        </span>
+      </div>
+
+      <div class="p-6 sm:p-10">
+        
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 pb-8 border-b border-slate-200 dark:border-slate-800">
+          <img
+            src={SITE_AVATAR}
+            alt={SITE_AUTHOR}
+            class="w-24 h-24 rounded-2xl object-cover ring-2 ring-sky-400/40 shadow-xl"
+            width="96"
+            height="96"
+          />
+          <div class="space-y-1.5">
+            <div class="text-xs text-sky-400 uppercase tracking-widest font-bold">
+              [+] OPERATIVE IDENTITY
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 font-sans">
+              {SITE_AUTHOR}
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              Web Security Researcher &amp; CTF Player &bull; PTIT &bull; Team W4llz
+            </p>
+            
+            <div class="flex flex-wrap gap-2 pt-2">
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-sky-400 hover:border-sky-500/40 transition-colors"
+                >
+                  &gt; {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <article class="prose max-w-none mt-8 font-sans">
+          <h2>About</h2>
+          <p>
+            Hi, I am {SITE_AUTHOR}.
+          </p>
+          <p>
+            I'm a cybersecurity student at Posts and Telecommunications Institute of Technology (PTIT),
+            focusing mainly on Web Exploitation and real-world web security research.
+          </p>
+          <p>
+            I am a member of the <strong>W4llz</strong> team. Visit our team website:
+            <a href="https://w4llz.me/" target="_blank" rel="noreferrer" class="text-sky-400 hover:underline">w4llz.me</a>.
+          </p>
+          <p>
+            I publish analyses of CVEs I find during my research, along with writeups on some CVEs discovered by other researchers.
+          </p>
+          <p>
+            Most posts are security research notes - vulnerability breakdowns and challenge writeups. I hope you find something useful.
+          </p>
+        </article>
+
+      </div>
+    </div>
+
   </div>
 </BaseLayout>

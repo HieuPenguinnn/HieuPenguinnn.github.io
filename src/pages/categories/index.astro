@@ -33,26 +33,55 @@ const categories = Array.from(categoryMap.entries())
     name,
     displayName: name.split('/').pop()!,
     count: info.count,
+    isCVE: name === 'CVE' || name.startsWith('CVE/'),
   }))
   .sort((a, b) => b.count - a.count);
 ---
 
-<BlogLayout title="Categories">
-  <h1 class="text-2xl font-bold mb-8 flex items-center gap-2">
-    <span class="w-1 h-6 bg-primary rounded-full inline-block"></span>
-    Categories
-  </h1>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<BlogLayout title="Categories Index">
+  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800 font-mono">
+    <div class="flex items-center gap-2 text-xs text-sky-400 mb-1">
+      <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+      <span>~/research/categories</span>
+    </div>
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2.5">
+        <span class="text-sky-400">&gt;</span>
+        <span>Categories Directory</span>
+      </h1>
+      <span class="text-xs px-2.5 py-1 rounded-md bg-slate-900 text-sky-400 border border-sky-500/30">
+        {categories.length} CATEGORIES
+      </span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-mono">
     {categories.map((cat) => (
       <a
-        href={`/categories/${cat.name}`}
-        class="card-hover bg-white dark:bg-[var(--color-card-dark)] rounded-xl shadow-sm p-5 group"
+        href={cat.isCVE ? '/cve' : `/categories/${encodeURIComponent(cat.name)}`}
+        class={`card-hover rounded-xl p-5 group border transition-all duration-300 shadow-sm ${
+          cat.isCVE
+            ? 'bg-white/90 dark:bg-[#0b1324]/90 border-slate-200 dark:border-slate-800 hover:border-rose-500/50 hover:bg-rose-950/20'
+            : 'bg-white/90 dark:bg-[#0b1324]/90 border-slate-200 dark:border-slate-800 hover:border-sky-500/50 hover:bg-sky-950/20'
+        }`}
       >
-        <h2 class="font-semibold group-hover:text-primary transition-colors">
+        <div class="flex items-center justify-between mb-2">
+          <span class={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${
+            cat.isCVE ? 'bg-rose-950/60 text-rose-400 border border-rose-500/30' : 'bg-sky-950/60 text-sky-400 border border-sky-500/30'
+          }`}>
+            {cat.isCVE ? 'ADVISORY' : 'CTF'}
+          </span>
+          <span class="text-xs text-slate-400 group-hover:translate-x-0.5 transition-transform">
+            &gt;
+          </span>
+        </div>
+        <h2 class={`text-base font-bold transition-colors ${
+          cat.isCVE ? 'text-slate-800 dark:text-slate-100 group-hover:text-rose-400' : 'text-slate-800 dark:text-slate-100 group-hover:text-sky-300'
+        }`}>
           {cat.displayName}
         </h2>
-        <p class="text-sm text-gray-400 dark:text-gray-500 mt-1">
-          {cat.count} posts
+        <p class="text-xs text-slate-400 dark:text-slate-500 mt-1 font-sans">
+          {cat.count} {cat.count === 1 ? 'publication' : 'publications'}
         </p>
       </a>
     ))}

@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import PostList from '../components/PostList.astro';
 import CTFList from '../components/CTFList.astro';
 import { resolveCover } from './_imageStore';
+import { totalCveCount } from '../utils/cveStats';
 
 const allPosts = await getCollection('blog');
 const cvePosts = allPosts
@@ -22,6 +23,6 @@ const cvePosts = allPosts
 
 <BlogLayout>
   <Hero />
-  <PostList posts={cvePosts.slice(0, 4)} heading="CVE" headingHref="/categories/CVE" />
+  <PostList posts={cvePosts.slice(0, 4)} heading="CVE" headingHref="/cve" headingCount={totalCveCount(cvePosts.length)} />
   <CTFList />
 </BlogLayout>

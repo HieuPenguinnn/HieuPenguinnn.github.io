@@ -1,113 +1,190 @@
 ---
 import { getCollection } from 'astro:content';
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_AUTHOR, SITE_AVATAR, SITE_COVER, SOCIAL_LINKS } from '../consts';
-import { getWordCount, getReadingTime } from '../utils/readingTime';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_AUTHOR, SITE_COVER, SOCIAL_LINKS } from '../consts';
+import { totalCveCount } from '../utils/cveStats';
 
 const allBlogPosts = await getCollection('blog');
 const sorted = allBlogPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-let totalWords = 0;
-let totalMinutes = 0;
+const cvePosts = sorted.filter((p) => p.data.category === 'CVE');
+const ctfPosts = sorted.filter((p) => p.data.category && p.data.category !== 'CVE');
+const cveCount = totalCveCount(cvePosts.length);
+const ctfCount = ctfPosts.length;
+const totalCount = sorted.length;
 
-const categorySet = new Set<string>();
-const tagSet = new Set<string>();
-
-for (const post of sorted) {
-  totalWords += getWordCount(post.body || '');
-  totalMinutes += getReadingTime(post.body || '');
-  if (post.data.category) {
-    const rootCat = post.data.category.split('/')[0];
-    categorySet.add(rootCat);
-  }
-  for (const tag of post.data.tags || []) {
-    tagSet.add(tag);
-  }
-}
+const patchstackLink = SOCIAL_LINKS.find((l) => l.name === 'Patchstack')?.href || 'https://patchstack.com';
+const githubLink = SOCIAL_LINKS.find((l) => l.name === 'GitHub')?.href || 'https://github.com/HieuPenguinnn';
 ---
 
-<section class="relative overflow-hidden rounded-2xl mb-10">
-  <div class="absolute inset-0">
+<section class="relative overflow-hidden rounded-2xl mb-10 border border-slate-700/70 bg-gradient-to-br from-[#0c1426] via-[#080d18] to-[#0a1020] shadow-2xl shadow-slate-950/80 ring-1 ring-inset ring-white/5">
+  
+  <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden" aria-hidden="true">
     <img
       src={SITE_COVER}
       alt=""
-      class="w-full h-full object-cover"
-      aria-hidden="true"
+      class="w-full h-full object-cover opacity-[0.13] dark:opacity-[0.18] filter grayscale contrast-125 scale-105"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0b1222]/60 via-[#080d18]/85 to-[#0a1020]"></div>
+    <div class="absolute inset-0 cyber-grid-pattern opacity-50"></div>
+    <div class="absolute -top-10 right-0 w-96 h-96 bg-sky-500/15 rounded-full blur-[110px]"></div>
+    <div class="absolute -bottom-10 left-0 w-96 h-96 bg-rose-500/15 rounded-full blur-[110px]"></div>
+    <div class="absolute top-0 left-1/3 w-72 h-72 bg-emerald-500/8 rounded-full blur-[120px]"></div>
   </div>
 
-  <div class="relative px-6 py-12 sm:px-10 sm:py-16 lg:py-20 text-center text-white">
-    <div class="mb-8">
-      <img
-        src={SITE_AVATAR}
-        alt={SITE_AUTHOR}
-        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full mx-auto object-cover ring-4 ring-white/30 shadow-2xl"
-        width="112"
-        height="112"
-      />
+  <div class="relative z-10 font-mono">
+    
+    <div class="flex items-center justify-between px-4 py-2.5 bg-[#090e1a]/95 border-b border-slate-800 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-rose-500/80 border border-rose-600/50 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-amber-500/80 border border-amber-600/50 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-emerald-500/80 border border-emerald-600/50 inline-block"></span>
+        <span class="text-slate-400 font-mono text-[11px] sm:text-xs ml-2 flex items-center gap-1.5">
+          <span class="text-sky-400 font-bold">hieupenguinnn@research-lab</span>:<span class="text-slate-400">~</span> (zsh)
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-950/60 text-emerald-400 border border-emerald-500/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          ARMED &amp; HUNTING
+        </span>
+        <span class="text-[10px] text-slate-500">v2.6.4-sec</span>
+      </div>
     </div>
 
-    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 tracking-tight">
-      {SITE_TITLE}
-    </h1>
-    <p class="text-lg sm:text-xl text-white/80 font-light mb-6">
-      {SITE_DESCRIPTION}
-    </p>
+    <div class="p-4 sm:p-6 text-xs sm:text-sm leading-relaxed text-slate-300 space-y-4">
+      
+      <div>
+        <div class="flex items-center gap-2 text-slate-400 mb-1.5 flex-wrap">
+          <span class="text-emerald-400 font-bold">➜</span>
+          <span class="text-sky-400 font-semibold">~</span>
+          <span class="text-slate-200 font-bold">whoami --verbose</span>
+        </div>
+        <div class="pl-4 sm:pl-5 border-l-2 border-sky-500/30 space-y-1 text-slate-300">
+          <p><span class="text-sky-400">[+] Operative:</span> <strong class="text-white">HieuPenguinnn</strong> — Web Security Researcher &amp; CTF Player</p>
+          <p><span class="text-sky-400">[+] Affiliations:</span> PTIT | CTF Team <a href="https://w4llz.me/" target="_blank" rel="noreferrer" class="text-amber-400 hover:underline">W4llz</a> | Patchstack</p>
+          <p><span class="text-sky-400">[+] Primary Focus:</span> Real-world Web Exploitation, WordPress Core/Plugins Vulnerability Research</p>
+        </div>
+      </div>
 
-    <div class="flex items-center justify-center gap-4 mb-8">
-      {SOCIAL_LINKS.map((link) => (
+      <div>
+        <div class="flex items-center gap-2 text-slate-400 mb-1.5">
+          <span class="text-emerald-400 font-bold">➜</span>
+          <span class="text-sky-400 font-semibold">~</span>
+          <span class="text-slate-200 font-bold">cat status.json</span>
+        </div>
+        <div class="pl-4 sm:pl-5 border-l-2 border-emerald-500/30 text-[11px] sm:text-xs font-mono bg-slate-950/60 p-3 rounded-lg border border-slate-800/80 overflow-x-auto">
+          <pre class="text-slate-300"><code>&#123;
+  <span class="text-sky-300">"status"</span>: <span class="text-emerald-400">"HUNTING_VULNERABILITIES"</span>,
+  <span class="text-sky-300">"target_surface"</span>: [<span class="text-amber-300">"WordPress Plugins"</span>, <span class="text-amber-300">"Open-Source Apps"</span>, <span class="text-amber-300">"IDOR &amp; BAC"</span>, <span class="text-amber-300">"SSRF / SQLi"</span>],
+  <span class="text-sky-300">"telemetry"</span>: &#123;
+    <span class="text-rose-400">"cve_disclosed"</span>: <span class="text-white font-bold">{cveCount}</span>,
+    <span class="text-sky-400">"ctf_challenges_solved"</span>: <span class="text-white font-bold">{ctfCount}</span>,
+    <span class="text-emerald-400">"total_research_logs"</span>: <span class="text-white font-bold">{totalCount}</span>
+  &#125;
+&#125;</code></pre>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+        
         <a
-          href={link.href}
+          href="/cve"
+          class="group p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-rose-500/50 hover:bg-rose-950/20 hover:shadow-[0_0_20px_-3px_rgba(244,63,94,0.3)] transition-all duration-300 flex items-center justify-between"
+        >
+          <div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-400 group-hover:animate-ping"></span>
+              CVE Advisories
+            </div>
+            <div class="text-xl sm:text-2xl font-bold font-mono text-rose-400 mt-0.5">
+              {cveCount} <span class="text-xs font-normal text-rose-400/70">Published</span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-slate-600 group-hover:text-rose-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+        <a
+          href="/writeups"
+          class="group p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-sky-500/50 hover:bg-sky-950/20 hover:shadow-[0_0_20px_-3px_rgba(56,189,248,0.3)] transition-all duration-300 flex items-center justify-between"
+        >
+          <div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400 group-hover:animate-ping"></span>
+              CTF Writeups
+            </div>
+            <div class="text-xl sm:text-2xl font-bold font-mono text-sky-400 mt-0.5">
+              {ctfCount} <span class="text-xs font-normal text-sky-400/70">Pwned</span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-slate-600 group-hover:text-sky-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+        <a
+          href="/archives"
+          class="group p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-950/20 hover:shadow-[0_0_20px_-3px_rgba(16,185,129,0.3)] transition-all duration-300 flex items-center justify-between"
+        >
+          <div>
+            <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 group-hover:animate-ping"></span>
+              Research Logs
+            </div>
+            <div class="text-xl sm:text-2xl font-bold font-mono text-emerald-400 mt-0.5">
+              {totalCount} <span class="text-xs font-normal text-emerald-400/70">Total</span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-slate-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+      </div>
+
+      <div class="pt-2 flex flex-wrap items-center gap-2">
+        <a
+          href={patchstackLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110"
-          title={link.name}
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/30 hover:bg-amber-500/20 hover:border-amber-400 transition-all"
         >
-          {link.icon === 'github' && (
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          )}
-          {link.icon === 'telegram' && (
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-            </svg>
-          )}
-          {link.icon === 'mail' && (
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          )}
-          {link.icon === 'wordpress' && (
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM1.211 12c0-1.564.336-3.05.935-4.39l5.15 14.106c-3.6-1.75-6.086-5.44-6.086-9.716zM12 22.79c-1.06 0-2.084-.156-3.052-.44l3.242-9.42 3.32 9.098c.022.053.048.101.078.148A10.75 10.75 0 0 1 12 22.79zm1.488-15.87c.65-.034 1.235-.102 1.235-.102.582-.069.514-.922-.068-.888 0 0-1.749.137-2.879.137-1.062 0-2.845-.137-2.845-.137-.582-.034-.65.854-.069.888 0 0 .551.068 1.135.102l1.681 4.607-2.362 7.083-3.931-11.69c.65-.033 1.234-.101 1.234-.101.583-.069.514-.922-.068-.888 0 0-1.748.137-2.879.137-.202 0-.44-.005-.693-.013C4.911 3.037 8.235 1.211 12 1.211c2.804 0 5.357 1.072 7.275 2.829-.046-.003-.091-.009-.139-.009-1.062 0-1.816.925-1.816 1.919 0 .89.514 1.643 1.062 2.533.411.72.89 1.643.89 2.977 0 .923-.354 1.994-.821 3.488l-1.075 3.591-3.888-11.618zm6.888.855a10.72 10.72 0 0 1 1.34 5.225c0 3.966-2.15 7.43-5.346 9.298l3.286-9.498c.614-1.535.818-2.762.818-3.855 0-.396-.026-.763-.072-1.17z"/>
-            </svg>
-          )}
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM1.211 12c0-1.564.336-3.05.935-4.39l5.15 14.106c-3.6-1.75-6.086-5.44-6.086-9.716zM12 22.79c-1.06 0-2.084-.156-3.052-.44l3.242-9.42 3.32 9.098c.022.053.048.101.078.148A10.75 10.75 0 0 1 12 22.79zm1.488-15.87c.65-.034 1.235-.102 1.235-.102.582-.069.514-.922-.068-.888 0 0-1.749.137-2.879.137-1.062 0-2.845-.137-2.845-.137-.582-.034-.65.854-.069.888 0 0 .551.068 1.135.102l1.681 4.607-2.362 7.083-3.931-11.69c.65-.033 1.234-.101 1.234-.101.583-.069.514-.922-.068-.888 0 0-1.748.137-2.879.137-.202 0-.44-.005-.693-.013C4.911 3.037 8.235 1.211 12 1.211c2.804 0 5.357 1.072 7.275 2.829-.046-.003-.091-.009-.139-.009-1.062 0-1.816.925-1.816 1.919 0 .89.514 1.643 1.062 2.533.411.72.89 1.643.89 2.977 0 .923-.354 1.994-.821 3.488l-1.075 3.591-3.888-11.618zm6.888.855a10.72 10.72 0 0 1 1.34 5.225c0 3.966-2.15 7.43-5.346 9.298l3.286-9.498c.614-1.535.818-2.762.818-3.855 0-.396-.026-.763-.072-1.17z"/>
+          </svg>
+          Patchstack Profile
         </a>
-      ))}
+
+        <a
+          href={githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700/80 hover:text-white transition-all"
+        >
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+
+        <a
+          href="/about"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-sky-500/10 text-sky-400 border border-sky-500/30 hover:bg-sky-500/20 hover:border-sky-400 transition-all"
+        >
+          <span>&gt;</span> About Researcher
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 text-slate-400 pt-1 text-xs">
+        <span class="text-emerald-400 font-bold">➜</span>
+        <span class="text-sky-400 font-semibold">~</span>
+        <span class="text-slate-300">listening for zero-days</span>
+        <span class="inline-block w-2 h-4 bg-sky-400 animate-cursor select-none"></span>
+      </div>
+
     </div>
 
-    <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-      <a href="/archives" class="group text-center">
-        <div class="text-2xl sm:text-3xl font-bold group-hover:scale-110 transition-transform">
-          {sorted.length}
-        </div>
-        <div class="text-sm text-white/70 mt-1">Posts</div>
-      </a>
-      <div class="w-px h-10 bg-white/20 hidden sm:block"></div>
-      <a href="/categories" class="group text-center">
-        <div class="text-2xl sm:text-3xl font-bold group-hover:scale-110 transition-transform">
-          {categorySet.size}
-        </div>
-        <div class="text-sm text-white/70 mt-1">Categories</div>
-      </a>
-      <div class="w-px h-10 bg-white/20 hidden sm:block"></div>
-      <a href="/tags" class="group text-center">
-        <div class="text-2xl sm:text-3xl font-bold group-hover:scale-110 transition-transform">
-          {tagSet.size}
-        </div>
-        <div class="text-sm text-white/70 mt-1">Tags</div>
-      </a>
-    </div>
   </div>
 </section>

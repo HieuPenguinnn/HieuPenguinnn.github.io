@@ -16,6 +16,10 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
+
+// The CVE tag is superseded by the dedicated archive.
+if (tag === 'CVE') return Astro.redirect('/cve');
+
 const allPosts = await getCollection('blog');
 
 const filtered = allPosts
@@ -32,13 +36,22 @@ const postData = filtered.map((p) => ({
 }));
 ---
 
-<BlogLayout title={tag}>
-  <h1 class="text-2xl font-bold mb-8 flex items-center gap-2">
-    <span class="w-1 h-6 bg-primary rounded-full inline-block"></span>
-    Tag: {tag}
-    <span class="text-base font-normal text-gray-400">
-      ({filtered.length} posts)
-    </span>
-  </h1>
+<BlogLayout title={`Tag: #${tag}`}>
+  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800 font-mono">
+    <div class="flex items-center gap-2 text-xs text-sky-400 mb-1">
+      <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+      <span>~/research/tags/#{tag}</span>
+    </div>
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2.5">
+        <span class="text-sky-400">&gt;</span>
+        <span>#{tag}</span>
+      </h1>
+      <span class="text-xs px-2.5 py-1 rounded-md bg-slate-900 text-sky-400 border border-sky-500/30">
+        {filtered.length} RESEARCH ENTRIES
+      </span>
+    </div>
+  </div>
+
   <PostList posts={postData} />
 </BlogLayout>

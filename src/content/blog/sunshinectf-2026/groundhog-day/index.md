@@ -2,7 +2,7 @@
 title: "Groundhog Day"
 description: "Gopher SSRF reaches an internal PDF renderer and reads the flag through file URLs."
 date: 2026-09-29
-tags: [CTF, Web, SSRF, Gopher, SunshineCTF]
+tags: [CTF, Web, SSRF, SunshineCTF]
 category: "SunshineCTF 2026"
 pinned: false
 draft: false

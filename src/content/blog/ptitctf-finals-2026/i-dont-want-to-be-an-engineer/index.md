@@ -2,7 +2,7 @@
 title: "I Don't Want to be an Engineer"
 description: "Spring Expression Language injection exposes environment variables and the flag."
 date: 2026-09-25
-tags: [CTF, Web, SpEL, PTITCTF]
+tags: [CTF, Web, PTITCTF]
 category: "PTITCTF Finals 2026"
 pinned: false
 draft: false

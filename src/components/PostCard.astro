@@ -19,6 +19,7 @@ interface Props {
 const {
   title,
   description,
+  date,
   slug,
   tags = [],
   category,
@@ -30,99 +31,247 @@ const {
   routePrefix = '/post/',
 } = Astro.props;
 
-const wordCount = body ? getWordCount(body) : 0;
-const readingTime = body ? getReadingTime(body) : 0;
+// Extract CVE ID from title if present
+const cveMatch = title.match(/CVE-\d{4}-\d+/i);
+const cveId = cveMatch ? cveMatch[0].toUpperCase() : null;
+const displayTitle = cveId ? title.replace(new RegExp(`^${cveId}\\s*[-–:]*\\s*`, 'i'), '') : title;
+
+const isCVE = category === 'CVE' || Boolean(cveId);
+
+// Format date in terminal format: YYYY.MM.DD
+const formattedDate = date ? new Date(date).toISOString().split('T')[0].replace(/-/g, '.') : '';
+
+// Helper function to colorize vulnerability tags
+function getTagStyle(tag: string) {
+  const lower = tag.toLowerCase();
+  if (lower.includes('sql') || lower.includes('command inj')) {
+    return 'bg-red-950/60 text-red-400 border-red-500/40 hover:bg-red-900/50';
+  }
+  if (lower.includes('ssrf')) {
+    return 'bg-cyan-950/60 text-cyan-400 border-cyan-500/40 hover:bg-cyan-900/50';
+  }
+  if (lower.includes('access control') || lower.includes('idor') || lower.includes('bac')) {
+    return 'bg-amber-950/60 text-amber-400 border-amber-500/40 hover:bg-amber-900/50';
+  }
+  if (lower.includes('xss')) {
+    return 'bg-fuchsia-950/60 text-fuchsia-400 border-fuchsia-500/40 hover:bg-fuchsia-900/50';
+  }
+  if (lower.includes('ssti') || lower.includes('template') || lower.includes('spel')) {
+    return 'bg-violet-950/60 text-violet-400 border-violet-500/40 hover:bg-violet-900/50';
+  }
+  if (lower.includes('traversal') || lower.includes('lfi') || lower.includes('file read') || lower.includes('path')) {
+    return 'bg-teal-950/60 text-teal-400 border-teal-500/40 hover:bg-teal-900/50';
+  }
+  if (lower.includes('graphql')) {
+    return 'bg-pink-950/60 text-pink-400 border-pink-500/40 hover:bg-pink-900/50';
+  }
+  if (lower.includes('deserial') || lower.includes('xxe')) {
+    return 'bg-purple-950/60 text-purple-400 border-purple-500/40 hover:bg-purple-900/50';
+  }
+  if (lower.includes('disclosure') || lower.includes('secret') || lower.includes('leak')) {
+    return 'bg-sky-950/60 text-sky-400 border-sky-500/40 hover:bg-sky-900/50';
+  }
+  if (lower.includes('payment') || lower.includes('tamper') || lower.includes('price')) {
+    return 'bg-orange-950/60 text-orange-400 border-orange-500/40 hover:bg-orange-900/50';
+  }
+  if (lower.includes('forgery') || lower.includes('webhook') || lower.includes('csrf')) {
+    return 'bg-yellow-950/60 text-yellow-400 border-yellow-500/40 hover:bg-yellow-900/50';
+  }
+  if (lower.includes('takeover') || lower.includes('auth') || lower.includes('rce') || lower.includes('jwt')) {
+    return 'bg-rose-950/60 text-rose-400 border-rose-500/40 hover:bg-rose-900/50';
+  }
+  if (lower.includes('wordpress')) {
+    return 'bg-emerald-950/60 text-emerald-400 border-emerald-500/40 hover:bg-emerald-900/50';
+  }
+  if (lower.includes('web')) {
+    return 'bg-blue-950/60 text-blue-400 border-blue-500/40 hover:bg-blue-900/50';
+  }
+  if (lower.includes('ctf')) {
+    return 'bg-indigo-950/60 text-indigo-300 border-indigo-500/40 hover:bg-indigo-900/50';
+  }
+  return 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700/80 hover:text-white';
+}
 ---
 
 <article
-  class={`card-hover bg-white dark:bg-[var(--color-card-dark)] rounded-2xl shadow-sm overflow-hidden group relative ${
-    hideCover
-      ? 'border-l-4 border-primary/30 hover:border-primary'
-      : ''
-  }`}
+  class={`card-hover group relative overflow-hidden rounded-2xl bg-white/90 dark:bg-[#0b1324]/90 border transition-all duration-300 shadow-md ${
+    isCVE
+      ? 'border-slate-200 dark:border-slate-800 hover:border-rose-500/50 hover:shadow-[0_0_30px_-5px_rgba(244,63,94,0.25)]'
+      : 'border-slate-200 dark:border-slate-800 hover:border-sky-500/50 hover:shadow-[0_0_30px_-5px_rgba(56,189,248,0.25)]'
+  } ${hideCover ? 'border-l-4 border-l-sky-500/80' : ''}`}
   transition:animate="fade"
 >
-  {hideCover && (
-    <div class="absolute top-4 right-4 text-primary/15 group-hover:text-primary/40 transition-colors duration-300">
-      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
-      </svg>
-    </div>
-  )}
-  <a href={`${routePrefix}${slug}`} class="block">
-    {!hideCover && (cover ? (
-      <div class="aspect-[2/1] overflow-hidden">
-        <img
-          src={cover}
-          alt={title}
-          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
+  <div class={`absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${
+    isCVE ? 'bg-rose-500/15' : 'bg-sky-500/15'
+  }`}></div>
+
+  <div class="block">
+    
+    {
+      !hideCover && (
+        <a href={`${routePrefix}${slug}`} class="block overflow-hidden relative aspect-[2/1] bg-slate-900">
+          {cover ? (
+            <img
+              src={cover}
+              alt={title}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div class={`w-full h-full flex items-center justify-center ${
+              isCVE ? 'bg-gradient-to-br from-rose-950/40 to-slate-900' : 'bg-gradient-to-br from-sky-950/40 to-slate-900'
+            }`}>
+              <span class="text-4xl font-mono font-bold text-slate-700 select-none">
+                {isCVE ? 'CVE' : 'CTF'}
+              </span>
+            </div>
+          )}
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b1324] via-transparent to-transparent opacity-80"></div>
+          
+          {formattedDate && (
+            <span class="absolute bottom-2.5 left-3 px-2 py-0.5 rounded text-[10px] font-mono font-medium text-slate-300 bg-slate-950/80 backdrop-blur-sm border border-slate-800">
+              {formattedDate}
+            </span>
+          )}
+        </a>
+      )
+    }
+
+    <div class="p-5 flex flex-col justify-between">
+      <div>
+        
+        <div class="flex flex-wrap items-center gap-2 mb-3">
+          
+          {
+            cveId ? (
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-rose-950/60 text-rose-400 border border-rose-500/40 shadow-[0_0_12px_-3px_rgba(244,63,94,0.3)]">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"></span>
+                <span>{cveId}</span>
+                <button
+                  type="button"
+                  class="cve-copy-btn ml-1 p-0.5 hover:text-white rounded transition-colors text-rose-400/80"
+                  data-cve={cveId}
+                  title={`Copy ${cveId}`}
+                  aria-label={`Copy ${cveId}`}
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                </button>
+              </div>
+            ) : category ? (
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-xs font-mono font-medium bg-sky-950/60 text-sky-400 border border-sky-500/40">
+                <span class="text-sky-500">&gt;</span> {category}
+              </span>
+            ) : null
+          }
+
+          {
+            pinned && (
+              <span class="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-amber-400 bg-amber-950/60 border border-amber-500/40 px-2 py-0.5 rounded-md">
+                ★ PINNED
+              </span>
+            )
+          }
+
+          {
+            draft && (
+              <span class="inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded-md border border-slate-700">
+                DRAFT
+              </span>
+            )
+          }
+
+          {
+            hideCover && formattedDate && (
+              <span class="ml-auto text-[11px] font-mono text-slate-400 dark:text-slate-500">
+                {formattedDate}
+              </span>
+            )
+          }
+        </div>
+
+        <a href={`${routePrefix}${slug}`} class="block group/link">
+          <h2 class={`text-base sm:text-lg font-bold leading-snug tracking-tight text-slate-900 dark:text-slate-100 transition-colors line-clamp-2 mb-2 ${
+            isCVE ? 'group-hover/link:text-rose-400' : 'group-hover/link:text-sky-400'
+          }`}>
+            {displayTitle}
+          </h2>
+        </a>
+
+        {
+          description && (
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              {description}
+            </p>
+          )
+        }
       </div>
-    ) : (
-      <div class="aspect-[2/1] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent flex items-center justify-center overflow-hidden">
-        <span class="text-4xl font-bold text-primary/20 group-hover:text-primary/30 transition-colors duration-500">
-          {title.charAt(0)}
-        </span>
-      </div>
-    ))}
 
-    <div class="p-5">
-      <div class="flex items-center gap-2 mb-2">
-        {category && (
-          <span class="inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-            {category}
-          </span>
-        )}
-        {pinned && (
-          <span class="inline-flex items-center gap-0.5 text-xs font-medium text-amber-600 bg-amber-50 dark:bg-amber-900/20 dark:text-amber-400 px-2 py-0.5 rounded-full">
-            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-            Pinned
-          </span>
-        )}
-        {draft && (
-          <span class="inline-flex items-center gap-0.5 text-xs font-medium text-gray-500 bg-gray-100 dark:bg-gray-800 dark:text-gray-400 px-2 py-0.5 rounded-full">
-            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-            </svg>
-            Draft
-          </span>
-        )}
-      </div>
-
-      <h2 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
-        {title}
-      </h2>
-
-      {description && (
-        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed">
-          {description}
-        </p>
-      )}
-
-      <div class="mt-3">
-        <span class="inline-flex items-center gap-1 text-xs font-medium text-primary opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-          Read
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <div class="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 mt-2">
+        <a
+          href={`${routePrefix}${slug}`}
+          class={`inline-flex items-center gap-1.5 text-xs font-mono font-semibold transition-all duration-300 ${
+            isCVE
+              ? 'text-rose-400 group-hover:text-rose-300 group-hover:translate-x-1'
+              : 'text-sky-400 group-hover:text-sky-300 group-hover:translate-x-1'
+          }`}
+        >
+          <span>{isCVE ? 'Read Advisory' : 'Read Writeup'}</span>
+          <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
+        </a>
+
+        <span class="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase">
+          {isCVE ? 'SECREPORT' : 'CTF_ENTRY'}
         </span>
       </div>
-    </div>
-  </a>
 
-  {tags.length > 0 && (
-    <div class="px-5 pb-4 flex flex-wrap gap-1.5">
-      {tags.map((tag) => (
-        <a
-          href={`/tags/${tag}`}
-          class="text-xs px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
-        >
-          {tag}
-        </a>
-      ))}
     </div>
-  )}
+  </div>
+
+  {
+    tags.length > 0 && (
+      <div class="px-5 pb-4 pt-1 flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <a
+            href={tag === 'CVE' ? '/cve' : `/tags/${encodeURIComponent(tag)}`}
+            class={`text-[11px] font-mono px-2 py-0.5 rounded border transition-all duration-200 ${getTagStyle(tag)}`}
+          >
+            #{tag}
+          </a>
+        ))}
+      </div>
+    )
+  }
 </article>
+
+<script>
+  function setupCveCopy() {
+    document.querySelectorAll('.cve-copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const cve = btn.getAttribute('data-cve');
+        if (!cve) return;
+
+        try {
+          await navigator.clipboard.writeText(cve);
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML =
+            '<svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy CVE:', err);
+        }
+      });
+    });
+  }
+
+  setupCveCopy();
+  document.addEventListener('astro:after-swap', setupCveCopy);
+</script>

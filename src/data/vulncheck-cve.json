@@ -1,0 +1,3829 @@
+[
+ {
+  "cves": [
+   "CVE-2026-111626"
+  ],
+  "id": "CVE-2026-111626",
+  "title": "Damselfly REST API has no authorization on any controller, allowing unauthenticated admin creation and account takeover",
+  "vendor": "Webreaper (Mark Otway)",
+  "product": "Damselfly",
+  "repo": "https://github.com/Webreaper/Damselfly",
+  "cwes": [
+   "269",
+   "306",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/damselfly-api-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-111633"
+  ],
+  "id": "CVE-2026-111633",
+  "title": "ZKEACMS hardcoded JWT signing key allows unauthenticated administrator impersonation on the REST API",
+  "vendor": "SeriaWei / ZKEASOFT",
+  "product": "ZKEACMS (.NET 8 CMS)",
+  "repo": "https://github.com/SeriaWei/ZKEACMS",
+  "cwes": [
+   "287",
+   "321"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/zkeacms-hardcoded-jwt-signing-key-admin-auth-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-111636"
+  ],
+  "id": "CVE-2026-111636",
+  "title": "StaffDeck default session-token signing secret and always-on admin seed allow pre-authenticated admin takeover",
+  "vendor": "OpenBMB / ModelBest",
+  "product": "StaffDeck",
+  "repo": "https://github.com/OpenBMB/StaffDeck",
+  "cwes": [
+   "287",
+   "321",
+   "798",
+   "1188"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/staffdeck-default-token-signing-secret-auth-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-111641",
+   "CVE-2026-111642"
+  ],
+  "id": "CVE-2026-111641",
+  "title": "FastapiAdmin v3.0 unauthenticated auto-login account takeover and a hardcoded default JWT signing secret",
+  "vendor": "FastapiAdmin (fastapiadmin, open-source project maintainer)",
+  "product": "FastapiAdmin",
+  "repo": "https://github.com/fastapiadmin/FastapiAdmin",
+  "cwes": [
+   "306",
+   "321",
+   "798",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/fastapiadmin-unauthenticated-autologin-and-hardcoded-jwt-secret"
+ },
+ {
+  "cves": [
+   "CVE-2026-111643",
+   "CVE-2026-111644"
+  ],
+  "id": "CVE-2026-111643",
+  "title": "Misaka Danmu Server: unauthenticated /api/ui endpoints and an arbitrary config write that escalates to admin",
+  "vendor": "l429609201 (misaka_danmu_server maintainer)",
+  "product": "Misaka Danmu Server (自托管弹幕聚合与管理服务)",
+  "repo": "https://github.com/l429609201/misaka_danmu_server",
+  "cwes": [
+   "200",
+   "306",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/misaka-danmu-server-ui-api-missing-authentication"
+ },
+ {
+  "cves": [
+   "CVE-2026-111673"
+  ],
+  "id": "CVE-2026-111673",
+  "title": "IceCMS backend /User admin controller is unauthenticated, enabling arbitrary account takeover, deletion, and disabling",
+  "vendor": "Thecosy",
+  "product": "IceCMS",
+  "repo": "https://github.com/Thecosy/IceCMS",
+  "cwes": [
+   "306",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/icecms-backend-user-admin-unauth-account-takeover"
+ },
+ {
+  "cves": [
+   "CVE-2026-111687"
+  ],
+  "id": "CVE-2026-111687",
+  "title": "WeRSS (we-mp-rss) unauthenticated server-side template injection to remote code execution via the RSS template parameter",
+  "vendor": "rachelos",
+  "product": "WeRSS (we-mp-rss)",
+  "repo": "https://github.com/rachelos/we-mp-rss",
+  "cwes": [
+   "94",
+   "306",
+   "1336"
+  ],
+  "category": "Code Injection",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/werss-rss-template-unauth-ssti-rce"
+ },
+ {
+  "cves": [
+   "CVE-2026-111690"
+  ],
+  "id": "CVE-2026-111690",
+  "title": "Simple Admin Core ships a hard-coded JWT AccessSecret that lets anyone forge a super-admin token and bypass authentication",
+  "vendor": "suyuan32 (Ryan SU), individual maintainer",
+  "product": "Simple Admin Core",
+  "repo": "https://github.com/suyuan32/simple-admin-core",
+  "cwes": [
+   "287",
+   "798"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/simple-admin-core-hardcoded-jwt-accesssecret-admin-auth-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-111692",
+   "CVE-2026-111693"
+  ],
+  "id": "CVE-2026-111692",
+  "title": "DataBuff pre-auth admin takeover via a hardcoded default JWT signing secret and default admin credentials",
+  "vendor": "databufflabs",
+  "product": "DataBuff AI-native APM",
+  "repo": "https://github.com/databufflabs/databuff",
+  "cwes": [
+   "287",
+   "547",
+   "798",
+   "1392"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/databuff-default-jwt-secret-auth-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-111704"
+  ],
+  "id": "CVE-2026-111704",
+  "title": "LangChat ships a configured Sa-Token auth layer that is never enforced, exposing stored passwords, provider API keys, and admin account creation to unauthenticated callers",
+  "vendor": "LangChat Team (github.com/LangChat)",
+  "product": "LangChat",
+  "repo": "https://github.com/LangChat/langchat",
+  "cwes": [
+   "200",
+   "306",
+   "522",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/langchat-missing-global-auth-credential-exposure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111708",
+   "CVE-2026-111709"
+  ],
+  "id": "CVE-2026-111708",
+  "title": "WhatiTicket Community: unauthenticated signup creates an admin account, plus cross-agent ticket and message IDOR",
+  "vendor": "canove (individual maintainer of whaticket-community)",
+  "product": "WhatiTicket Community",
+  "repo": "https://github.com/canove/whaticket-community",
+  "cwes": [
+   "269",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/whaticket-community-signup-eop-ticket-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111722",
+   "CVE-2026-111723"
+  ],
+  "id": "CVE-2026-111722",
+  "title": "LingGuo-Drama: broken access control gives any registered user full cross-account takeover and project IDOR",
+  "vendor": "LingGuoAI",
+  "product": "LingGuo-Drama (灵果短剧AI",
+  "repo": "https://github.com/LingGuoAI/LingGuo-Drama",
+  "cwes": [
+   "200",
+   "620",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/lingguo-drama-broken-access-control"
+ },
+ {
+  "cves": [
+   "CVE-2026-117564"
+  ],
+  "id": "CVE-2026-117564",
+  "title": "nest-admin ships a static JWT signing secret in tracked env files, enabling pre-authentication super-admin token forgery",
+  "vendor": "buqiyuan",
+  "product": "nest-admin",
+  "repo": "https://github.com/buqiyuan/nest-admin",
+  "cwes": [
+   "287",
+   "321",
+   "798"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/nest-admin-committed-jwt-secret-admin-token-forgery"
+ },
+ {
+  "cves": [
+   "CVE-2026-108853"
+  ],
+  "id": "CVE-2026-108853",
+  "title": "UnicomAI Wanwu: any enabled user can delete another tenant's agent or RAG app through the appspace delete API",
+  "vendor": "UnicomAI (Wanwu project)",
+  "product": "Wanwu self-hosted multi-tenant AI platform",
+  "repo": "https://github.com/UnicomAI/wanwu",
+  "cwes": [
+   "2",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108853-unicomai-wanwu-appspace-cross-owner-delete"
+ },
+ {
+  "cves": [
+   "CVE-2026-108855"
+  ],
+  "id": "CVE-2026-108855",
+  "title": "UnicomAI Wanwu: an enabled user can unpublish another owner's app and revoke every other user's AppKeys",
+  "vendor": "UnicomAI (China Unicom)",
+  "product": "Wanwu self-hosted platform",
+  "repo": "https://github.com/UnicomAI/wanwu",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108855-unicomai-wanwu-unpublish-revokes-consumer-appkeys"
+ },
+ {
+  "cves": [
+   "CVE-2026-108859"
+  ],
+  "id": "CVE-2026-108859",
+  "title": "mark3labs/mcp-go Streamable HTTP server reads the entire POST body into memory before any validation",
+  "vendor": "mark3labs",
+  "product": "mcp-go",
+  "repo": "https://github.com/mark3labs/mcp-go",
+  "cwes": [
+   "770"
+  ],
+  "category": "Resource Exhaustion",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108859-mark3labs-mcp-go-streamable-http-unbounded-body"
+ },
+ {
+  "cves": [
+   "CVE-2026-108860"
+  ],
+  "id": "CVE-2026-108860",
+  "title": "BotSharp WebStarter ships a fixed JWT signing key, so a caller holding the committed key can forge a bearer token and pass the API authentication check",
+  "vendor": "SciSharp (BotSharp project)",
+  "product": "BotSharp WebStarter API",
+  "repo": "https://github.com/SciSharp/BotSharp",
+  "cwes": [
+   "2",
+   "287",
+   "321",
+   "798"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108860-scisharp-botsharp-public-jwt-signing-key"
+ },
+ {
+  "cves": [
+   "CVE-2026-108865"
+  ],
+  "id": "CVE-2026-108865",
+  "title": "Unla MCP gateway: the OAuth authorization server issues tokens with no resource owner, so any caller can self-issue a bearer token that the MCP OAuth2 gate accepts",
+  "vendor": "AmoyLab",
+  "product": "Unla",
+  "repo": "https://github.com/AmoyLab/Unla",
+  "cwes": [
+   "2",
+   "862",
+   "863"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108865-amoylab-unla-oauth-self-issued-token-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-109391"
+  ],
+  "id": "CVE-2026-109391",
+  "title": "Square Squash through commit e73f280 Unauthenticated YAML Deserialization via Symbolication API",
+  "vendor": "Square",
+  "product": "Squash",
+  "repo": "https://github.com/SquareSquash/web/blob/e73f2805f9eb30780a5c213b001f0f4255660fbf/app/controllers/api/v1_controller.rb",
+  "cwes": [
+   "502"
+  ],
+  "category": "Insecure Deserialization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/HJ87QX5ifg"
+ },
+ {
+  "cves": [
+   "CVE-2026-109569"
+  ],
+  "id": "CVE-2026-109569",
+  "title": "sandboxed.sh through 1.3.0 Container Escape via nsenter Missing Root Namespace",
+  "vendor": "Th0rgal",
+  "product": "sandboxed.sh",
+  "repo": "https://github.com/Th0rgal/orb/commit/4ab42e91b16c452f77d93ca69a040a54229b0aa2",
+  "cwes": [
+   "1188"
+  ],
+  "category": "Insecure Default",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-110108"
+  ],
+  "id": "CVE-2026-110108",
+  "title": "MateCloud storage admin endpoints missing function-level authorization lets any authenticated user read, delete and upload arbitrary objects",
+  "vendor": "MateCloud (mateaix)",
+  "product": "MateCloud microservice admin platform",
+  "repo": "https://github.com/mateaix/matecloud",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110108-matecloud-storage-admin-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-110115",
+   "CVE-2026-110116"
+  ],
+  "id": "CVE-2026-110115",
+  "title": "risesoft-y9 Digital-Infrastructure file manager: unauthenticated path traversal in retrieveFileStream and storeFile for arbitrary file read and write",
+  "vendor": "risesoft-y9 (有生云 / Youshengyun)",
+  "product": "Digital-Infrastructure (数字底座)",
+  "repo": "https://github.com/risesoft-y9/Digital-Infrastructure",
+  "cwes": [
+   "2",
+   "3",
+   "22",
+   "73",
+   "306"
+  ],
+  "category": "Path Traversal",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110115-110116-digital-infrastructure-filemanager-path-traversal-rw"
+ },
+ {
+  "cves": [
+   "CVE-2026-110117"
+  ],
+  "id": "CVE-2026-110117",
+  "title": "SmartAdmin level-3 security-protection config endpoints missing function-level authorization lets any authenticated user disable the platform security controls",
+  "vendor": "1024-lab (1024创新实验室)",
+  "product": "SmartAdmin sa-admin backend",
+  "repo": "https://github.com/1024-lab/smart-admin",
+  "cwes": [
+   "285",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110117-smart-admin-level3-protect-config-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-110118"
+  ],
+  "id": "CVE-2026-110118",
+  "title": "risesoft-y9 WorkFlow-Engine: any authenticated user can act on arbitrary workflow tasks (complete, reassign, rollback, take back, claim) by task id",
+  "vendor": "risesoft-y9 (有生, Y9 platform)",
+  "product": "WorkFlow-Engine",
+  "repo": "https://github.com/risesoft-y9/WorkFlow-Engine",
+  "cwes": [
+   "284",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110118-workflow-engine-task-op-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-110119",
+   "CVE-2026-110120"
+  ],
+  "id": "CVE-2026-110119",
+  "title": "yshopmall member API is missing object-level ownership checks on address and after-sales endpoints",
+  "vendor": "guchengwuyue (yshop / yixiang.co, yshopmall project)",
+  "product": "yshopmall",
+  "repo": "https://github.com/guchengwuyue/yshopmall",
+  "cwes": [
+   "89",
+   "200",
+   "434",
+   "639",
+   "862"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110119-110120-yshopmall-member-api-ownership-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110121",
+   "CVE-2026-110122"
+  ],
+  "id": "CVE-2026-110121",
+  "title": "lilishop seller API lets any seller overwrite and take over another store's product through the goods edit endpoint (cross-store authorization bypass)",
+  "vendor": "lilishop (PickMall)",
+  "product": "lilishop multi-merchant mall",
+  "repo": "https://github.com/lilishop/lilishop",
+  "cwes": [
+   "2",
+   "639",
+   "862",
+   "863"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110121-110122-lilishop-seller-goods-cross-store-authz-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-110124"
+  ],
+  "id": "CVE-2026-110124",
+  "title": "FastBee IoT platform: device read and write endpoints trust a caller-supplied deviceId with no owner check, so any device-role account can read and modify another owner's device",
+  "vendor": "kerwincui (FastBee project, formerly wumei-smart)",
+  "product": "FastBee IoT platform",
+  "repo": "https://github.com/kerwincui/FastBee",
+  "cwes": [
+   "2",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110124-fastbee-device-ownership-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110125",
+   "CVE-2026-110126",
+   "CVE-2026-110127"
+  ],
+  "id": "CVE-2026-110125",
+  "title": "waynboot-mall mobile member API is missing object-level ownership checks across order, address, and cart endpoints",
+  "vendor": "wayn111 (waynboot-mall project)",
+  "product": "waynboot-mall",
+  "repo": "https://github.com/wayn111/waynboot-mall",
+  "cwes": [
+   "200",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110125-110126-110127-waynboot-mall-mobile-member-ownership-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110128"
+  ],
+  "id": "CVE-2026-110128",
+  "title": "fuint store-membership system exposes any member order through an unauthenticated order-detail endpoint",
+  "vendor": "fushengqian (fuint project, https://www.fuint.cn)",
+  "product": "fuint store-membership marketing mall",
+  "repo": "https://github.com/fushengqian/fuint",
+  "cwes": [
+   "200",
+   "306",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110128-fuint-order-detail-unauthenticated-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110207",
+   "CVE-2026-110208"
+  ],
+  "id": "CVE-2026-110207",
+  "title": "Wukong-AICRM: missing backend authorization across the whole API enables account takeover, stored AI provider key exfiltration, cross-user data access, RBAC and user-lifecycle tampering, and AI configuration SSRF",
+  "vendor": "WuKongOpenSource (Wukong AICRM project)",
+  "product": "Wukong AICRM backend (Spring Boot)",
+  "repo": "https://github.com/WuKongOpenSource/Wukong-AICRM",
+  "cwes": [
+   "200",
+   "266",
+   "269",
+   "522",
+   "620",
+   "639",
+   "862",
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/wukong-aicrm-api-wide-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-110209",
+   "CVE-2026-110212",
+   "CVE-2026-110213"
+  ],
+  "id": "CVE-2026-110209",
+  "title": "ai-fusion-video: platform-wide broken access control across the project, storyboard, team, membership, and generation APIs, plus media-upload path traversal and ungated credential disclosure",
+  "vendor": "Stonewuu (ai-fusion-video / 融光 project maintainer)",
+  "product": "ai-fusion-video (融光) Spring Boot backend. Affected surfaces: the project",
+  "repo": "https://github.com/Stonewuu/ai-fusion-video",
+  "cwes": [
+   "22",
+   "200",
+   "204",
+   "266",
+   "284",
+   "522",
+   "639",
+   "862"
+  ],
+  "category": "Path Traversal",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/ai-fusion-video-broken-access-control-and-upload-path-traversal"
+ },
+ {
+  "cves": [
+   "CVE-2026-110211"
+  ],
+  "id": "CVE-2026-110211",
+  "title": "iFLYTEK SkillHub: any authenticated user can hard-delete any other user's skill through the CLI delete route",
+  "vendor": "iFLYTEK (SkillHub project)",
+  "product": "SkillHub server",
+  "repo": "https://github.com/iflytek/skillhub",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/skillhub-cli-skill-delete-missing-ownership-check"
+ },
+ {
+  "cves": [
+   "CVE-2026-110215",
+   "CVE-2026-110216"
+  ],
+  "id": "CVE-2026-110215",
+  "title": "youlai-boot: privilege escalation through an ungated role-permission assignment endpoint, and account status tampering through an ungated user status endpoint",
+  "vendor": "youlaitech (有来技术), maintainer of the youlai-boot open-source project",
+  "product": "youlai-boot Spring Boot 3 admin backend",
+  "repo": "https://github.com/youlaitech/youlai-boot",
+  "cwes": [
+   "269",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/youlai-boot-role-menu-assignment-and-user-status-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-110220"
+  ],
+  "id": "CVE-2026-110220",
+  "title": "kubeflow/hub Model Registry InferenceService controller: a tenant-set URL annotation makes the controller send its Kubernetes ServiceAccount bearer token to an attacker-chosen host",
+  "vendor": "Kubeflow (Kubeflow Model Registry project)",
+  "product": "Kubeflow Model Registry",
+  "repo": "https://github.com/kubeflow/hub",
+  "cwes": [
+   "522",
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/kubeflow-hub-controller-token-url-forwarding"
+ },
+ {
+  "cves": [
+   "CVE-2026-110233"
+  ],
+  "id": "CVE-2026-110233",
+  "title": "rovr through 0.10.3 OS Command Injection via Unquoted Path to cmd.exe",
+  "vendor": "NSPC911",
+  "product": "rovr",
+  "repo": "https://github.com/NSPC911/rovr/blob/888a1efecd9eb92a773bb21451244c0edcf1a3f1/src/rovr/functions/path.py#L115-L158",
+  "cwes": [
+   "78"
+  ],
+  "category": "OS Command Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/HyCwXmsjfe"
+ },
+ {
+  "cves": [
+   "CVE-2026-110236"
+  ],
+  "id": "CVE-2026-110236",
+  "title": "KDE Dolphin 24.08.0 through 26.08.2 OS Command Injection via Crafted Folder Name",
+  "vendor": "KDE",
+  "product": "Dolphin",
+  "repo": "https://github.com/KDE/dolphin/blob/v26.08.2/src/dolphinmainwindow.cpp#L3195-L3225",
+  "cwes": [
+   "78"
+  ],
+  "category": "OS Command Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/HJCMaGsizg"
+ },
+ {
+  "cves": [
+   "CVE-2026-110237"
+  ],
+  "id": "CVE-2026-110237",
+  "title": "Vifm 0.8.1-beta through 0.14.4 Unverified IPC FIFO Ownership Allows Cross-User Command Execution",
+  "vendor": "vifm",
+  "product": "vifm",
+  "repo": "https://github.com/vifm/vifm/blob/v0.14.4/src/ipc.c#L394-L443",
+  "cwes": [
+   "283"
+  ],
+  "category": "Improper Ownership",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/SkX7Pmiofg"
+ },
+ {
+  "cves": [
+   "CVE-2026-110616"
+  ],
+  "id": "CVE-2026-110616",
+  "title": "NullHub through 2026.5.29 Missing Authentication for /api Management API",
+  "vendor": "nullclaw",
+  "product": "NullHub",
+  "repo": "https://github.com/nullclaw/nullhub/blob/v2026.5.29/src/server.zig#L546-L556",
+  "cwes": [
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/rJrLma3izg"
+ },
+ {
+  "cves": [
+   "CVE-2026-110618"
+  ],
+  "id": "CVE-2026-110618",
+  "title": "SmsForwarder through 3.5.0 Missing Authentication in HTTP Server Remote Control API",
+  "vendor": "pppscn",
+  "product": "SmsForwarder",
+  "repo": "https://github.com/pppscn/SmsForwarder/blob/v3.5.0/app/src/main/kotlin/cn/ppps/forwarder/utils/HttpServerUtils.kt#L35-L38",
+  "cwes": [
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/H1ue_ahiMe"
+ },
+ {
+  "cves": [
+   "CVE-2026-110719"
+  ],
+  "id": "CVE-2026-110719",
+  "title": "Portkey AI Gateway 1.14.0 through 1.15.2 SSRF via x-portkey-custom-host Header",
+  "vendor": "Portkey-AI",
+  "product": "gateway",
+  "repo": "https://github.com/Portkey-AI/gateway/blob/ca7712947ec8c0887803990b746740d36011c697/src/middlewares/requestValidator/index.ts#L289",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/BJypv-aiMg"
+ },
+ {
+  "cves": [
+   "CVE-2026-111605"
+  ],
+  "id": "CVE-2026-111605",
+  "title": "Jpom cross-workspace IDOR in the SSH file controller lets a workspace user read and write files on another tenant's SSH hosts",
+  "vendor": "dromara",
+  "product": "Jpom",
+  "repo": "https://github.com/dromara/Jpom",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/jpom-ssh-file-cross-workspace-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111606"
+  ],
+  "id": "CVE-2026-111606",
+  "title": "Huly Platform account service exposes an unauthenticated-by-role person merge (mergeSpecifiedPersons) that any authenticated user can invoke against persons they do not own",
+  "vendor": "hcengineering (Huly)",
+  "product": "Huly Platform",
+  "repo": "https://github.com/hcengineering/platform",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/huly-platform-merge-specified-persons-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-111607",
+   "CVE-2026-111608"
+  ],
+  "id": "CVE-2026-111607",
+  "title": "Jeepay merchant console: cross-merchant overwrite of an application's payment channel config and cross-merchant deletion of a division receiver",
+  "vendor": "jeequan (河北计全科技)",
+  "product": "Jeepay open-source payment gateway",
+  "repo": "https://github.com/jeequan/jeepay",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/jeepay-mch-payconfig-write-and-division-receiver-delete-cross-merchant-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-111612"
+  ],
+  "id": "CVE-2026-111612",
+  "title": "netdisk-fast-download: unauthenticated /v2/randomAuth leaks donated netdisk credentials reversibly encrypted under a hardcoded AES key",
+  "vendor": "qaiu (QAIU)",
+  "product": "netdisk-fast-download",
+  "repo": "https://github.com/qaiu/netdisk-fast-download",
+  "cwes": [
+   "200",
+   "306",
+   "321"
+  ],
+  "category": "Missing Authentication",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/netdisk-fast-download-randomauth-donated-credential-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111613"
+  ],
+  "id": "CVE-2026-111613",
+  "title": "AllData data-dts: unauthenticated JDBC URL injection with file read-back, plus a hardcoded JWT signing secret",
+  "vendor": "AllData (alldatacenter)",
+  "product": "AllData data middle-platform",
+  "repo": "https://github.com/alldatacenter/alldata",
+  "cwes": [
+   "610",
+   "798"
+  ],
+  "category": "Hard-coded Credentials",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/alldata-dts-unauthenticated-jdbc-url-injection"
+ },
+ {
+  "cves": [
+   "CVE-2026-111614"
+  ],
+  "id": "CVE-2026-111614",
+  "title": "DataCap cross-user datasource disclosure through the generic get-by-id endpoint (IDOR exposing cleartext connection credentials)",
+  "vendor": "devlive-community",
+  "product": "DataCap (repository name MetaForge)",
+  "repo": "https://github.com/devlive-community/metaforge",
+  "cwes": [
+   "522",
+   "566",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/metaforge-datacap-source-getbyid-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111616"
+  ],
+  "id": "CVE-2026-111616",
+  "title": "Oqtane Framework cross-site settings disclosure in the Setting API leaks another co-tenant site's SMTP credentials",
+  "vendor": "Oqtane",
+  "product": "Oqtane Framework",
+  "repo": "https://github.com/oqtane/oqtane.framework",
+  "cwes": [
+   "200",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/oqtane-setting-site-cross-site-private-settings-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111617"
+  ],
+  "id": "CVE-2026-111617",
+  "title": "WHartTest UI-automation WebSocket accepts anonymous connections, enabling cross-user task interception and result spoofing",
+  "vendor": "MGdaasLab",
+  "product": "WHartTest",
+  "repo": "https://github.com/MGdaasLab/WHartTest",
+  "cwes": [
+   "287",
+   "306",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/wharttest-ui-automation-websocket-missing-authentication"
+ },
+ {
+  "cves": [
+   "CVE-2026-111618"
+  ],
+  "id": "CVE-2026-111618",
+  "title": "Chat Nio (coaidev/coai) unauthenticated path traversal in generation and article archive download endpoints",
+  "vendor": "coaidev (Chat Nio project)",
+  "product": "Chat Nio (coai)",
+  "repo": "https://github.com/coaidev/coai",
+  "cwes": [
+   "22",
+   "862"
+  ],
+  "category": "Path Traversal",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/coai-chatnio-generation-article-download-path-traversal"
+ },
+ {
+  "cves": [
+   "CVE-2026-111619"
+  ],
+  "id": "CVE-2026-111619",
+  "title": "FilePress authenticated ORDER BY SQL injection in the pichome library and collection file lists",
+  "vendor": "zyx0814 (FilePress project maintainer)",
+  "product": "FilePress",
+  "repo": "https://github.com/zyx0814/FilePress",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/filepress-pichome-library-orderby-sqli"
+ },
+ {
+  "cves": [
+   "CVE-2026-111620"
+  ],
+  "id": "CVE-2026-111620",
+  "title": "o2oa process-platform work attachment download: missing attachment-to-work binding allows cross-work file read",
+  "vendor": "o2oa (Zhejiang Lande Zongheng Network Technology Co)",
+  "product": "o2oa enterprise OA platform",
+  "repo": "https://github.com/o2oa/o2oa",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/o2oa-processplatform-attachment-download-work-cross-work-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111621"
+  ],
+  "id": "CVE-2026-111621",
+  "title": "TDuck survey form: cross-user disclosure of form settings including the write password via GET /user/form/setting/{key}",
+  "vendor": "TDuckCloud",
+  "product": "TDuck survey form (tduck-survey-form)",
+  "repo": "https://github.com/TDuckCloud/tduck-survey-form",
+  "cwes": [
+   "200",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/tduck-survey-form-setting-cross-user-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111622"
+  ],
+  "id": "CVE-2026-111622",
+  "title": "smart-sso: OAuth2 authorization code leak through an unvalidated redirectUri and a code that is not bound to the requesting application",
+  "vendor": "a466350665 (smart-sso open source project maintainer, \"Joe\")",
+  "product": "smart-sso",
+  "repo": "https://github.com/a466350665/smart-sso",
+  "cwes": [
+   "287",
+   "601"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/smart-sso-oauth2-code-leak-open-redirect"
+ },
+ {
+  "cves": [
+   "CVE-2026-111623"
+  ],
+  "id": "CVE-2026-111623",
+  "title": "XiaoZhi ESP32 Server Java unauthenticated OTA endpoint issues a device access token for any device id, enabling cross-user device channel takeover",
+  "vendor": "joey-zhou",
+  "product": "XiaoZhi ESP32 Server Java",
+  "repo": "https://github.com/joey-zhou/xiaozhi-esp32-server-java",
+  "cwes": [
+   "290",
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/xiaozhi-esp32-server-java-ota-device-token-issuance"
+ },
+ {
+  "cves": [
+   "CVE-2026-111629"
+  ],
+  "id": "CVE-2026-111629",
+  "title": "IoTSharp cross-tenant IDOR in Devices and Customers API: any NormalUser reads other tenants' customers, device inventory, and device attribute data",
+  "vendor": "IoTSharp (IoTSharp open-source project)",
+  "product": "IoTSharp",
+  "repo": "https://github.com/IoTSharp/IoTSharp",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/iotsharp-devices-customers-cross-tenant-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111630"
+  ],
+  "id": "CVE-2026-111630",
+  "title": "abp-next-admin AIManagement chat module reads and writes another user's AI conversations (IDOR via ConversationId)",
+  "vendor": "colinin (abp-next-admin maintainer)",
+  "product": "abp-next-admin",
+  "repo": "https://github.com/colinin/abp-next-admin",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/abp-next-admin-aimanagement-chat-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111634",
+   "CVE-2026-111635"
+  ],
+  "id": "CVE-2026-111634",
+  "title": "Helical Insight: authenticated SQL injection through unescaped EFWD report parameters in /executeDatasource",
+  "vendor": "Helical Insight (helicalinsight)",
+  "product": "Helical Insight BI platform",
+  "repo": "https://github.com/helicalinsight/helicalinsight",
+  "cwes": [
+   "22",
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/helicalinsight-efwd-parameter-sqli"
+ },
+ {
+  "cves": [
+   "CVE-2026-111637"
+  ],
+  "id": "CVE-2026-111637",
+  "title": "NexoPOS unauthenticated accounting transaction disclosure through the pre-auth /api/fields route",
+  "vendor": "Blair2004 (NexoPOS maintainer)",
+  "product": "NexoPOS",
+  "repo": "https://github.com/Blair2004/NexoPOS",
+  "cwes": [
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/nexopos-fields-endpoint-unauthenticated-transaction-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111638"
+  ],
+  "id": "CVE-2026-111638",
+  "title": "sshportal: non-admin disclosure of backend host private SSH keys through the unguarded `key show` command",
+  "vendor": "moul (Manfred Touron)",
+  "product": "sshportal",
+  "repo": "https://github.com/moul/sshportal",
+  "cwes": [
+   "522",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/sshportal-key-show-privkey-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111639"
+  ],
+  "id": "CVE-2026-111639",
+  "title": "bbs-go Google One Tap login accepts ID tokens for any audience, enabling cross-user account takeover",
+  "vendor": "mlogclub",
+  "product": "bbs-go",
+  "repo": "https://github.com/mlogclub/bbs-go",
+  "cwes": [
+   "287",
+   "290"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/bbs-go-google-one-tap-id-token-audience-confusion-account-takeover"
+ },
+ {
+  "cves": [
+   "CVE-2026-111640"
+  ],
+  "id": "CVE-2026-111640",
+  "title": "DooTask OKR comment dialog skips membership check, authenticated cross-user message read and injection",
+  "vendor": "kuaifan (DooTask maintainer)",
+  "product": "DooTask",
+  "repo": "https://github.com/kuaifan/dootask",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/dootask-okr-dialog-missing-membership-check"
+ },
+ {
+  "cves": [
+   "CVE-2026-111645"
+  ],
+  "id": "CVE-2026-111645",
+  "title": "MrDoc import-local-doc API missing object authorization lets any user publish and reparent another user's documents",
+  "vendor": "zmister2016 (MrDoc, author 州的先生)",
+  "product": "MrDoc",
+  "repo": "https://github.com/zmister2016/MrDoc",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/mrdoc-import-local-doc-api-missing-authz-cross-user-publish"
+ },
+ {
+  "cves": [
+   "CVE-2026-111646"
+  ],
+  "id": "CVE-2026-111646",
+  "title": "SurveyKing unauthenticated arbitrary file read through the public preview endpoint",
+  "vendor": "javahuang (individual maintainer of the SurveyKing open-source project)",
+  "product": "SurveyKing",
+  "repo": "https://github.com/javahuang/SurveyKing",
+  "cwes": [
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/surveyking-public-preview-unauth-file-read"
+ },
+ {
+  "cves": [
+   "CVE-2026-111650"
+  ],
+  "id": "CVE-2026-111650",
+  "title": "ChronoFrame unauthenticated setup-wizard API lets anonymous callers repoint storage, overwrite map tokens, and deface site settings",
+  "vendor": "HoshinoSuzumi (ChronoFrame maintainer)",
+  "product": "ChronoFrame",
+  "repo": "https://github.com/HoshinoSuzumi/chronoframe",
+  "cwes": [
+   "306",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/chronoframe-unauthenticated-wizard-config-takeover"
+ },
+ {
+  "cves": [
+   "CVE-2026-111651"
+  ],
+  "id": "CVE-2026-111651",
+  "title": "risesoft-y9 Digital-Infrastructure log module: cross-tenant personal-data export through a trusted tenantId parameter",
+  "vendor": "risesoft-y9 (有生云 / Youshengyun)",
+  "product": "Digital-Infrastructure (数字底座)",
+  "repo": "https://github.com/risesoft-y9/Digital-Infrastructure",
+  "cwes": [
+   "284",
+   "359",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/digital-infrastructure-log-download-cross-tenant-person-export"
+ },
+ {
+  "cves": [
+   "CVE-2026-111652"
+  ],
+  "id": "CVE-2026-111652",
+  "title": "engineercms: missing authorization in the attachment image and video download branch discloses other users' project files",
+  "vendor": "3xxx (engineercms maintainer)",
+  "product": "engineercms",
+  "repo": "https://github.com/3xxx/engineercms",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/engineercms-attachment-image-mp4-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-111653"
+  ],
+  "id": "CVE-2026-111653",
+  "title": "53AIHub: Unauthenticated Cross-Tenant Enterprise Profile Update via PUT /api/enterprises/:id",
+  "vendor": "53AI (53AI/53AIHub maintainers)",
+  "product": "53AIHub",
+  "repo": "https://github.com/53AI/53AIHub",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/53aihub-unauth-cross-tenant-enterprise-update"
+ },
+ {
+  "cves": [
+   "CVE-2026-111654"
+  ],
+  "id": "CVE-2026-111654",
+  "title": "FastBee device group endpoints let any user read, modify, and delete another user's groups by id",
+  "vendor": "kerwincui (FastBee project maintainer)",
+  "product": "FastBee open-source IoT platform",
+  "repo": "https://github.com/kerwincui/FastBee",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/fastbee-device-group-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111658"
+  ],
+  "id": "CVE-2026-111658",
+  "title": "SSCMS cross-site channel IDOR: a site-scoped admin can read and overwrite another site's channels",
+  "vendor": "SSCMS (siteserver)",
+  "product": "SSCMS multi-site CMS",
+  "repo": "https://github.com/siteserver/cms",
+  "cwes": [
+   "284",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/sscms-cross-site-channel-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111659",
+   "CVE-2026-111660",
+   "CVE-2026-111661"
+  ],
+  "id": "CVE-2026-111659",
+  "title": "waynboot-mall exposes internal order and mail callbacks as unauthenticated H5 routes (order forgery, cross-member order cancel, operator mail relay)",
+  "vendor": "wayn111",
+  "product": "waynboot-mall",
+  "repo": "https://github.com/wayn111/waynboot-mall",
+  "cwes": [
+   "639",
+   "640",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/waynboot-mall-unauth-callback-order-forgery-cancel-mail-relay"
+ },
+ {
+  "cves": [
+   "CVE-2026-111662",
+   "CVE-2026-111663"
+  ],
+  "id": "CVE-2026-111662",
+  "title": "Chaskiq server-side request forgery in the oembed endpoint and createUrlUpload mutation and cross-tenant Stripe billing authorization bypass",
+  "vendor": "chaskiq (open source project)",
+  "product": "Chaskiq live chat and support platform. Affected components: the oembed endpoint (OembedController / FetchLinkCardService)",
+  "repo": "https://github.com/chaskiq/chaskiq",
+  "cwes": [
+   "306",
+   "639",
+   "862",
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/chaskiq-unauthenticated-ssrf-oembed-url-upload"
+ },
+ {
+  "cves": [
+   "CVE-2026-111668"
+  ],
+  "id": "CVE-2026-111668",
+  "title": "AIHelms efficiency analytics module exposes organization-wide AI spend to any authenticated user (missing authorization)",
+  "vendor": "beizhu-1209 (AIHelms maintainer)",
+  "product": "AIHelms",
+  "repo": "https://github.com/beizhu-1209/AIHelms",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/aihelms-efficiency-analytics-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-111669"
+  ],
+  "id": "CVE-2026-111669",
+  "title": "ZR.Admin.NET authenticated ORDER BY SQL injection through the paging Sort parameter",
+  "vendor": "izhaorui",
+  "product": "ZR.Admin.NET (ZRAdmin.NET) RBAC admin framework",
+  "repo": "https://github.com/izhaorui/Zr.Admin.NET",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/zradmin-net-order-by-sort-sql-injection"
+ },
+ {
+  "cves": [
+   "CVE-2026-111670"
+  ],
+  "id": "CVE-2026-111670",
+  "title": "ClickVisual report module missing authorization, cross-instance ClickHouse schema disclosure and row-count inference",
+  "vendor": "clickvisual (clickvisual open source organization)",
+  "product": "ClickVisual",
+  "repo": "https://github.com/clickvisual/clickvisual",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/clickvisual-report-module-missing-authz-cross-instance-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111671",
+   "CVE-2026-111672"
+  ],
+  "id": "CVE-2026-111671",
+  "title": "cube-studio: missing authorization on custom lifecycle API endpoints lets any authenticated user control another user's notebook, inference service, and pipeline",
+  "vendor": "data-infra (cube-studio maintainers)",
+  "product": "cube-studio",
+  "repo": "https://github.com/data-infra/cube-studio",
+  "cwes": [
+   "284",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/cube-studio-idor-expose-api-lifecycle"
+ },
+ {
+  "cves": [
+   "CVE-2026-111675"
+  ],
+  "id": "CVE-2026-111675",
+  "title": "course-tencent-cloud (酷瓜云课堂) account takeover through brute force of the account verification code",
+  "vendor": "深圳市酷瓜软件有限公司 (Shenzhen Koogua Software Co., Ltd.)",
+  "product": "course-tencent-cloud (酷瓜云课堂)",
+  "repo": "https://github.com/xiaochong0302/course-tencent-cloud",
+  "cwes": [
+   "307",
+   "640"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/ctc-verify-code-brute-force-account-takeover"
+ },
+ {
+  "cves": [
+   "CVE-2026-111680"
+  ],
+  "id": "CVE-2026-111680",
+  "title": "APIPark team-scope authorization bypass lets any team manager read, edit, and delete another team's services and apps",
+  "vendor": "APIParkLab",
+  "product": "APIPark",
+  "repo": "https://github.com/APIParkLab/APIPark",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/apipark-cross-team-service-app-authz-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-111681",
+   "CVE-2026-111682"
+  ],
+  "id": "CVE-2026-111681",
+  "title": "EFAK v5 missing admin authorization on the user management and model config REST APIs lets any logged-in user become administrator and read provider API keys",
+  "vendor": "smartloli",
+  "product": "EFAK (Eagle For Apache Kafka) v5",
+  "repo": "https://github.com/smartloli/EFAK",
+  "cwes": [
+   "269",
+   "312",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/efak-missing-admin-gate-user-management-api"
+ },
+ {
+  "cves": [
+   "CVE-2026-111683"
+  ],
+  "id": "CVE-2026-111683",
+  "title": "Ralph DCIM rack visualization API lets any staff user read, modify, and create data-center racks without the rack model permission",
+  "vendor": "allegro",
+  "product": "Ralph (CMDB / DCIM asset-management)",
+  "repo": "https://github.com/allegro/ralph",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/ralph-dc-view-rack-api-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-111684"
+  ],
+  "id": "CVE-2026-111684",
+  "title": "Magistrala certs service: missing workspace scope lets any member revoke, read, and issue other tenants' device certificates",
+  "vendor": "Abstract Machines (absmach)",
+  "product": "Magistrala IoT platform",
+  "repo": "https://github.com/absmach/magistrala",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/magistrala-certs-missing-workspace-scope-cross-tenant"
+ },
+ {
+  "cves": [
+   "CVE-2026-111685",
+   "CVE-2026-111686"
+  ],
+  "id": "CVE-2026-111685",
+  "title": "IceCMS unauthenticated SQL injection in the WebResource and WebArticle preview-by-num endpoints",
+  "vendor": "Thecosy",
+  "product": "IceCMS",
+  "repo": "https://github.com/Thecosy/IceCMS",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/icecms-webresource-webarticle-findbynum-limit-sqli"
+ },
+ {
+  "cves": [
+   "CVE-2026-111691"
+  ],
+  "id": "CVE-2026-111691",
+  "title": "WIMOOR ERP: downstream microservices trust a forgeable X-USERINFO header, enabling cross-tenant impersonation",
+  "vendor": "wimoor (WIMOOR ERP)",
+  "product": "WIMOOR cross-border e-commerce ERP",
+  "repo": "https://github.com/wimoor-erp/wimoor",
+  "cwes": [
+   "290",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/wimoor-trusted-x-userinfo-header-tenant-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-111694"
+  ],
+  "id": "CVE-2026-111694",
+  "title": "qKnow unauthenticated user directory and org-structure disclosure via permitAll /flyflow endpoints",
+  "vendor": "Jiangsu Qiantong Technology Co., Ltd. (qiantongtech)",
+  "product": "qKnow",
+  "repo": "https://github.com/qiantongtech/qKnow",
+  "cwes": [
+   "200",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/qknow-flyflow-unauth-user-directory-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111695",
+   "CVE-2026-111696"
+  ],
+  "id": "CVE-2026-111695",
+  "title": "data-platform-open: cross-workspace datasource IDOR discloses another tenant's database credentials and schema, compounded by a hardcoded default AES key",
+  "vendor": "shaiwz (dingqianwen)",
+  "product": "data-platform-open",
+  "repo": "https://github.com/shaiwz/data-platform-open",
+  "cwes": [
+   "321",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/data-platform-open-datasource-cross-workspace-idor-and-hardcoded-aes-key"
+ },
+ {
+  "cves": [
+   "CVE-2026-111697",
+   "CVE-2026-111698"
+  ],
+  "id": "CVE-2026-111697",
+  "title": "HUIZHI-ChargeOS-cloud mini-program API trusts a client-supplied userId, exposing any member's wallet, credit, orders, and allowing balance writes",
+  "vendor": "roinli (慧知 / HUIZHI ChargeOS open-source EV-charging platform)",
+  "product": "HUIZHI-ChargeOS-cloud",
+  "repo": "https://github.com/roinli/HUIZHI-ChargeOS-cloud",
+  "cwes": [
+   "284",
+   "285",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/huizhi-chargeos-mp-member-api-userid-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111699"
+  ],
+  "id": "CVE-2026-111699",
+  "title": "wx-api (niefy) cross-WeChat-account IDOR in the admin console plus unauthenticated fan PII read",
+  "vendor": "niefy",
+  "product": "wx-api",
+  "repo": "https://github.com/niefy/wx-api",
+  "cwes": [
+   "284",
+   "287",
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/wx-api-cross-tenant-idor-and-unauth-fan-pii"
+ },
+ {
+  "cves": [
+   "CVE-2026-111700"
+  ],
+  "id": "CVE-2026-111700",
+  "title": "WebVella ERP: authenticated SQL injection through EQL text literals in the query API",
+  "vendor": "WebVella",
+  "product": "WebVella ERP (ASP.NET Core ERP/CRM). Affected components: the EQL query API action `WebApiController.EqlQueryAction` (`POST /api/v3/en_US/eql`) and the EQL to SQL compiler `EqlBuilder.Sql.cs`.",
+  "repo": "https://github.com/WebVella/WebVella-ERP",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/webvella-erp-eql-text-literal-sql-injection"
+ },
+ {
+  "cves": [
+   "CVE-2026-111701"
+  ],
+  "id": "CVE-2026-111701",
+  "title": "Nubase storage default download route serves private-bucket objects without authentication",
+  "vendor": "OtterMind (Nubase project maintainers)",
+  "product": "Nubase",
+  "repo": "https://github.com/OtterMind/Nubase",
+  "cwes": [
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/nubase-storage-private-object-unauth-download"
+ },
+ {
+  "cves": [
+   "CVE-2026-111702"
+  ],
+  "id": "CVE-2026-111702",
+  "title": "ChatOllama cross-user knowledge base disclosure via missing ownership checks on the get-by-id and chat endpoints",
+  "vendor": "sugarforever (ChatOllama maintainer)",
+  "product": "ChatOllama Nitro API server",
+  "repo": "https://github.com/sugarforever/chat-ollama",
+  "cwes": [
+   "200",
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/chat-ollama-knowledge-base-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111703"
+  ],
+  "id": "CVE-2026-111703",
+  "title": "yshop-crm: cross-user IDOR on customer by-id routes and missing authorization on SMS, mail, and rule-config endpoints",
+  "vendor": "guchengwuyue (yshop)",
+  "product": "yshop-crm",
+  "repo": "https://github.com/guchengwuyue/yshop-crm",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/yshop-crm-customer-idor-and-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-111706",
+   "CVE-2026-111707"
+  ],
+  "id": "CVE-2026-111706",
+  "title": "99AI chat-log module: unauthenticated bulk conversation export and cross-user single-message IDOR",
+  "vendor": "vastxie (99AI maintainer)",
+  "product": "99AI",
+  "repo": "https://github.com/vastxie/99AI",
+  "cwes": [
+   "200",
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/99ai-chatlog-unauth-export-and-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111718"
+  ],
+  "id": "CVE-2026-111718",
+  "title": "AipexBase dynamic data API SQL injection through order_by and group_by, bypassing row-level security",
+  "vendor": "KuaFuAI (kuafuai)",
+  "product": "AipexBase",
+  "repo": "https://github.com/kuafuai/aipexbase",
+  "cwes": [
+   "20",
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/aipexbase-dynamic-data-order-by-group-by-sql-injection"
+ },
+ {
+  "cves": [
+   "CVE-2026-111719"
+  ],
+  "id": "CVE-2026-111719",
+  "title": "roncoo-pay unauthenticated cross-merchant payment record disclosure via the F2F order query route",
+  "vendor": "RonCoo (roncoo)",
+  "product": "roncoo-pay",
+  "repo": "https://github.com/roncoo/roncoo-pay",
+  "cwes": [
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/roncoo-pay-f2f-order-query-unauth-record-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111720"
+  ],
+  "id": "CVE-2026-111720",
+  "title": "fish-island-backend web-page preview endpoint allows unauthenticated SSRF with title and description readback",
+  "vendor": "lhccong (individual maintainer)",
+  "product": "fish-island-backend (摸鱼岛 community and entertainment backend)",
+  "repo": "https://github.com/lhccong/fish-island-backend",
+  "cwes": [
+   "306",
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/fish-island-web-parse-unauth-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-111721"
+  ],
+  "id": "CVE-2026-111721",
+  "title": "Open WES gateway never enforces per-warehouse scope, enabling cross-warehouse authorization bypass",
+  "vendor": "jingsewu (Open WES project)",
+  "product": "Open WES",
+  "repo": "https://github.com/jingsewu/open-wes",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/open-wes-gateway-missing-warehouse-scope-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-116016"
+  ],
+  "id": "CVE-2026-116016",
+  "title": "yudao-cloud data-permission-enable request header disables row-level data scope and exposes other departments and users",
+  "vendor": "YunaiV (yudao / 芋道源码)",
+  "product": "yudao-cloud",
+  "repo": "https://github.com/YunaiV/yudao-cloud",
+  "cwes": [
+   "284",
+   "285",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/yudao-cloud-data-permission-enable-header-datascope-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-117563"
+  ],
+  "id": "CVE-2026-117563",
+  "title": "MrDoc DocShare management modify branch missing owner check lets any user flip another user's private share to public",
+  "vendor": "zmister2016 (州的先生), independent maintainer of MrDoc",
+  "product": "MrDoc / 觅道文档",
+  "repo": "https://github.com/zmister2016/MrDoc",
+  "cwes": [
+   "284",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/mrdoc-docshare-modify-missing-owner-check-cross-user"
+ },
+ {
+  "cves": [
+   "CVE-2026-117565"
+  ],
+  "id": "CVE-2026-117565",
+  "title": "Artalk: unauthenticated server-side request forgery through the comment page_key page-title fetch",
+  "vendor": "ArtalkJS",
+  "product": "Artalk",
+  "repo": "https://github.com/ArtalkJS/Artalk",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/artalk-unauthenticated-ssrf-page-key-title-fetch"
+ },
+ {
+  "cves": [
+   "CVE-2026-108696"
+  ],
+  "id": "CVE-2026-108696",
+  "title": "CoreShop buyer API confirm-receipt missing ownership check lets one buyer finalize another buyer's order",
+  "vendor": "CoreUnion",
+  "product": "CoreShop",
+  "repo": "https://github.com/CoreUnion/CoreShop",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/coreshop-order-confirm-cross-buyer-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-108697"
+  ],
+  "id": "CVE-2026-108697",
+  "title": "CoreShop through 2026.2.2 Missing Authorization via ResourceController listAction",
+  "vendor": "CoreShop",
+  "product": "CoreShop",
+  "repo": "https://github.com/coreshop/CoreShop/blob/2026.2.2/src/CoreShop/Bundle/ResourceBundle/Controller/ResourceController.php#L79-L88",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/TsX1brUNT8G2iQGO9YlCkQ"
+ },
+ {
+  "cves": [
+   "CVE-2026-108839"
+  ],
+  "id": "CVE-2026-108839",
+  "title": "thClaws HTTP API: an authenticated POST /v1/inputs write follows a pre-existing symlink out of the workspace prefix",
+  "vendor": "thClaws (ThaiGPT Co., Ltd.)",
+  "product": "thClaws AI agent harness",
+  "repo": "https://github.com/thClaws/thClaws",
+  "cwes": [
+   "2",
+   "22",
+   "59"
+  ],
+  "category": "Path Traversal",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108839-thclaws-api-inputs-symlink-escape"
+ },
+ {
+  "cves": [
+   "CVE-2026-108850"
+  ],
+  "id": "CVE-2026-108850",
+  "title": "Company Research Agent: unauthenticated PDF generation performs server-side requests through unescaped ReportLab image markup",
+  "vendor": "guy-hartstein (Company Research Agent, individual-maintained open-source project)",
+  "product": "Company Research Agent",
+  "repo": "https://github.com/guy-hartstein/company-research-agent",
+  "cwes": [
+   "2",
+   "3",
+   "116",
+   "306",
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108850-guy-hartstein-company-research-agent-pdf-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-108851"
+  ],
+  "id": "CVE-2026-108851",
+  "title": "phpMyFAQ MCP `faq_search` returns active FAQ text outside the anonymous visibility scope",
+  "vendor": "phpMyFAQ (Thorsten Rinne and the phpMyFAQ Team)",
+  "product": "phpMyFAQ",
+  "repo": "https://github.com/thorsten/phpMyFAQ",
+  "cwes": [
+   "2",
+   "200",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108851-phpmyfaq-mcp-search-visibility"
+ },
+ {
+  "cves": [
+   "CVE-2026-108854"
+  ],
+  "id": "CVE-2026-108854",
+  "title": "UnicomAI Wanwu legacy AppKey deletion deletes any key by numeric ID with no owner check",
+  "vendor": "UnicomAI (Wanwu project)",
+  "product": "Wanwu self-hosted multi-tenant AI agent platform",
+  "repo": "https://github.com/UnicomAI/wanwu",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108854-unicomai-wanwu-appkey-delete-id-bola"
+ },
+ {
+  "cves": [
+   "CVE-2026-108856"
+  ],
+  "id": "CVE-2026-108856",
+  "title": "UnicomAI Wanwu: an authenticated user can mint an MCP app key bound to another owner's server ID and connect to that server",
+  "vendor": "UnicomAI (Wanwu project)",
+  "product": "Wanwu self-hosted AI agent platform",
+  "repo": "https://github.com/UnicomAI/wanwu",
+  "cwes": [
+   "2",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108856-unicomai-wanwu-mcp-key-arbitrary-resource"
+ },
+ {
+  "cves": [
+   "CVE-2026-108857"
+  ],
+  "id": "CVE-2026-108857",
+  "title": "Hugging Face Text Embeddings Inference writes the configured API key to startup logs in cleartext",
+  "vendor": "Hugging Face",
+  "product": "Text Embeddings Inference router",
+  "repo": "https://github.com/huggingface/text-embeddings-inference",
+  "cwes": [
+   "312",
+   "532"
+  ],
+  "category": "Info in Logs",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108857-huggingface-text-embeddings-inference-api-key-startup-log"
+ },
+ {
+  "cves": [
+   "CVE-2026-108858"
+  ],
+  "id": "CVE-2026-108858",
+  "title": "LoRAX writes the caller-supplied private-adapter API token into the /generate request logs",
+  "vendor": "Predibase (LoRAX project)",
+  "product": "LoRAX router",
+  "repo": "https://github.com/predibase/lorax",
+  "cwes": [
+   "200",
+   "532"
+  ],
+  "category": "Info in Logs",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108858-predibase-lorax-generate-api-token-logging"
+ },
+ {
+  "cves": [
+   "CVE-2026-108861"
+  ],
+  "id": "CVE-2026-108861",
+  "title": "Odoo MCP server: generic `execute_method` read bypasses the field ACL and returns denied fields to the agent",
+  "vendor": "erpipe-org (Odoo MCP project)",
+  "product": "Odoo MCP server (`odoo-mcp`)",
+  "repo": "https://github.com/erpipe-org/mcp-odoo",
+  "cwes": [
+   "200",
+   "284"
+  ],
+  "category": "Broken Access Control",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108861-erpipe-mcp-odoo-execute-method-field-acl-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-108862"
+  ],
+  "id": "CVE-2026-108862",
+  "title": "APIPark authorization lookup returns another application's API key when given a foreign authorization UUID",
+  "vendor": "APIParkLab (APIPark project)",
+  "product": "APIPark self-hosted API management platform",
+  "repo": "https://github.com/APIParkLab/APIPark",
+  "cwes": [
+   "2",
+   "200",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108862-apipark-cross-app-authorization-uuid"
+ },
+ {
+  "cves": [
+   "CVE-2026-108863"
+  ],
+  "id": "CVE-2026-108863",
+  "title": "Plano publishes an unauthenticated Envoy admin interface that leaks provider API keys through config_dump",
+  "vendor": "Katanemo",
+  "product": "Plano Envoy deployment",
+  "repo": "https://github.com/katanemo/plano",
+  "cwes": [
+   "200",
+   "306",
+   "522"
+  ],
+  "category": "Missing Authentication",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108863-katanemo-plano-envoy-admin-config-secret-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-109392"
+  ],
+  "id": "CVE-2026-109392",
+  "title": "Pimcore through 2026.3.1 Stored XSS via ExternalImage Field Version Preview",
+  "vendor": "Pimcore",
+  "product": "Pimcore",
+  "repo": "https://github.com/pimcore/pimcore/blob/v2026.3.1/models/DataObject/ClassDefinition/Data/ExternalImage.php#L169-L203",
+  "cwes": [
+   "79"
+  ],
+  "category": "XSS",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/rJCbgCKjMe"
+ },
+ {
+  "cves": [
+   "CVE-2026-110097"
+  ],
+  "id": "CVE-2026-110097",
+  "title": "Ikaros: TOTP two-factor authentication bypass through the pre-2FA temp token and unenforced login paths",
+  "vendor": "Ikaros project (ikaros-dev)",
+  "product": "Ikaros ACGMN media content management system",
+  "repo": "https://github.com/ikaros-dev/ikaros",
+  "cwes": [
+   "2",
+   "287",
+   "308"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110097-ikaros-2fa-bypass-temp-token"
+ },
+ {
+  "cves": [
+   "CVE-2026-110105"
+  ],
+  "id": "CVE-2026-110105",
+  "title": "B3log Symphony 3.6.4 admin console: AdminProcessor endpoints with no permission rule run without the admin role",
+  "vendor": "B3log (88250), Symphony / Sym open-source community platform",
+  "product": "B3log Symphony community platform",
+  "repo": "https://github.com/88250/symphony",
+  "cwes": [
+   "862",
+   "863"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110105-b3log-symphony-admin-endpoints-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-110106"
+  ],
+  "id": "CVE-2026-110106",
+  "title": "RuoYi-Vue-Plus: the social-account unbind endpoint deletes a binding by caller-supplied id with no owner check, so any authenticated user can unbind another user's third-party login",
+  "vendor": "dromara (RuoYi-Vue-Plus project)",
+  "product": "RuoYi-Vue-Plus admin framework",
+  "repo": "https://github.com/dromara/RuoYi-Vue-Plus",
+  "cwes": [
+   "2",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110106-ruoyi-vue-plus-social-unbind-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110107"
+  ],
+  "id": "CVE-2026-110107",
+  "title": "RuoYi-Cloud-Plus: the social-account unbind endpoint deletes a third-party login binding by primary key with no owner check, so any authenticated user can unbind another user's account",
+  "vendor": "dromara (RuoYi-Cloud-Plus project)",
+  "product": "RuoYi-Cloud-Plus microservice admin system",
+  "repo": "https://github.com/dromara/RuoYi-Cloud-Plus",
+  "cwes": [
+   "2",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110107-ruoyi-cloud-plus-social-unbind-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110109",
+   "CVE-2026-110110"
+  ],
+  "id": "CVE-2026-110109",
+  "title": "JetLinks Community lets a read-only user overwrite a product transparent-message codec because the product-level save handler is missing its save-action check (reactive authorization bypass)",
+  "vendor": "JetLinks (jetlinks.cn)",
+  "product": "JetLinks Community reactive IoT platform",
+  "repo": "https://github.com/jetlinks/jetlinks-community",
+  "cwes": [
+   "1",
+   "2",
+   "862",
+   "863"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110109-110110-jetlinks-community-transparent-codec-save-authz-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-110113"
+  ],
+  "id": "CVE-2026-110113",
+  "title": "PublicCMS trade module: the address save endpoint updates any address by id with no owner check, so any logged-in site member can overwrite another member's saved shipping address",
+  "vendor": "sanluan (PublicCMS project)",
+  "product": "PublicCMS",
+  "repo": "https://github.com/sanluan/PublicCMS",
+  "cwes": [
+   "2",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110113-publiccms-trade-address-save-cross-user-overwrite"
+ },
+ {
+  "cves": [
+   "CVE-2026-110114"
+  ],
+  "id": "CVE-2026-110114",
+  "title": "FJ-OMS oms-erp ships two anonymous Elasticsearch maintenance endpoints, one wipes the entire product search index",
+  "vendor": "FJ-OMS (oms-erp project, https://www.k8s9.com/)",
+  "product": "oms-erp omni-channel OMS/ERP SpringCloud platform",
+  "repo": "https://github.com/FJ-OMS/oms-erp",
+  "cwes": [
+   "306",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110114-oms-erp-es-test-unauth-index-wipe"
+ },
+ {
+  "cves": [
+   "CVE-2026-110123"
+  ],
+  "id": "CVE-2026-110123",
+  "title": "maku-boot returns SMTP and cloud SMS credentials to any authenticated user through notification-config endpoints that skip the authority check",
+  "vendor": "MakuNet (maku-boot project, maintainer babamu@126.com, vendor site https://maku.net)",
+  "product": "maku-boot",
+  "repo": "https://github.com/makunet/maku-boot",
+  "cwes": [
+   "200",
+   "522",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110123-maku-boot-mail-sms-config-bfla"
+ },
+ {
+  "cves": [
+   "CVE-2026-110129"
+  ],
+  "id": "CVE-2026-110129",
+  "title": "fuintCatering member refund detail endpoint returns any member's refund order and buyer PII by refund id (IDOR)",
+  "vendor": "fushengqian (fuint / www.fuint.cn)",
+  "product": "fuintCatering",
+  "repo": "https://github.com/fushengqian/fuintCatering",
+  "cwes": [
+   "200",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110129-fuintcatering-client-refund-detail-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110131"
+  ],
+  "id": "CVE-2026-110131",
+  "title": "ThriveX-Server 4.0 article API: any unauthenticated visitor can read unpublished draft articles (and soft-deleted posts) in full",
+  "vendor": "LiuYuYang01 (ThriveX open-source CMS project)",
+  "product": "ThriveX-Server blog backend",
+  "repo": "https://github.com/LiuYuYang01/ThriveX-Server",
+  "cwes": [
+   "200",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-110131-thrivex-server-draft-article-unauth-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-110210"
+  ],
+  "id": "CVE-2026-110210",
+  "title": "Phase Console through 2.77.3 Missing Authorization via secretHistory GraphQL Query",
+  "vendor": "Phase",
+  "product": "Phase Console",
+  "repo": "https://github.com/phasehq/console/blob/v2.77.3/backend/backend/schema.py#L1022-L1052",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/SyZJ_mjize"
+ },
+ {
+  "cves": [
+   "CVE-2026-110214"
+  ],
+  "id": "CVE-2026-110214",
+  "title": "Snowy low-code platform: hardcoded download-signature key and missing authorization in the dev file module",
+  "vendor": "xiaonuo (小诺, xiaonuobase), Snowy project team",
+  "product": "Snowy low-code platform",
+  "repo": "https://github.com/xiaonuobase/Snowy",
+  "cwes": [
+   "284",
+   "639",
+   "798",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/snowy-dev-file-access-control"
+ },
+ {
+  "cves": [
+   "CVE-2026-110217"
+  ],
+  "id": "CVE-2026-110217",
+  "title": "vhr (微人事) online chat endpoint GET /chat/hrs returns every operator BCrypt password hash and personal data to any authenticated user",
+  "vendor": "lenve (江南一点雨), vhr open-source project",
+  "product": "vhr (微人事)",
+  "repo": "https://github.com/lenve/vhr",
+  "cwes": [
+   "200",
+   "522"
+  ],
+  "category": "Information Disclosure",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/vhr-chat-hrs-password-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-110222"
+  ],
+  "id": "CVE-2026-110222",
+  "title": "Razorpay IFSC Ruby gem through 2.0.62 SSRF via IFSC lookup",
+  "vendor": "Razorpay",
+  "product": "IFSC",
+  "repo": "https://github.com/razorpay/ifsc/blob/v2.0.62/src/ruby/ifsc.rb#L53-L58",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/rJYWKMsiMg"
+ },
+ {
+  "cves": [
+   "CVE-2026-110223"
+  ],
+  "id": "CVE-2026-110223",
+  "title": "Kavita CBL URL upload performs an SSRF-prone fetch that skips the connection-time address guard",
+  "vendor": "Kavita (Kareadita)",
+  "product": "Kavita self-hosted reader server",
+  "repo": "https://github.com/Kareadita/Kavita",
+  "cwes": [
+   "367",
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/kavita-cbl-url-preflight-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-110225"
+  ],
+  "id": "CVE-2026-110225",
+  "title": "Shaarli open-mode thumbnail refresh issues a server-side request to a visitor-controlled URL with no safe-URL check (SSRF)",
+  "vendor": "Shaarli Community (shaarli open-source project)",
+  "product": "Shaarli bookmark application",
+  "repo": "https://github.com/shaarli/Shaarli",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/shaarli-open-mode-thumbnail-fetch-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-110228"
+  ],
+  "id": "CVE-2026-110228",
+  "title": "wallabag: a failed Pocket HTML import leaves attacker HTML in the public web root (stored XSS)",
+  "vendor": "wallabag",
+  "product": "wallabag self-hosted read-it-later web application",
+  "repo": "https://github.com/wallabag/wallabag",
+  "cwes": [
+   "79",
+   "434",
+   "459"
+  ],
+  "category": "XSS",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/wallabag-pocket-html-failed-import-stored-xss"
+ },
+ {
+  "cves": [
+   "CVE-2026-110230"
+  ],
+  "id": "CVE-2026-110230",
+  "title": "XBackBone through 3.8.2 Missing Authorization via Upload Vanity Endpoint",
+  "vendor": "sergix44",
+  "product": "XBackBone",
+  "repo": "https://github.com/sergix44/xbackbone/pull/671",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/ByAj-Xoifl"
+ },
+ {
+  "cves": [
+   "CVE-2026-110231"
+  ],
+  "id": "CVE-2026-110231",
+  "title": "muCommander through 1.6.2 Path Traversal via Archive Extraction to FTP/SFTP",
+  "vendor": "muCommander",
+  "product": "muCommander",
+  "repo": "https://github.com/mucommander/mucommander/blob/3bc2118e13681a8018b84a06f1c5fea4a3f940f7/mucommander-core/src/main/java/com/mucommander/job/impl/UnpackJob.java#L233-L256",
+  "cwes": [
+   "22"
+  ],
+  "category": "Path Traversal",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/ryH-CfoiMl"
+ },
+ {
+  "cves": [
+   "CVE-2026-110234"
+  ],
+  "id": "CVE-2026-110234",
+  "title": "Elio through 1.13.0 Insecure Temporary File Creation in External Preview Command Capture",
+  "vendor": "elio-fm",
+  "product": "elio",
+  "repo": "https://github.com/elio-fm/elio/blob/e7daae44ce748310de441499576bdc31b936d54c/src/preview/external_commands.rs#L14-L47",
+  "cwes": [
+   "377"
+  ],
+  "category": "Insecure Temp File",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/r1d_wQojfg"
+ },
+ {
+  "cves": [
+   "CVE-2026-110235"
+  ],
+  "id": "CVE-2026-110235",
+  "title": "MP Manager through 1.1.0 Path Traversal via Archive Extraction sanitizeEntryName Bypass",
+  "vendor": "Abdurazaaq Mohammed",
+  "product": "MP Manager",
+  "repo": "https://github.com/AbdurazaaqMohammed/MP-Manager/blob/592107e4bbe9da26bf10b3e22b023696324fb99f/app/src/main/java/io/github/abdurazaaqmohammed/utils/ArchiveUtil.java#L226-L231",
+  "cwes": [
+   "22"
+  ],
+  "category": "Path Traversal",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/S161BQjoMx"
+ },
+ {
+  "cves": [
+   "CVE-2026-110617"
+  ],
+  "id": "CVE-2026-110617",
+  "title": "we-mp-rss through 1.5.3 Missing Authorization via Export File Download Endpoint",
+  "vendor": "rachelos",
+  "product": "we-mp-rss",
+  "repo": "https://github.com/rachelos/we-mp-rss/blob/v1.5.3/apis/tools.py#L321-L376",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/SyP4L62oGl"
+ },
+ {
+  "cves": [
+   "CVE-2026-110619"
+  ],
+  "id": "CVE-2026-110619",
+  "title": "frp 0.41.0 through 0.71.1 Missing Authentication for pprof Debug Endpoints",
+  "vendor": "fatedier",
+  "product": "frp",
+  "repo": "https://github.com/fatedier/frp/blob/v0.71.1/pkg/util/http/server.go#L124-L130",
+  "cwes": [
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/HyZWPT3jfe"
+ },
+ {
+  "cves": [
+   "CVE-2026-110717"
+  ],
+  "id": "CVE-2026-110717",
+  "title": "Janus WebRTC Server through 1.4.3 Path Traversal via Record&Play Filename",
+  "vendor": "meetecho",
+  "product": "janus-gateway",
+  "repo": "https://github.com/meetecho/janus-gateway",
+  "cwes": [
+   "22"
+  ],
+  "category": "Path Traversal",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/HkEaF-piGl"
+ },
+ {
+  "cves": [
+   "CVE-2026-110718"
+  ],
+  "id": "CVE-2026-110718",
+  "title": "TurboDocx html-to-docx through 1.23.1 SSRF via img src Remote Image Download",
+  "vendor": "TurboDocx",
+  "product": "html-to-docx",
+  "repo": "https://github.com/TurboDocx/html-to-docx/blob/ff08e5687a2c87bcdc182a2e3e130c3493b9fb7e/src/utils/image.js#L286",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/H1t1Bbpjfx"
+ },
+ {
+  "cves": [
+   "CVE-2026-111390"
+  ],
+  "id": "CVE-2026-111390",
+  "title": "Erupt generic data API: HQL injection through the linkTree condition builder",
+  "vendor": "erupts (erupt project, maintainer YuePeng)",
+  "product": "erupt Java low-code runtime admin framework",
+  "repo": "https://github.com/erupts/erupt",
+  "cwes": [
+   "89",
+   "564"
+  ],
+  "category": "SQL Injection",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/erupt-linktreeval-hql-injection"
+ },
+ {
+  "cves": [
+   "CVE-2026-111603"
+  ],
+  "id": "CVE-2026-111603",
+  "title": "PlayEdu student API exposes department-restricted course attachments and course structure across departments",
+  "vendor": "PlayEdu (杭州白书科技有限公司)",
+  "product": "PlayEdu enterprise training/LMS",
+  "repo": "https://github.com/PlayEdu/PlayEdu",
+  "cwes": [
+   "285",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/playedu-course-attachment-cross-department-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-111604"
+  ],
+  "id": "CVE-2026-111604",
+  "title": "eladmin PUT and DELETE /api/users skip department data scope, enabling cross-department user modification and deletion",
+  "vendor": "elunez (eladmin open-source project)",
+  "product": "eladmin",
+  "repo": "https://github.com/elunez/eladmin",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/eladmin-user-update-delete-missing-dept-data-scope"
+ },
+ {
+  "cves": [
+   "CVE-2026-111609"
+  ],
+  "id": "CVE-2026-111609",
+  "title": "Open Journal Systems cross-journal subscription disclosure and reassignment through unscoped subscription forms",
+  "vendor": "Public Knowledge Project (PKP)",
+  "product": "Open Journal Systems (OJS)",
+  "repo": "https://github.com/pkp/ojs",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/ojs-subscription-form-cross-journal-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111610"
+  ],
+  "id": "CVE-2026-111610",
+  "title": "B3log Solo article console lets any non-admin author push and enumerate other authors' articles (missing ownership checks)",
+  "vendor": "b3log",
+  "product": "B3log Solo",
+  "repo": "https://github.com/88250/solo",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/solo-article-console-cross-author-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-111611"
+  ],
+  "id": "CVE-2026-111611",
+  "title": "roncoo-education order cancel and continue-pay accept any user's order number with no ownership check",
+  "vendor": "roncoo (广州市领课网络科技有限公司)",
+  "product": "roncoo-education",
+  "repo": "https://github.com/roncoo/roncoo-education",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/roncoo-education-auth-order-cancel-continue-missing-ownership-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111615"
+  ],
+  "id": "CVE-2026-111615",
+  "title": "mall4cloud seller order-address endpoint returns any shop's buyer shipping address by id (cross-shop IDOR)",
+  "vendor": "gz-yami (mall4j / mall4cloud)",
+  "product": "mall4cloud",
+  "repo": "https://github.com/gz-yami/mall4cloud",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/mall4cloud-multishop-order-addr-cross-shop-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111647"
+  ],
+  "id": "CVE-2026-111647",
+  "title": "lilishop buyer invoice endpoints expose any buyer's invoice records (cross-buyer IDOR and unscoped listing)",
+  "vendor": "lilishop (PickMall)",
+  "product": "lilishop",
+  "repo": "https://github.com/lilishop/lilishop",
+  "cwes": [
+   "200",
+   "566",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/lilishop-buyer-receipt-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111648"
+  ],
+  "id": "CVE-2026-111648",
+  "title": "BuildAdmin AdminInfo self-profile editor writes to any administrator by id (cross-admin IDOR)",
+  "vendor": "build-admin",
+  "product": "BuildAdmin",
+  "repo": "https://github.com/build-admin/buildadmin",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/buildadmin-admininfo-edit-cross-admin-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111649"
+  ],
+  "id": "CVE-2026-111649",
+  "title": "paopao-ce: cross-user attachment download IDOR exposes private-post media (missing visibility check in DownloadAttachment)",
+  "vendor": "rocboss (paopao-ce maintainer)",
+  "product": "paopao-ce",
+  "repo": "https://github.com/rocboss/paopao-ce",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/paopao-ce-attachment-download-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111655"
+  ],
+  "id": "CVE-2026-111655",
+  "title": "ThinkAdmin file manager edit action skips the owner check, letting any delegated admin read and overwrite another admin's file records",
+  "vendor": "zoujingli (ThinkAdmin / Anyon)",
+  "product": "ThinkAdmin",
+  "repo": "https://github.com/zoujingli/ThinkAdmin",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/thinkadmin-file-edit-missing-owner-scope-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111656"
+  ],
+  "id": "CVE-2026-111656",
+  "title": "ChatWiki form filter handlers skip the tenant ownership check, allowing cross-tenant read and modification of another tenant's form filters",
+  "vendor": "Wuhan Sesame Small Customer Service Network Technology Co., Ltd. (zhimaAi)",
+  "product": "ChatWiki",
+  "repo": "https://github.com/zhimaAi/chatwiki",
+  "cwes": [
+   "284",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/chatwiki-form-filter-cross-tenant-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111657"
+  ],
+  "id": "CVE-2026-111657",
+  "title": "BeikeShop customer RMA mark-as-shipped endpoint has no ownership check, any logged-in customer can tamper with another customer's return",
+  "vendor": "BeikeShop (beikeshop)",
+  "product": "BeikeShop",
+  "repo": "https://github.com/beikeshop/beikeshop",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/beikeshop-rma-mark-as-shipped-missing-ownership-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111665"
+  ],
+  "id": "CVE-2026-111665",
+  "title": "Piranha CMS Manager Language API: missing permission policy lets a limited manager user create, edit, and delete site languages",
+  "vendor": "Piranha CMS (PiranhaCMS)",
+  "product": "Piranha CMS",
+  "repo": "https://github.com/PiranhaCMS/piranha.core",
+  "cwes": [
+   "862",
+   "863"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/piranha-cms-manager-language-api-missing-permission"
+ },
+ {
+  "cves": [
+   "CVE-2026-111666"
+  ],
+  "id": "CVE-2026-111666",
+  "title": "Steedos Platform cross-tenant IDOR: any authenticated user reads every tenant's report definitions through the REST API",
+  "vendor": "Steedos (steedos)",
+  "product": "Steedos Platform",
+  "repo": "https://github.com/steedos/steedos-platform",
+  "cwes": [
+   "639",
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/steedos-platform-reports-cross-tenant-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111667"
+  ],
+  "id": "CVE-2026-111667",
+  "title": "REBUILD project task comment read IDOR, any user reads another project's task comments by id",
+  "vendor": "getrebuild (REBUILD)",
+  "product": "REBUILD low-code business-data platform",
+  "repo": "https://github.com/getrebuild/rebuild",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/getrebuild-rebuild-project-task-comment-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111674"
+  ],
+  "id": "CVE-2026-111674",
+  "title": "Tbed (Hellohao image host): missing ownership check in /admin/setImgFileName lets any user rewrite another user's image metadata",
+  "vendor": "Hello-hao (Hellohao)",
+  "product": "Tbed (Hellohao image-hosting platform)",
+  "repo": "https://github.com/Hello-hao/Tbed",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/tbed-setimgfilename-cross-user-image-metadata-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111676"
+  ],
+  "id": "CVE-2026-111676",
+  "title": "Faveo Helpdesk ticket tooltip endpoint discloses any ticket conversation to any agent across departments",
+  "vendor": "Ladybird Web Solution (faveosuite)",
+  "product": "Faveo Helpdesk (open-source ticketing system)",
+  "repo": "https://github.com/faveosuite/faveo-helpdesk",
+  "cwes": [
+   "639",
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/faveo-helpdesk-ticket-tooltip-cross-department-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111688",
+   "CVE-2026-111689"
+  ],
+  "id": "CVE-2026-111688",
+  "title": "XBoot data-scope filter bypass and cross-department user disclosure in DepartmentController and UserController",
+  "vendor": "Exrick",
+  "product": "XBoot",
+  "repo": "https://github.com/Exrick/xboot",
+  "cwes": [
+   "285",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/xboot-data-scope-filter-bypass-cross-dept-user-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-111705"
+  ],
+  "id": "CVE-2026-111705",
+  "title": "fuint member booking detail IDOR exposes another member's contact name, phone, and verification code",
+  "vendor": "fushengqian",
+  "product": "fuint multi-store member marketing and POS system",
+  "repo": "https://github.com/fushengqian/fuint",
+  "cwes": [
+   "200",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/fuint-booking-detail-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111715",
+   "CVE-2026-111716",
+   "CVE-2026-111717"
+  ],
+  "id": "CVE-2026-111715",
+  "title": "Arkon cross-department IDOR: wiki graph, compilation plan, and skill version routes skip the department scope check",
+  "vendor": "nduckmink (individual maintainer of Arkon)",
+  "product": "Arkon Enterprise AI Knowledge Hub",
+  "repo": "https://github.com/nduckmink/arkon",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/arkon-wiki-graph-cross-department-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-116015"
+  ],
+  "id": "CVE-2026-116015",
+  "title": "yudao-cloud mall member app-api leaks any member's after-sale log through an unscoped afterSaleId (cross-member IDOR)",
+  "vendor": "YunaiV (芋道 / dromara yudao)",
+  "product": "yudao-cloud",
+  "repo": "https://github.com/YunaiV/yudao-cloud",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/yudao-cloud-mall-after-sale-log-cross-member-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-116017"
+  ],
+  "id": "CVE-2026-116017",
+  "title": "xiaozhi-esp32-server manager-api device address-book IDOR, any normal user reads another user's device contact list",
+  "vendor": "xinnan-tech",
+  "product": "xiaozhi-esp32-server",
+  "repo": "https://github.com/xinnan-tech/xiaozhi-esp32-server",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/xiaozhi-esp32-server-address-book-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-116018"
+  ],
+  "id": "CVE-2026-116018",
+  "title": "ONEARMY Community Platform: cross-user IDOR lets any member mark another user's notifications as read",
+  "vendor": "ONEARMY",
+  "product": "Community Platform",
+  "repo": "https://github.com/ONEARMY/community-platform",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/onearmy-community-platform-notification-read-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-117562"
+  ],
+  "id": "CVE-2026-117562",
+  "title": "rssant (蚁阅) publish story-detail endpoint ignores the only-publish filter and discloses a user's private feed stories",
+  "vendor": "anyant (rssant / 蚁阅 maintainer)",
+  "product": "rssant (蚁阅)",
+  "repo": "https://github.com/anyant/rssant",
+  "cwes": [
+   "200",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/rssant-publish-story-get-missing-only-publish-filter-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-117566"
+  ],
+  "id": "CVE-2026-117566",
+  "title": "EasyImages 2.0 unauthenticated path traversal arbitrary file read in thumb.php, down.php, and info.php",
+  "vendor": "icret (EasyImages2.0 maintainer)",
+  "product": "EasyImages 2.0 (简单图床)",
+  "repo": "https://github.com/icret/EasyImages2.0",
+  "cwes": [
+   "22",
+   "200"
+  ],
+  "category": "Path Traversal",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/easyimages-thumb-down-info-unauth-path-traversal-file-read"
+ },
+ {
+  "cves": [
+   "CVE-2026-110232"
+  ],
+  "id": "CVE-2026-110232",
+  "title": "Fossify File Manager through 1.6.2 Zip Slip Path Traversal via DecompressActivity",
+  "vendor": "Fossify",
+  "product": "Fossify File Manager",
+  "repo": "https://github.com/FossifyOrg/File-Manager/blob/82b3c98c9a7b90d8af2c2ff0c39c87f5917e1b08/app/src/main/kotlin/org/fossify/filemanager/activities/DecompressActivity.kt#L161-L189",
+  "cwes": [
+   "22"
+  ],
+  "category": "Path Traversal",
+  "severity": "low",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/Hk2woGjsze"
+ },
+ {
+  "cves": [
+   "CVE-2026-110657"
+  ],
+  "id": "CVE-2026-110657",
+  "title": "Khronos NNEF-Tools nnef through 1.0.10 and nnef-tools through 1.0.11 Path Traversal via Variable Label",
+  "vendor": "Khronos Group",
+  "product": "nnef",
+  "repo": "https://github.com/KhronosGroup/NNEF-Tools/blob/0bb9c04fcf69c19e0aefa1ba9bf65f05478c8f81/nnef-pyproject/nnef/__init__.py#L87",
+  "cwes": [
+   "22"
+  ],
+  "category": "Path Traversal",
+  "severity": "low",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/SJiYagajfe"
+ },
+ {
+  "cves": [
+   "CVE-2026-108698",
+   "CVE-2026-108699"
+  ],
+  "id": "CVE-2026-108698",
+  "title": "hyper-mcp OCI plugin loader: Cosign signature verification is not bound to the resolved manifest, so a mutable tag can load unverified WebAssembly",
+  "vendor": "hyper-mcp-rs (hyper-mcp open-source project)",
+  "product": "hyper-mcp",
+  "repo": "https://github.com/hyper-mcp-rs/hyper-mcp",
+  "cwes": [
+   "2",
+   "345",
+   "347",
+   "367"
+  ],
+  "category": "TOCTOU Race",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108698-108699-hyper-mcp-oci-signature-manifest-toctou"
+ },
+ {
+  "cves": [
+   "CVE-2026-108852"
+  ],
+  "id": "CVE-2026-108852",
+  "title": "Deep Chat Markdown renderer disables Remarkable's unsafe-link scheme validation, allowing dangerous-scheme anchors in rendered messages",
+  "vendor": "OvidijusParsiunas (Deep Chat open-source project)",
+  "product": "Deep Chat browser web component",
+  "repo": "https://github.com/OvidijusParsiunas/deep-chat",
+  "cwes": [
+   "2",
+   "79",
+   "83"
+  ],
+  "category": "XSS",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108852-ovidijusparsiunas-deep-chat-markdown-scheme-validation"
+ },
+ {
+  "cves": [
+   "CVE-2026-108864"
+  ],
+  "id": "CVE-2026-108864",
+  "title": "iFLYTEK Astron Agent: authenticated workflow resume does not bind the event to the caller's application, allowing cross-application resume of another application's paused workflow",
+  "vendor": "iFLYTEK (Astron Agent project)",
+  "product": "Astron Agent workflow public API",
+  "repo": "https://github.com/iflytek/astron-agent",
+  "cwes": [
+   "2",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/cve-2026-108864-iflytek-astron-agent-cross-app-workflow-resume"
+ },
+ {
+  "cves": [
+   "CVE-2026-110607"
+  ],
+  "id": "CVE-2026-110607",
+  "title": "BizSpring Shop through commit cf22d39daaf1 Payment Bypass via test_post_pay Endpoint",
+  "vendor": "BizSpringSource",
+  "product": "BizSpring Java e-commerce platform (bizspring-shop-opensource)",
+  "repo": "https://github.com/BizSpringSource/bizspring-shop-opensource",
+  "cwes": [
+   "345",
+   "639",
+   "840"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/bizspring-shop-test-pay-endpoint-order-settlement-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-110608"
+  ],
+  "id": "CVE-2026-110608",
+  "title": "BizSpring Shop through commit cf22d39daaf1 IDOR via /member/order Cancel and Receive",
+  "vendor": "BizSpring (bizspring.cn), GitHub organization bizspring-open",
+  "product": "BizSpring Java Mall",
+  "repo": "https://github.com/bizspring-open/BizSpring-Java-Mall",
+  "cwes": [
+   "345",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/bizspring-java-mall-payment-forgery-order-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110609"
+  ],
+  "id": "CVE-2026-110609",
+  "title": "Dromara Skyeye through commit 65d3ddcede70 SQL Injection via keyword Parameter",
+  "vendor": "weizhiqiang1995 (SkyEye ERP-Pro maintainer)",
+  "product": "SkyEye ERP-Pro",
+  "repo": "https://github.com/weizhiqiang1995/erp-pro",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/skyeye-erp-statistics-keyword-sqli"
+ },
+ {
+  "cves": [
+   "CVE-2026-110610"
+  ],
+  "id": "CVE-2026-110610",
+  "title": "ruoyi-vue-pro through 2026.09 SSRF via Midjourney referImageUrl and notify imageUrl",
+  "vendor": "YunaiV (芋道源码), yudao / ruoyi-vue-pro project",
+  "product": "ruoyi-vue-pro (yudao Spring Boot admin platform)",
+  "repo": "https://github.com/YunaiV/ruoyi-vue-pro",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/yudao-ai-image-midjourney-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-110611"
+  ],
+  "id": "CVE-2026-110611",
+  "title": "REBUILD through 4.5.0 Authorization Bypass via aibot2 Chat Endpoints chatid",
+  "vendor": "getrebuild (REBUILD project maintainers)",
+  "product": "REBUILD low-code business platform",
+  "repo": "https://github.com/getrebuild/rebuild",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/getrebuild-rebuild-aibot-chat-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110612"
+  ],
+  "id": "CVE-2026-110612",
+  "title": "vlife through 2.0.1 Authentication Bypass via Hardcoded JWT Secret in TokenUtil",
+  "vendor": "wwwlike (vlife project)",
+  "product": "vlife low-code platform",
+  "repo": "https://github.com/wwwlike/vlife",
+  "cwes": [
+   "269",
+   "287",
+   "321",
+   "547"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/vlife-hardcoded-jwt-secret-token-forgery"
+ },
+ {
+  "cves": [
+   "CVE-2026-110613"
+  ],
+  "id": "CVE-2026-110613",
+  "title": "youlai-mall through commit 9f62de8 Order Information Disclosure via App Order List",
+  "vendor": "youlaitech",
+  "product": "youlai-mall",
+  "repo": "https://github.com/youlaitech/youlai-mall",
+  "cwes": [
+   "200",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/youlai-mall-order-list-cross-member-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-110614"
+  ],
+  "id": "CVE-2026-110614",
+  "title": "Yiuman citrus through 0.15.0 ORDER BY SQL Injection via sortBy Parameter",
+  "vendor": "Yiuman (citrus project maintainer)",
+  "product": "citrus low-code Spring Boot scaffold",
+  "repo": "https://github.com/Yiuman/citrus",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/citrus-generic-query-orderby-sqli"
+ },
+ {
+  "cves": [
+   "CVE-2026-110615"
+  ],
+  "id": "CVE-2026-110615",
+  "title": "jshERP through 3.6 Missing Authorization via /user/batchSetStatus",
+  "vendor": "jishenghua (jshERP maintainer)",
+  "product": "jshERP",
+  "repo": "https://github.com/jishenghua/jshERP",
+  "cwes": [
+   "285",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/jsherp-user-account-lifecycle-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-110763"
+  ],
+  "id": "CVE-2026-110763",
+  "title": "lamp-boot 4.16.0-java17 through 4.21.2-java17 IDOR via /anyone/findDeptByCompany",
+  "vendor": "zuihou (tangyh)",
+  "product": "lamp-boot",
+  "repo": "https://github.com/zuihou/lamp-boot",
+  "cwes": [
+   "285",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/lamp-boot-finddeptbycompany-employee-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110764"
+  ],
+  "id": "CVE-2026-110764",
+  "title": "AstronRPA through 1.1.6 Cross-Tenant File Disclosure via /file/download",
+  "vendor": "iFlytek",
+  "product": "AstronRPA",
+  "repo": "https://github.com/iflytek/astron-rpa",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/iflytek-astron-rpa-file-download-cross-tenant-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110765"
+  ],
+  "id": "CVE-2026-110765",
+  "title": "FlexPrice through 2.1.38 QuickBooks Webhook Signature Verification Bypass",
+  "vendor": "FlexPrice (flexprice)",
+  "product": "FlexPrice usage-based billing platform",
+  "repo": "https://github.com/flexprice/flexprice",
+  "cwes": [
+   "287",
+   "347"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/flexprice-quickbooks-webhook-signature-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-110766"
+  ],
+  "id": "CVE-2026-110766",
+  "title": "Colanode Server through 0.4.7 Path Traversal via Avatar Download Route",
+  "vendor": "Colanode (colanode)",
+  "product": "Colanode server",
+  "repo": "https://github.com/colanode/colanode",
+  "cwes": [
+   "22"
+  ],
+  "category": "Path Traversal",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/colanode-avatar-download-path-traversal"
+ },
+ {
+  "cves": [
+   "CVE-2026-110767"
+  ],
+  "id": "CVE-2026-110767",
+  "title": "Gitingest through 0.3.1 Arbitrary File Read via Symlink in Blob Ingestion",
+  "vendor": "coderamp-labs",
+  "product": "gitingest (repository-digest backend and hosted service",
+  "repo": "https://github.com/coderamp-labs/gitingest",
+  "cwes": [
+   "22",
+   "59",
+   "200"
+  ],
+  "category": "Path Traversal",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/gitingest-blob-symlink-arbitrary-file-read"
+ },
+ {
+  "cves": [
+   "CVE-2026-110768",
+   "CVE-2026-110769"
+  ],
+  "id": "CVE-2026-110768",
+  "title": "holaOS through 2026.822.1 Authorization Bypass via Telegram Connector Username Allowlist",
+  "vendor": "holaboss-ai (holaOS maintainers)",
+  "product": "holaOS",
+  "repo": "https://github.com/holaboss-ai/holaOS",
+  "cwes": [
+   "290",
+   "862",
+   "1188"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/holaos-channel-gateway-allow-all-sender-default"
+ },
+ {
+  "cves": [
+   "CVE-2026-110770"
+  ],
+  "id": "CVE-2026-110770",
+  "title": "Databasus 3.7.0 through 3.61.0 Account Takeover via Password Reset Brute-Force",
+  "vendor": "databasus (project maintainers)",
+  "product": "Databasus",
+  "repo": "https://github.com/databasus/databasus",
+  "cwes": [
+   "307",
+   "640"
+  ],
+  "category": "SQL Injection",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/databasus-password-reset-code-brute-force"
+ },
+ {
+  "cves": [
+   "CVE-2026-110771"
+  ],
+  "id": "CVE-2026-110771",
+  "title": "Shopizer through 3.2.5 Authorization Bypass via Product Review customerId",
+  "vendor": "Shopizer (shopizer-ecommerce)",
+  "product": "Shopizer e-commerce platform",
+  "repo": "https://github.com/shopizer-ecommerce/shopizer",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/shopizer-rest-product-review-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110772"
+  ],
+  "id": "CVE-2026-110772",
+  "title": "Sure 0.7.0 through 0.7.6-alpha.6 Missing Authorization via Transaction Bulk Update",
+  "vendor": "we-promise (Sure project, community continuation of Maybe)",
+  "product": "Sure",
+  "repo": "https://github.com/we-promise/sure",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/we-promise-sure-transactions-bulk-update-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-110773"
+  ],
+  "id": "CVE-2026-110773",
+  "title": "GrowChief through 0.3.0 Missing Authorization via /users/all-users Endpoint",
+  "vendor": "GrowChief (growchief)",
+  "product": "GrowChief self-hosted backend (NestJS)",
+  "repo": "https://github.com/growchief/growchief",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/growchief-all-users-missing-authz-cross-tenant-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-110774"
+  ],
+  "id": "CVE-2026-110774",
+  "title": "Blinko through 1.8.8 Private Attachment Read via /api/file Route",
+  "vendor": "blinkospace",
+  "product": "Blinko",
+  "repo": "https://github.com/blinkospace/blinko",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/blinko-attachment-accountid-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-110775"
+  ],
+  "id": "CVE-2026-110775",
+  "title": "Nexent through 2.7.0 Cross-Tenant Knowledge-Base File Read via check_file_access",
+  "vendor": "ModelEngine-Group (Nexent project, maintained under Huawei)",
+  "product": "Nexent",
+  "repo": "https://github.com/ModelEngine-Group/nexent",
+  "cwes": [
+   "200",
+   "285",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/nexent-knowledge-base-cross-tenant-file-read"
+ },
+ {
+  "cves": [
+   "CVE-2026-111312"
+  ],
+  "id": "CVE-2026-111312",
+  "title": "OpenHealth through 0.2.0 Missing Authentication via /api/health-data/[id] Route",
+  "vendor": "OpenHealthForAll (OpenHealth maintainers)",
+  "product": "OpenHealth",
+  "repo": "https://github.com/OpenHealthForAll/open-health",
+  "cwes": [
+   "284",
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/open-health-health-data-id-missing-auth-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111313"
+  ],
+  "id": "CVE-2026-111313",
+  "title": "JobOps through 0.13.1 SSRF via POST /api/manual-jobs/fetch",
+  "vendor": "DaKheera47 (Shaheer Sarfaraz Khan)",
+  "product": "JobOps",
+  "repo": "https://github.com/DaKheera47/job-ops",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/job-ops-manual-jobs-fetch-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-111320"
+  ],
+  "id": "CVE-2026-111320",
+  "title": "ValueCell through 0.1.20 Unauthenticated SSRF via /api/v1/models/check",
+  "vendor": "ValueCell-ai",
+  "product": "ValueCell",
+  "repo": "https://github.com/ValueCell-ai/valuecell",
+  "cwes": [
+   "306",
+   "918",
+   "942"
+  ],
+  "category": "SSRF",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/valuecell-model-provider-check-unauth-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-111321"
+  ],
+  "id": "CVE-2026-111321",
+  "title": "TaskingAI through 0.3.0 SSRF via OpenAPI servers[0].url in Actions",
+  "vendor": "TaskingAI",
+  "product": "TaskingAI",
+  "repo": "https://github.com/TaskingAI/TaskingAI",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/taskingai-user-action-openapi-server-url-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-111322"
+  ],
+  "id": "CVE-2026-111322",
+  "title": "Archon 0.2.13 through 0.11.1 Missing Authentication via /api/* Control API",
+  "vendor": "coleam00 (Cole Medin)",
+  "product": "Archon OS",
+  "repo": "https://github.com/coleam00/Archon",
+  "cwes": [
+   "306",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/archon-os-api-missing-authentication-default"
+ },
+ {
+  "cves": [
+   "CVE-2026-111323"
+  ],
+  "id": "CVE-2026-111323",
+  "title": "RedAmon through 7.0.1 Unauthenticated SSRF via /tradecraft/verify Endpoint",
+  "vendor": "samugit83 (RedAmon project maintainer)",
+  "product": "RedAmon",
+  "repo": "https://github.com/samugit83/redamon",
+  "cwes": [
+   "200",
+   "601",
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/redamon-tradecraft-verify-unauth-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-111324"
+  ],
+  "id": "CVE-2026-111324",
+  "title": "rustdesk-api through 2.7 Authorization Bypass via POST /api/sysinfo",
+  "vendor": "lejianwen",
+  "product": "rustdesk-api (RustDesk API server)",
+  "repo": "https://github.com/lejianwen/rustdesk-api",
+  "cwes": [
+   "306",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/rustdesk-api-sysinfo-unauth-peer-tamper"
+ },
+ {
+  "cves": [
+   "CVE-2026-111329",
+   "CVE-2026-111330"
+  ],
+  "id": "CVE-2026-111329",
+  "title": "JuggleIM im-server through 1.8.16 Default Admin Credentials in Admin Console",
+  "vendor": "JuggleIM (juggleim)",
+  "product": "JuggleIM im-server",
+  "repo": "https://github.com/juggleim/im-server",
+  "cwes": [
+   "759",
+   "798",
+   "916"
+  ],
+  "category": "Hard-coded Credentials",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/juggleim-im-server-default-admin-credential"
+ },
+ {
+  "cves": [
+   "CVE-2026-111331"
+  ],
+  "id": "CVE-2026-111331",
+  "title": "Dokploy through 0.30.8 Cross-Organization Authorization Bypass via port tRPC Router",
+  "vendor": "Dokploy",
+  "product": "Dokploy self-hosted PaaS",
+  "repo": "https://github.com/Dokploy/dokploy",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/dokploy-port-router-cross-org-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111332"
+  ],
+  "id": "CVE-2026-111332",
+  "title": "OxiCloud 0.9.1 through 0.9.3 Incorrect Authorization via Share Ring Cookie",
+  "vendor": "AtalayaLabs",
+  "product": "OxiCloud",
+  "repo": "https://github.com/AtalayaLabs/OxiCloud",
+  "cwes": [
+   "280",
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/oxicloud-share-password-grant-not-revoked"
+ },
+ {
+  "cves": [
+   "CVE-2026-111343"
+  ],
+  "id": "CVE-2026-111343",
+  "title": "pig through 4.1.1 Missing Authorization via GET /admin/user/details/{id}",
+  "vendor": "pig-mesh (pig4cloud, maintainer lengleng)",
+  "product": "Pig",
+  "repo": "https://github.com/pig-mesh/pig",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/pig-mesh-user-details-byid-missing-authz-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111344"
+  ],
+  "id": "CVE-2026-111344",
+  "title": "APITable through 1.14.0-beta Authorization Bypass via GET /node/{nodeId}/description",
+  "vendor": "APITable (APITable Ltd / apitable maintainers)",
+  "product": "APITable",
+  "repo": "https://github.com/apitable/apitable",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/apitable-node-description-cross-space-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111345"
+  ],
+  "id": "CVE-2026-111345",
+  "title": "Trudesk through 1.2.11 Authorization Bypass via GET /api/v1/messages/conversation/:id",
+  "vendor": "Chris Brame (polonel), Trudesk project",
+  "product": "Trudesk helpdesk",
+  "repo": "https://github.com/polonel/trudesk",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/trudesk-conversation-messages-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111346"
+  ],
+  "id": "CVE-2026-111346",
+  "title": "ZenTao PMS through 22.6 Authorization Bypass via action::editComment",
+  "vendor": "ZenTao (ZenTao Software (Qingdao) Co., Ltd / easysoft)",
+  "product": "ZenTao PMS",
+  "repo": "https://github.com/easysoft/zentaopms",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/zentaopms-action-editcomment-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111347"
+  ],
+  "id": "CVE-2026-111347",
+  "title": "go-ldap-admin through 0.6.2 Hard-Coded RSA Private Key via /base/decryptpwd",
+  "vendor": "eryajf (also published under the opsre organization)",
+  "product": "go-ldap-admin",
+  "repo": "https://github.com/eryajf/go-ldap-admin",
+  "cwes": [
+   "306",
+   "307",
+   "321"
+  ],
+  "category": "Missing Authentication",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/go-ldap-admin-hardcoded-rsa-key-decrypt-oracle-and-unauth-password-reset"
+ },
+ {
+  "cves": [
+   "CVE-2026-111348"
+  ],
+  "id": "CVE-2026-111348",
+  "title": "Likeshop through 3.5.1 IDOR via AfterSale API Refund Endpoints",
+  "vendor": "likeshop (likeshop.cn team)",
+  "product": "likeshop PHP e-commerce platform",
+  "repo": "https://github.com/likeadmin-likeshop/likeshop",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/likeshop-after-sale-api-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111349"
+  ],
+  "id": "CVE-2026-111349",
+  "title": "Craftplan through 0.7.5 Missing Authorization via CRM Customer JSON:API and GraphQL",
+  "vendor": "puemos",
+  "product": "Craftplan",
+  "repo": "https://github.com/puemos/craftplan",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/craftplan-customer-public-write"
+ },
+ {
+  "cves": [
+   "CVE-2026-111350"
+  ],
+  "id": "CVE-2026-111350",
+  "title": "Papermark through 0.22.0 Missing Authorization in Data Room Viewer Group API",
+  "vendor": "Papermark (mfts)",
+  "product": "Papermark",
+  "repo": "https://github.com/mfts/papermark",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/papermark-dataroom-group-delete-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-111351"
+  ],
+  "id": "CVE-2026-111351",
+  "title": "metasfresh through 5.175 Authorization Bypass via /rest/api/board REST API",
+  "vendor": "metas GmbH (metasfresh)",
+  "product": "metasfresh Open Source ERP",
+  "repo": "https://github.com/metasfresh/metasfresh",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/metasfresh-board-rest-missing-record-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-111352"
+  ],
+  "id": "CVE-2026-111352",
+  "title": "ThinkCMF through 8.0.1 Incorrect Authorization in Admin REST API",
+  "vendor": "ThinkCMF (thinkcmf)",
+  "product": "ThinkCMF content management framework",
+  "repo": "https://github.com/thinkcmf/thinkcmf",
+  "cwes": [
+   "862",
+   "863"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/thinkcmf-admin-rest-api-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-111353"
+  ],
+  "id": "CVE-2026-111353",
+  "title": "Peppermint through 0.5.5 Missing Authorization via Time-Tracking and Attachment Upload Endpoints",
+  "vendor": "Peppermint-Lab",
+  "product": "Peppermint open source help desk",
+  "repo": "https://github.com/Peppermint-Lab/peppermint",
+  "cwes": [
+   "200",
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/peppermint-data-logs-missing-authorization"
+ },
+ {
+  "cves": [
+   "CVE-2026-111354"
+  ],
+  "id": "CVE-2026-111354",
+  "title": "crmeb_java through 3.1 Authorization Bypass via Front Order Express and Refund Endpoints",
+  "vendor": "CRMEB (Zhong Bang Technology)",
+  "product": "CRMEB Java ecommerce platform",
+  "repo": "https://github.com/crmeb/crmeb_java",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/crmeb-java-order-express-refund-cross-member-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111355"
+  ],
+  "id": "CVE-2026-111355",
+  "title": "zhontai Admin.Core through 10.1.0 Authorization Bypass via User and Organization By-ID Endpoints",
+  "vendor": "zhontai (小雪转中雪)",
+  "product": "Admin.Core",
+  "repo": "https://github.com/zhontai/Admin.Core",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/zhontai-admin-core-by-id-missing-data-scope-cross-dept"
+ },
+ {
+  "cves": [
+   "CVE-2026-111356"
+  ],
+  "id": "CVE-2026-111356",
+  "title": "MacCMS v10 through 2026.1000.4056 Account Takeover via Password Recovery Brute-Force",
+  "vendor": "magicblack (MacCMS / 苹果CMS)",
+  "product": "MacCMS v10 (maccms10)",
+  "repo": "https://github.com/magicblack/maccms10",
+  "cwes": [
+   "307",
+   "640",
+   "770"
+  ],
+  "category": "Resource Exhaustion",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/maccms10-password-reset-code-brute-force-account-takeover"
+ },
+ {
+  "cves": [
+   "CVE-2026-111358"
+  ],
+  "id": "CVE-2026-111358",
+  "title": "SendPortal sendportal-core through 4.0.1 Cross-Workspace Tag Attachment via Subscriber Form",
+  "vendor": "mettle (SendPortal)",
+  "product": "SendPortal self-hosted email marketing. Affected component: subscriber tag association on the web subscriber create/update controllers and the CSV import controller",
+  "repo": "https://github.com/mettle/sendportal",
+  "cwes": [
+   "285",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/sendportal-subscriber-tags-cross-workspace-attach"
+ },
+ {
+  "cves": [
+   "CVE-2026-111359"
+  ],
+  "id": "CVE-2026-111359",
+  "title": "CRMEB 5.6.1 through 6.0.0 IDOR via giftDetail and receiveGift",
+  "vendor": "Zhong Bang (CRMEB)",
+  "product": "CRMEB (ThinkPHP6 PHP edition)",
+  "repo": "https://github.com/crmeb/CRMEB",
+  "cwes": [
+   "200",
+   "639",
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/crmeb-gift-order-idor-takeover"
+ },
+ {
+  "cves": [
+   "CVE-2026-111363"
+  ],
+  "id": "CVE-2026-111363",
+  "title": "BISHENG through 3.0.0-beta4 IDOR via /api/v1/knowledge/file_bbox",
+  "vendor": "DataElement",
+  "product": "Bisheng LLM devops platform",
+  "repo": "https://github.com/dataelement/bisheng",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/bisheng-knowledge-file-bbox-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111364"
+  ],
+  "id": "CVE-2026-111364",
+  "title": "MinDoc through 2.2-beta.2 IDOR via /api/:key/content/:id GET Branch",
+  "vendor": "mindoc-org (MinDoc community maintainers)",
+  "product": "MinDoc team document management system",
+  "repo": "https://github.com/mindoc-org/mindoc",
+  "cwes": [
+   "284",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/mindoc-api-content-get-cross-book-document-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111365",
+   "CVE-2026-111366"
+  ],
+  "id": "CVE-2026-111365",
+  "title": "cool-admin-midway through 8.0.0 Missing Authorization via System Role Endpoints",
+  "vendor": "cool-team-official (cool-admin)",
+  "product": "cool-admin-midway",
+  "repo": "https://github.com/cool-team-official/cool-admin-midway",
+  "cwes": [
+   "639",
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/cool-admin-midway-base-crud-role-ownership-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-111367"
+  ],
+  "id": "CVE-2026-111367",
+  "title": "BillionMail through 4.9 Forgeable JWTs via Default Signing Key",
+  "vendor": "aaPanel (BillionMail project)",
+  "product": "BillionMail",
+  "repo": "https://github.com/aaPanel/BillionMail",
+  "cwes": [
+   "321",
+   "345",
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/billionmail-unsubscribe-subscribe-jwt-deterministic-secret-forgery"
+ },
+ {
+  "cves": [
+   "CVE-2026-111368",
+   "CVE-2026-111369"
+  ],
+  "id": "CVE-2026-111368",
+  "title": "ClassroomIO through 1.0.0 IDOR via Course Submission Update, Grade and Delete Routes",
+  "vendor": "ClassroomIO (classroomio)",
+  "product": "ClassroomIO LMS",
+  "repo": "https://github.com/classroomio/classroomio",
+  "cwes": [
+   "639",
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/classroomio-course-resource-id-scoping-idor"
+ }
+]

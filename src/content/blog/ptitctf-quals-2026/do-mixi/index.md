@@ -2,7 +2,7 @@
 title: "Độ Mixi"
 description: "DOM Clobbering bypasses the sanitizer and enables file-name disclosure followed by flag read."
 date: 2026-08-27
-tags: [CTF, Web, DOM Clobbering, Local File Read, PTITCTF]
+tags: [CTF, Web, Local File Read, PTITCTF]
 category: "PTITCTF Quals 2026"
 pinned: false
 draft: false

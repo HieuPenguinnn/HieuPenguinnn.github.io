@@ -9,7 +9,7 @@ export const PAGE_SIZE = 10;
 
 export const NAV_ITEMS = [
   { label: 'Home', href: '/' },
-  { label: 'CVE', href: '/categories/CVE' },
+  { label: 'CVE Archive', href: '/cve' },
   { label: 'Write-up', href: '/writeups' },
   { label: 'About', href: '/about' },
 ];

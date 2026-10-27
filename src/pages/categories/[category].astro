@@ -42,6 +42,7 @@ const postData = filtered.map((p) => ({
 }));
 
 const displayName = category!.split('/').pop()!;
+const isCVE = category === 'CVE';
 
 // Optional final scoreboard shown at the top of a CTF category page
 const SCOREBOARDS: Record<string, { image: string; caption: string }> = {
@@ -66,53 +67,69 @@ const scoreboard = SCOREBOARDS[category!];
 ---
 
 <BlogLayout title={displayName}>
-  <h1 class="text-2xl font-bold mb-8 flex items-center gap-2">
-    <span class="w-1 h-6 bg-primary rounded-full inline-block"></span>
-    {displayName}
-    <span class="text-base font-normal text-gray-400">
-      ({filtered.length} challenges)
-    </span>
-  </h1>
+  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800 font-mono">
+    <div class="flex items-center gap-2 text-xs mb-1">
+      <span class={`w-1.5 h-1.5 rounded-full ${isCVE ? 'bg-rose-400' : 'bg-sky-400'} animate-pulse`}></span>
+      <span class="text-slate-400">~/research/category/</span>
+      <span class={isCVE ? 'text-rose-400' : 'text-sky-400'}>{displayName}</span>
+    </div>
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2.5">
+        <span class={isCVE ? 'text-rose-400' : 'text-sky-400'}>&gt;</span>
+        <span>{displayName}</span>
+      </h1>
+      <span class={`text-xs px-2.5 py-1 rounded-md border ${
+        isCVE
+          ? 'bg-rose-950/60 text-rose-400 border-rose-500/30'
+          : 'bg-sky-950/60 text-sky-400 border-sky-500/30'
+      }`}>
+        {filtered.length} {isCVE ? 'ADVISORIES' : 'CHALLENGES'}
+      </span>
+    </div>
+  </div>
+
   {
     scoreboard && (
-      <figure class="mb-10 rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 bg-white dark:bg-[var(--color-card-dark)]">
+      <figure class="mb-10 rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1324]">
         <img
           src={scoreboard.image}
           alt={`${displayName} scoreboard`}
-          class="w-full"
+          class="w-full object-cover"
           loading="lazy"
         />
-        <figcaption class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800 flex items-center gap-2">
-          <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+        <figcaption class="px-4 py-3 text-xs sm:text-sm font-mono text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2 bg-slate-50 dark:bg-[#070b14]/60">
+          <svg class="w-4 h-4 text-sky-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
           </svg>
-          {scoreboard.caption}
+          <span>{scoreboard.caption}</span>
         </figcaption>
       </figure>
     )
   }
+
   {
     category === 'PTITCTF Finals 2026' && (
-      <section class="mb-10">
-        <p class="mb-4 text-gray-700 dark:text-gray-300">
+      <section class="mb-10 font-sans">
+        <p class="mb-4 text-sm sm:text-base text-slate-700 dark:text-slate-300">
           Đội mình vào được chung kết Attack - Defense và đạt được giải Ba chung cuộc.
         </p>
-        <figure class="rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 bg-white dark:bg-[var(--color-card-dark)]">
+        <figure class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b1324]">
           <img
             src="/ctf/ptitctf-finals-2026-ad-top.png"
             alt="PTITCTF Finals 2026 Attack - Defense scoreboard"
-            class="w-full"
+            class="w-full object-cover"
             loading="lazy"
           />
-          <figcaption class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800 flex items-center gap-2">
-            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+          <figcaption class="px-4 py-3 text-xs sm:text-sm font-mono text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2 bg-slate-50 dark:bg-[#070b14]/60">
+            <svg class="w-4 h-4 text-sky-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
             </svg>
-            Attack - Defense final scoreboard - #6 (team Kuramaa)
+            <span>Attack - Defense final scoreboard - #6 (team Kuramaa)</span>
           </figcaption>
         </figure>
       </section>
     )
   }
+
   <PostList posts={postData} hideCover />
 </BlogLayout>

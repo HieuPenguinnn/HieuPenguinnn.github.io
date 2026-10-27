@@ -2,7 +2,7 @@
 title: "Brain Rot"
 description: "Vite CVE-2025-30208 bypasses the dev server allow list and exposes arbitrary files through /@fs/."
 date: 2026-08-27
-tags: [CTF, Web, Vite, CVE-2025-30208, PTITCTF]
+tags: [CTF, Web, PTITCTF]
 category: "PTITCTF Quals 2026"
 pinned: false
 draft: false

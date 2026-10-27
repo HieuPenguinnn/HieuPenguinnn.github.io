@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_AVATAR, SOCIAL_LINKS } from '../consts';
+import { totalCveCount } from '../utils/cveStats';
 
 const allPosts = await getCollection('blog');
 const sorted = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -8,11 +9,10 @@ const sorted = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTi
 const totalPosts = sorted.length;
 const cvePosts = sorted.filter((p) => p.data.category === 'CVE');
 const ctfPosts = sorted.filter((p) => p.data.category && p.data.category !== 'CVE');
-const cveCount = cvePosts.length;
+const cveCount = totalCveCount(cvePosts.length);
 const ctfCount = ctfPosts.length;
 
-// Vulnerability classes are children of CVE (derived from CVE post tags,
-// minus the generic platform/label tags).
+// Vulnerability classes are children of CVE
 const GENERIC_TAGS = new Set(['CVE', 'WordPress']);
 const vulnMap = new Map<string, number>();
 for (const post of cvePosts) {
@@ -22,7 +22,7 @@ for (const post of cvePosts) {
   }
 }
 
-// CTF events are children of CTF (grouped by root category).
+// CTF events are children of CTF
 const ctfEventMap = new Map<string, number>();
 for (const post of ctfPosts) {
   const root = post.data.category!.split('/')[0];
@@ -32,19 +32,21 @@ for (const post of ctfPosts) {
 const categoryTree = [
   {
     label: 'CVE',
-    href: '/categories/CVE',
+    href: '/cve',
     count: cveCount,
+    theme: 'rose',
     children: Array.from(vulnMap.entries())
       .sort((a, b) => b[1] - a[1])
-      .map(([label, count]) => ({ label, href: `/tags/${label}`, count })),
+      .map(([label, count]) => ({ label, href: `/tags/${encodeURIComponent(label)}`, count })),
   },
   {
     label: 'CTF',
     href: '/writeups',
     count: ctfCount,
+    theme: 'cyan',
     children: Array.from(ctfEventMap.entries())
       .sort((a, b) => b[1] - a[1])
-      .map(([label, count]) => ({ label, href: `/categories/${label}`, count })),
+      .map(([label, count]) => ({ label, href: `/categories/${encodeURIComponent(label)}`, count })),
   },
 ];
 
@@ -57,108 +59,153 @@ function slugify(post: (typeof sorted)[0]) {
 }
 ---
 
-<aside class="space-y-6">
-  <div class="bg-white dark:bg-[var(--color-card-dark)] rounded-2xl shadow-sm p-6 text-center">
-    <img
-      src={SITE_AVATAR}
-      alt={SITE_AUTHOR}
-      class="w-20 h-20 rounded-full mx-auto mb-3 object-cover ring-2 ring-primary/20"
-      width="80"
-      height="80"
-    />
-    <h2 class="font-semibold text-lg">{SITE_AUTHOR}</h2>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{SITE_DESCRIPTION}</p>
-    <div class="flex items-center justify-center gap-3 mt-4">
-      {SOCIAL_LINKS.map((link) => (
-        <a
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gray-400 hover:text-primary transition-colors"
-          title={link.name}
-        >
-          {link.icon === 'github' && (
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          )}
-          {link.icon === 'telegram' && (
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-            </svg>
-          )}
-          {link.icon === 'mail' && (
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          )}
-          {link.icon === 'wordpress' && (
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM1.211 12c0-1.564.336-3.05.935-4.39l5.15 14.106c-3.6-1.75-6.086-5.44-6.086-9.716zM12 22.79c-1.06 0-2.084-.156-3.052-.44l3.242-9.42 3.32 9.098c.022.053.048.101.078.148A10.75 10.75 0 0 1 12 22.79zm1.488-15.87c.65-.034 1.235-.102 1.235-.102.582-.069.514-.922-.068-.888 0 0-1.749.137-2.879.137-1.062 0-2.845-.137-2.845-.137-.582-.034-.65.854-.069.888 0 0 .551.068 1.135.102l1.681 4.607-2.362 7.083-3.931-11.69c.65-.033 1.234-.101 1.234-.101.583-.069.514-.922-.068-.888 0 0-1.748.137-2.879.137-.202 0-.44-.005-.693-.013C4.911 3.037 8.235 1.211 12 1.211c2.804 0 5.357 1.072 7.275 2.829-.046-.003-.091-.009-.139-.009-1.062 0-1.816.925-1.816 1.919 0 .89.514 1.643 1.062 2.533.411.72.89 1.643.89 2.977 0 .923-.354 1.994-.821 3.488l-1.075 3.591-3.888-11.618zm6.888.855a10.72 10.72 0 0 1 1.34 5.225c0 3.966-2.15 7.43-5.346 9.298l3.286-9.498c.614-1.535.818-2.762.818-3.855 0-.396-.026-.763-.072-1.17z"/>
-            </svg>
-          )}
-        </a>
-      ))}
-    </div>
+<aside class="space-y-6 font-mono">
+  
+  <div class="relative overflow-hidden rounded-2xl bg-white/90 dark:bg-[#0b1324]/90 border border-slate-200 dark:border-slate-800/80 p-5 shadow-lg shadow-slate-950/20 backdrop-blur-md">
+    
+    <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-rose-500 via-sky-400 to-emerald-400"></div>
 
-    <div class="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-      <div class="text-center">
-        <div class="font-semibold text-sm">{totalPosts}</div>
-        <div class="text-xs text-gray-400">Posts</div>
+    <div class="text-center">
+      <div class="relative inline-block mx-auto mb-3">
+        <img
+          src={SITE_AVATAR}
+          alt={SITE_AUTHOR}
+          class="w-20 h-20 rounded-full mx-auto object-cover ring-2 ring-sky-400/40 dark:ring-sky-500/30 p-0.5 shadow-md"
+          width="80"
+          height="80"
+        />
+        <span class="absolute bottom-1 right-1 flex h-3.5 w-3.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-[#0b1324]"></span>
+        </span>
       </div>
-      <div class="text-center">
-        <div class="font-semibold text-sm">{cveCount}</div>
-        <div class="text-xs text-gray-400">CVE</div>
+
+      <h2 class="font-bold text-base text-slate-900 dark:text-slate-100 flex items-center justify-center gap-1.5">
+        {SITE_AUTHOR}
+      </h2>
+      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-sans">
+        {SITE_DESCRIPTION}
+      </p>
+
+      <div class="flex items-center justify-center gap-2 mt-4">
+        {SOCIAL_LINKS.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-8 h-8 rounded-lg flex items-center justify-center bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-sky-400 hover:border-sky-500/40 hover:bg-sky-500/10 transition-all duration-200"
+            title={link.name}
+          >
+            {link.icon === 'github' && (
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            )}
+            {link.icon === 'telegram' && (
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+            )}
+            {link.icon === 'mail' && (
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            )}
+            {link.icon === 'wordpress' && (
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM1.211 12c0-1.564.336-3.05.935-4.39l5.15 14.106c-3.6-1.75-6.086-5.44-6.086-9.716zM12 22.79c-1.06 0-2.084-.156-3.052-.44l3.242-9.42 3.32 9.098c.022.053.048.101.078.148A10.75 10.75 0 0 1 12 22.79zm1.488-15.87c.65-.034 1.235-.102 1.235-.102.582-.069.514-.922-.068-.888 0 0-1.749.137-2.879.137-1.062 0-2.845-.137-2.845-.137-.582-.034-.65.854-.069.888 0 0 .551.068 1.135.102l1.681 4.607-2.362 7.083-3.931-11.69c.65-.033 1.234-.101 1.234-.101.583-.069.514-.922-.068-.888 0 0-1.748.137-2.879.137-.202 0-.44-.005-.693-.013C4.911 3.037 8.235 1.211 12 1.211c2.804 0 5.357 1.072 7.275 2.829-.046-.003-.091-.009-.139-.009-1.062 0-1.816.925-1.816 1.919 0 .89.514 1.643 1.062 2.533.411.72.89 1.643.89 2.977 0 .923-.354 1.994-.821 3.488l-1.075 3.591-3.888-11.618zm6.888.855a10.72 10.72 0 0 1 1.34 5.225c0 3.966-2.15 7.43-5.346 9.298l3.286-9.498c.614-1.535.818-2.762.818-3.855 0-.396-.026-.763-.072-1.17z"/>
+              </svg>
+            )}
+          </a>
+        ))}
       </div>
-      <div class="text-center">
-        <div class="font-semibold text-sm">{ctfCount}</div>
-        <div class="text-xs text-gray-400">CTF</div>
+
+      <div class="grid grid-cols-3 gap-2 mt-5 pt-4 border-t border-slate-200 dark:border-slate-800/80">
+        <a href="/archives" class="text-center group p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors">
+          <div class="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-emerald-400 transition-colors">{totalPosts}</div>
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider">Posts</div>
+        </a>
+        <a href="/cve" class="text-center group p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors">
+          <div class="font-bold text-sm text-rose-500 group-hover:text-rose-400 transition-colors">{cveCount}</div>
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider">CVE</div>
+        </a>
+        <a href="/writeups" class="text-center group p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors">
+          <div class="font-bold text-sm text-sky-400 group-hover:text-sky-300 transition-colors">{ctfCount}</div>
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider">CTF</div>
+        </a>
       </div>
     </div>
   </div>
 
   {
     categoryTree.length > 0 && (
-      <div class="bg-white dark:bg-[var(--color-card-dark)] rounded-2xl shadow-sm p-5">
-        <h2 class="text-sm font-semibold mb-3 text-gray-900 dark:text-gray-100">
-          Categories
-        </h2>
-        <div class="font-mono text-xs leading-6 text-gray-600 dark:text-gray-300">
+      <div class="rounded-2xl bg-white/90 dark:bg-[#0b1324]/90 border border-slate-200 dark:border-slate-800/80 p-5 shadow-lg shadow-slate-950/20 backdrop-blur-md">
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-200 dark:border-slate-800/80">
+          <h2 class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="text-sky-400">&gt;</span> CATEGORIES_TREE
+          </h2>
+          <span class="text-[10px] text-slate-400 font-mono">tree --dir</span>
+        </div>
+
+        <div class="text-xs leading-6 select-none">
           {categoryTree.map((node, ni) => {
             const parentLast = ni === categoryTree.length - 1;
+            const isCVE = node.label === 'CVE';
+            
             return (
-              <>
+              <div class="mb-2">
                 <a
                   href={node.href}
-                  class="group flex items-center hover:text-primary transition-colors"
+                  class={`group flex items-center transition-colors ${
+                    isCVE ? 'hover:text-rose-400' : 'hover:text-sky-400'
+                  }`}
                 >
-                  <span class="select-none whitespace-pre text-gray-400 dark:text-gray-600 group-hover:text-primary/60">
+                  <span class={`whitespace-pre text-slate-400 dark:text-slate-600 ${
+                    isCVE ? 'group-hover:text-rose-400' : 'group-hover:text-sky-400'
+                  } transition-colors`}>
                     {parentLast ? '└── ' : '├── '}
                   </span>
-                  <span class="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-primary">
+                  <span class={`font-bold ${
+                    isCVE ? 'text-rose-400' : 'text-sky-400'
+                  }`}>
                     {node.label}
                   </span>
-                  <span class="ml-1 text-gray-400 dark:text-gray-600">({node.count})</span>
+                  <span class={`ml-1.5 text-[11px] text-slate-400 dark:text-slate-500 font-normal ${
+                    isCVE ? 'group-hover:text-rose-400' : 'group-hover:text-sky-400'
+                  } transition-colors`}>
+                    ({node.count})
+                  </span>
                 </a>
+
                 {node.children.map((child, ci) => {
                   const childLast = ci === node.children.length - 1;
                   return (
                     <a
                       href={child.href}
-                      class="group flex items-center hover:text-primary transition-colors"
+                      class={`group flex items-center py-0.5 transition-colors text-slate-600 dark:text-slate-400 ${
+                        isCVE ? 'hover:text-amber-400' : 'hover:text-emerald-400'
+                      }`}
                     >
-                      <span class="select-none whitespace-pre text-gray-400 dark:text-gray-600">
+                      <span class="whitespace-pre text-slate-300 dark:text-slate-700">
                         {parentLast ? '    ' : '│   '}
                       </span>
-                      <span class="select-none whitespace-pre text-gray-400 dark:text-gray-600 group-hover:text-primary/60">
+                      <span class={`whitespace-pre text-slate-400 dark:text-slate-600 ${
+                        isCVE ? 'group-hover:text-amber-400' : 'group-hover:text-emerald-400'
+                      } transition-colors`}>
                         {childLast ? '└── ' : '├── '}
                       </span>
-                      <span class="truncate">{child.label}</span>
-                      <span class="ml-1 text-gray-400 dark:text-gray-600">({child.count})</span>
+                      <span class="truncate group-hover:underline decoration-slate-600">
+                        {child.label}
+                      </span>
+                      <span class={`ml-1 text-[11px] text-slate-400 dark:text-slate-600 ${
+                        isCVE ? 'group-hover:text-amber-400' : 'group-hover:text-emerald-400'
+                      } transition-colors shrink-0`}>
+                        ({child.count})
+                      </span>
                     </a>
                   );
                 })}
-              </>
+              </div>
             );
           })}
         </div>
@@ -168,47 +215,36 @@ function slugify(post: (typeof sorted)[0]) {
 
   {
     randomPosts.length > 0 && (
-      <div class="bg-white dark:bg-[var(--color-card-dark)] rounded-2xl shadow-sm p-5">
-        <h2 class="text-sm font-semibold mb-4 text-gray-900 dark:text-gray-100">
-          Random Picks
-        </h2>
+      <div class="rounded-2xl bg-white/90 dark:bg-[#0b1324]/90 border border-slate-200 dark:border-slate-800/80 p-5 shadow-lg shadow-slate-950/20 backdrop-blur-md">
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-200 dark:border-slate-800/80">
+          <h2 class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="text-emerald-400">&gt;</span> FEATURED_LOGS
+          </h2>
+          <span class="text-[10px] text-slate-400 font-mono">random(5)</span>
+        </div>
+
         <div class="space-y-2">
-          {randomPosts.map((post) => (
-            <a
-              href={`/post/${slugify(post)}`}
-              class="block text-xs text-gray-500 dark:text-gray-400 truncate hover:text-primary transition-colors"
-            >
-              {post.data.title}
-            </a>
-          ))}
+          {randomPosts.map((post) => {
+            const isCVE = post.data.category === 'CVE' || post.data.title.includes('CVE-');
+            return (
+              <a
+                href={`/post/${slugify(post)}`}
+                class="group flex items-start gap-2 p-1.5 -mx-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200"
+              >
+                <span class={`text-[11px] mt-0.5 select-none ${
+                  isCVE ? 'text-rose-400' : 'text-sky-400'
+                }`}>
+                  #
+                </span>
+                <span class="text-xs text-slate-600 dark:text-slate-400 group-hover:text-sky-300 group-hover:translate-x-1 transition-transform line-clamp-1 flex-1 font-sans">
+                  {post.data.title}
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
     )
   }
+
 </aside>
-
-<script is:inline>
-  function initSidebarToggles() {
-    document.querySelectorAll('.sidebar-toggle-btn').forEach((btn) => {
-      if (btn.dataset.initialized) return;
-      btn.dataset.initialized = 'true';
-
-      const section = btn.closest('[data-sidebar-section]');
-      if (!section) return;
-      const list = section.querySelector('.sidebar-expand-list');
-      if (!list) return;
-      const extraItems = list.querySelectorAll('.sidebar-extra');
-      const label = btn.textContent || '';
-
-      btn.addEventListener('click', () => {
-        const expanded = btn.dataset.expanded === 'true';
-        extraItems.forEach((el) => el.classList.toggle('hidden', expanded));
-        btn.dataset.expanded = String(!expanded);
-        btn.textContent = expanded ? label : 'Collapse';
-      });
-    });
-  }
-
-  document.addEventListener('astro:page-load', initSidebarToggles);
-  initSidebarToggles();
-</script>

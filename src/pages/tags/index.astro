@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogLayout from '../../layouts/BlogLayout.astro';
+import { totalCveCount } from '../../utils/cveStats';
 
 const allPosts = await getCollection('blog');
 
@@ -11,26 +12,45 @@ for (const post of allPosts) {
   }
 }
 
+// The "CVE" tag funnels to the dedicated archive and reflects the real total.
+const cveTagged = tagMap.get('CVE') ?? 0;
 const tags = Array.from(tagMap.entries())
-  .map(([name, count]) => ({ name, count }))
+  .map(([name, count]) => ({
+    name,
+    count: name === 'CVE' ? totalCveCount(cveTagged) : count,
+    href: name === 'CVE' ? '/cve' : `/tags/${encodeURIComponent(name)}`,
+  }))
   .sort((a, b) => b.count - a.count);
 ---
 
-<BlogLayout title="Tags">
-  <h1 class="text-2xl font-bold mb-8 flex items-center gap-2">
-    <span class="w-1 h-6 bg-primary rounded-full inline-block"></span>
-    Tags
-  </h1>
-  <div class="flex flex-wrap gap-3">
+<BlogLayout title="Tags Index">
+  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800 font-mono">
+    <div class="flex items-center gap-2 text-xs text-sky-400 mb-1">
+      <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+      <span>~/research/tags</span>
+    </div>
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2.5">
+        <span class="text-sky-400">&gt;</span>
+        <span>Classified Tags</span>
+      </h1>
+      <span class="text-xs px-2.5 py-1 rounded-md bg-slate-900 text-sky-400 border border-sky-500/30">
+        {tags.length} TAGS REGISTERED
+      </span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap gap-3 font-mono">
     {tags.map((tag) => (
       <a
-        href={`/tags/${tag.name}`}
-        class="card-hover bg-white dark:bg-[var(--color-card-dark)] rounded-xl shadow-sm px-4 py-2.5 group"
+        href={tag.href}
+        class="card-hover bg-white/90 dark:bg-[#0b1324]/90 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 hover:bg-sky-950/20 rounded-xl px-4 py-2.5 group flex items-center gap-2 transition-all shadow-sm"
       >
-        <span class="font-medium group-hover:text-primary transition-colors">
+        <span class="text-slate-400 group-hover:text-sky-400 transition-colors">#</span>
+        <span class="font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-300 transition-colors text-xs">
           {tag.name}
         </span>
-        <span class="text-xs text-gray-400 dark:text-gray-500 ml-1.5">
+        <span class="text-[11px] text-slate-400 dark:text-slate-500 group-hover:text-sky-400 transition-colors bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-800">
           {tag.count}
         </span>
       </a>

@@ -2,7 +2,7 @@
 title: "Approve Please, Genie!"
 description: "CSS injection and browser side-channel exfiltration leak the flag from the approval bot."
 date: 2026-08-27
-tags: [CTF, Web, CSS Injection, Side Channel, PTITCTF]
+tags: [CTF, Web, PTITCTF]
 category: "PTITCTF Quals 2026"
 pinned: false
 draft: false

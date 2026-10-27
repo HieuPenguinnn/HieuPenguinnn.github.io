@@ -2,7 +2,7 @@
 title: "CookieCorp"
 description: "A cookie jar overflow evicts the Inspector's role cookie and grants chief access."
 date: 2026-09-29
-tags: [CTF, Web, Cookie Bomb, SunshineCTF]
+tags: [CTF, Web, SunshineCTF]
 category: "SunshineCTF 2026"
 pinned: false
 draft: false
