@@ -243,6 +243,38 @@
  },
  {
   "cves": [
+   "CVE-2026-119597"
+  ],
+  "id": "CVE-2026-119597",
+  "title": "OpenDeepWiki through 2.0.6 Hard-coded JWT Signing Key Admin Token Forgery",
+  "vendor": "AIDotNet",
+  "product": "OpenDeepWiki",
+  "repo": "https://github.com/AIDotNet/OpenDeepWiki/commit/1bf0f4b5ef8d972ca640e5df145b5813a9492544",
+  "cwes": [
+   "321"
+  ],
+  "category": "Hard-coded Key",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/opendeepwiki-hardcoded-jwt-secret-admin-forgery"
+ },
+ {
+  "cves": [
+   "CVE-2026-119660"
+  ],
+  "id": "CVE-2026-119660",
+  "title": "MuseBot before 2.0.0 Authentication Bypass via Hard-Coded Session Key",
+  "vendor": "yincongcyincong",
+  "product": "MuseBot",
+  "repo": "https://github.com/yincongcyincong/MuseBot/issues/61",
+  "cwes": [
+   "1394"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/musebot-admin-default-session-key-auth-bypass"
+ },
+ {
+  "cves": [
    "CVE-2026-108853"
   ],
   "id": "CVE-2026-108853",
@@ -1741,6 +1773,102 @@
  },
  {
   "cves": [
+   "CVE-2026-119049"
+  ],
+  "id": "CVE-2026-119049",
+  "title": "FreeMail before 5.3.2 Authorization Bypass via /api/create Mailbox Claiming",
+  "vendor": "idinging",
+  "product": "FreeMail",
+  "repo": "https://github.com/idinging/freemail/issues/73",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-119649"
+  ],
+  "id": "CVE-2026-119649",
+  "title": "Orchard CMS 1.10.3 through 1.11 Improper Authorization via Media Library Folder Permission Check",
+  "vendor": "OrchardCMS",
+  "product": "Orchard",
+  "repo": "https://github.com/OrchardCMS/Orchard/issues/8895",
+  "cwes": [
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/orchard-media-library-cross-user-broken-access-control"
+ },
+ {
+  "cves": [
+   "CVE-2026-119654"
+  ],
+  "id": "CVE-2026-119654",
+  "title": "DataCap through 2025.1.1 Privilege Escalation via allocationRole Missing Authorization",
+  "vendor": "devlive-community",
+  "product": "DataCap",
+  "repo": "https://github.com/devlive-community/metaforge/issues/969",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/metaforge-datacap-allocation-role-missing-authz-privilege-escalation"
+ },
+ {
+  "cves": [
+   "CVE-2026-119655"
+  ],
+  "id": "CVE-2026-119655",
+  "title": "CoreShop through 1.5.5 SQL Injection via order Parameter in GetGoodsPageList",
+  "vendor": "CoreUnion",
+  "product": "CoreShop",
+  "repo": "https://github.com/CoreUnion/CoreShop/issues/20",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/coreshop-goods-orderby-sql-injection"
+ },
+ {
+  "cves": [
+   "CVE-2026-119656"
+  ],
+  "id": "CVE-2026-119656",
+  "title": "CoreShop through 1.5.5 SQL Injection via order Parameter in Agent/GetGoodsPageList",
+  "vendor": "CoreUnion",
+  "product": "CoreShop",
+  "repo": "https://github.com/CoreUnion/CoreShop/issues/20",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/coreshop-goods-orderby-sql-injection"
+ },
+ {
+  "cves": [
+   "CVE-2026-119662"
+  ],
+  "id": "CVE-2026-119662",
+  "title": "Songloft 2.9.0 before 2.13.6 Hardcoded Admin Credentials in Embedded Backend",
+  "vendor": "songloft-org",
+  "product": "songloft",
+  "repo": "https://github.com/songloft-org/songloft/issues/534",
+  "cwes": [
+   "798"
+  ],
+  "category": "Hard-coded Credentials",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/songloft-default-admin-credentials-unauth-admin-takeover"
+ },
+ {
+  "cves": [
    "CVE-2026-108696"
   ],
   "id": "CVE-2026-108696",
@@ -2843,6 +2971,358 @@
  },
  {
   "cves": [
+   "CVE-2026-117605"
+  ],
+  "id": "CVE-2026-117605",
+  "title": "nopCommerce before 5.00.0 Missing Authorization via Admin ProductController Add Popup Handlers",
+  "vendor": "nopSolutions",
+  "product": "nopCommerce",
+  "repo": "https://github.com/nopSolutions/nopCommerce/issues/8417",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-117606"
+  ],
+  "id": "CVE-2026-117606",
+  "title": "NexoPOS through 6.3.0 Missing Authorization via Cash Register Session Actions",
+  "vendor": "Blair2004",
+  "product": "NexoPOS",
+  "repo": "https://github.com/Blair2004/NexoPOS/issues/2668",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-119048"
+  ],
+  "id": "CVE-2026-119048",
+  "title": "JeeSite 5.11.0 through 5.19.1 IDOR in AI CMS Chat Module",
+  "vendor": "thinkgem",
+  "product": "JeeSite",
+  "repo": "https://github.com/thinkgem/jeesite5/issues/43",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/jeesite5-ai-cms-chat-conversation-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119596"
+  ],
+  "id": "CVE-2026-119596",
+  "title": "UNIT3D through 9.2.0 Private Playlist Disclosure via Playlist Zip Download",
+  "vendor": "HDInnovations",
+  "product": "UNIT3D",
+  "repo": "https://github.com/HDInnovations/UNIT3D/pull/5622",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/unit3d-playlist-zip-private-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119598"
+  ],
+  "id": "CVE-2026-119598",
+  "title": "Miaomiaowu before 0.9.3 Cross-User Proxy Provider Config Disclosure via external_subscription_id",
+  "vendor": "iluobei",
+  "product": "miaomiaowu",
+  "repo": "https://github.com/iluobei/miaomiaowu/commit/14ccf37ef82cff06b636454c29db7752cdce7cab",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/miaomiaowu-proxy-provider-config-cross-user-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119599"
+  ],
+  "id": "CVE-2026-119599",
+  "title": "AxonHub through 1.0.0-beta11 Privilege Escalation via Service Account API Key Scopes",
+  "vendor": "looplj",
+  "product": "AxonHub",
+  "repo": "https://github.com/looplj/axonhub/commit/e5c904efbdabd80d74827dfae478330339c5a514",
+  "cwes": [
+   "266"
+  ],
+  "category": "Privilege Management",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/axonhub-apikey-scope-grant-privilege-escalation"
+ },
+ {
+  "cves": [
+   "CVE-2026-119644"
+  ],
+  "id": "CVE-2026-119644",
+  "title": "Blossom through 1.17.1 Authorization Bypass via Picture Delete and Star Endpoints",
+  "vendor": "blossom-editor",
+  "product": "Blossom",
+  "repo": "https://github.com/blossom-editor/blossom/issues/214",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/blossom-picture-idor-cross-user-delete"
+ },
+ {
+  "cves": [
+   "CVE-2026-119645"
+  ],
+  "id": "CVE-2026-119645",
+  "title": "ZenTao PMS through 22.6 Missing Authorization via doc.ajaxGetDoc",
+  "vendor": "easysoft",
+  "product": "zentaopms",
+  "repo": "https://github.com/easysoft/zentaopms/issues/215",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/zentaopms-doc-ajaxgetdoc-private-doc-disclosure-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119646"
+  ],
+  "id": "CVE-2026-119646",
+  "title": "Open Web Analytics before 1.14.1 Cross-Site Data Disclosure via REST Report API",
+  "vendor": "Open Web Analytics",
+  "product": "Open Web Analytics",
+  "repo": "https://github.com/Open-Web-Analytics/Open-Web-Analytics/issues/1236",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/open-web-analytics-reports-rest-cross-site-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119647"
+  ],
+  "id": "CVE-2026-119647",
+  "title": "RuoYi-Vue-Plus through 6.0.0 Data-Scope Bypass via /system/user/list/dept/{deptId}",
+  "vendor": "dromara",
+  "product": "RuoYi-Vue-Plus",
+  "repo": "https://github.com/dromara/RuoYi-Vue-Plus/issues/60",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/ruoyi-vue-plus-user-list-by-dept-datascope-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-119648"
+  ],
+  "id": "CVE-2026-119648",
+  "title": "BlueKing CMDB through 3.14.6 Missing Authorization via /api/v3/hosts/search/asstdetail",
+  "vendor": "TencentBlueKing",
+  "product": "bk-cmdb",
+  "repo": "https://github.com/TencentBlueKing/bk-cmdb/issues/8709",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/bk-cmdb-host-search-asstdetail-cross-business-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-119650"
+  ],
+  "id": "CVE-2026-119650",
+  "title": "HuLa-Server through 3.0.7 IDOR via /privacy Endpoint in PrivacyController",
+  "vendor": "HuLaSpark",
+  "product": "HuLa-Server",
+  "repo": "https://github.com/HuLaSpark/HuLa-Server/issues/34",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/hula-server-idor-privacy-feed-friend"
+ },
+ {
+  "cves": [
+   "CVE-2026-119651"
+  ],
+  "id": "CVE-2026-119651",
+  "title": "HuLa-Server through 3.0.7 IDOR via /feed/del Moment Deletion",
+  "vendor": "HuLaSpark",
+  "product": "HuLa-Server",
+  "repo": "https://github.com/HuLaSpark/HuLa-Server/issues/34",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/hula-server-idor-privacy-feed-friend"
+ },
+ {
+  "cves": [
+   "CVE-2026-119652"
+  ],
+  "id": "CVE-2026-119652",
+  "title": "HuLa-Server through 3.0.7 IDOR via /user/friend/page Friend List Disclosure",
+  "vendor": "HuLaSpark",
+  "product": "HuLa-Server",
+  "repo": "https://github.com/HuLaSpark/HuLa-Server/issues/34",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/hula-server-idor-privacy-feed-friend"
+ },
+ {
+  "cves": [
+   "CVE-2026-119653"
+  ],
+  "id": "CVE-2026-119653",
+  "title": "Nging through 5.3.5 Directory Listing Disclosure via /user/autocomplete_path",
+  "vendor": "admpub",
+  "product": "nging",
+  "repo": "https://github.com/admpub/nging/issues/831",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/nging-user-autocomplete-path-filesystem-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-119657"
+  ],
+  "id": "CVE-2026-119657",
+  "title": "FilePress through 3.0.1 Missing Authorization in PicHome Library Folder Operations",
+  "vendor": "zyx0814",
+  "product": "FilePress",
+  "repo": "https://github.com/zyx0814/FilePress/issues/76",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/filepress-pichome-library-missing-per-library-authorization-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119658"
+  ],
+  "id": "CVE-2026-119658",
+  "title": "PowerDNS-Admin through 2026.08.1 Authorization Bypass via /domain/<domain_name>/update",
+  "vendor": "PowerDNS-Admin",
+  "product": "PowerDNS-Admin",
+  "repo": "https://github.com/PowerDNS-Admin/PowerDNS-Admin/issues/1940",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/powerdns-admin-record-update-body-domain-override-cross-zone-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119659"
+  ],
+  "id": "CVE-2026-119659",
+  "title": "Blossom through 1.17.1 Authorization Bypass via Folder Endpoints",
+  "vendor": "blossom-editor",
+  "product": "Blossom",
+  "repo": "https://github.com/blossom-editor/blossom/issues/213",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/blossom-folder-idor-cross-user-modify-delete"
+ },
+ {
+  "cves": [
+   "CVE-2026-119661"
+  ],
+  "id": "CVE-2026-119661",
+  "title": "ShowDoc through 3.9.5 Authorization Bypass via paramDescLib deleteEntries",
+  "vendor": "star7th",
+  "product": "ShowDoc",
+  "repo": "https://github.com/star7th/showdoc/issues/2612",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/showdoc-paramdesclib-cross-item-idor-delete"
+ },
+ {
+  "cves": [
+   "CVE-2026-119663"
+  ],
+  "id": "CVE-2026-119663",
+  "title": "Tamery (Conar) 0.32.0 before 0.99.0 Broken Authorization via connectionsResources.create",
+  "vendor": "wannabespace",
+  "product": "tamery",
+  "repo": "https://github.com/wannabespace/tamery/issues/601",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/conar-broken-ownership-cross-user-write"
+ },
+ {
+  "cves": [
+   "CVE-2026-119664"
+  ],
+  "id": "CVE-2026-119664",
+  "title": "Tamery (Conar) 0.26.1 before 0.99.0 Authorization Bypass via chatsMessages.update",
+  "vendor": "wannabespace",
+  "product": "tamery",
+  "repo": "https://github.com/wannabespace/tamery/issues/601",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/conar-broken-ownership-cross-user-write"
+ },
+ {
+  "cves": [
+   "CVE-2026-119665"
+  ],
+  "id": "CVE-2026-119665",
+  "title": "WHartTest 2.2.0 through 2.8.1 Missing Authorization via task_center Scheduled-Task APIs",
+  "vendor": "MGdaasLab",
+  "product": "WHartTest",
+  "repo": "https://github.com/MGdaasLab/WHartTest/issues/166",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/wharttest-scheduled-task-cross-project-missing-authz-idor"
+ },
+ {
+  "cves": [
    "CVE-2026-110232"
   ],
   "id": "CVE-2026-110232",
@@ -2872,6 +3352,22 @@
   "category": "Path Traversal",
   "severity": "low",
   "writeup": "https://hackmd.io/@1ExmmukzRMWN7B4gQ4W-4Q/SJiYagajfe"
+ },
+ {
+  "cves": [
+   "CVE-2026-118691"
+  ],
+  "id": "CVE-2026-118691",
+  "title": "xianyu-auto-reply-fix through 2.0.7 Unauthenticated Message Sending via /send-message",
+  "vendor": "GuDong2003",
+  "product": "xianyu-auto-reply-fix",
+  "repo": "https://github.com/GuDong2003/xianyu-auto-reply-fix/issues/116",
+  "cwes": [
+   "1188"
+  ],
+  "category": "Insecure Default",
+  "severity": "low",
+  "writeup": ""
  },
  {
   "cves": [
