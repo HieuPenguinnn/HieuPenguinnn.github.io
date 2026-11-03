@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_AVATAR, SOCIAL_LINKS } from '../consts';
 import { totalCveCount } from '../utils/cveStats';
+import vulncheck from '../data/vulncheck-cve.json';
 
 const allPosts = await getCollection('blog');
 const sorted = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -12,14 +13,9 @@ const ctfPosts = sorted.filter((p) => p.data.category && p.data.category !== 'CV
 const cveCount = totalCveCount(cvePosts.length);
 const ctfCount = ctfPosts.length;
 
-// Vulnerability classes are children of CVE
-const GENERIC_TAGS = new Set(['CVE', 'WordPress']);
 const vulnMap = new Map<string, number>();
-for (const post of cvePosts) {
-  for (const tag of post.data.tags || []) {
-    if (GENERIC_TAGS.has(tag)) continue;
-    vulnMap.set(tag, (vulnMap.get(tag) || 0) + 1);
-  }
+for (const e of vulncheck as { cves: string[]; category: string }[]) {
+  vulnMap.set(e.category, (vulnMap.get(e.category) || 0) + e.cves.length);
 }
 
 // CTF events are children of CTF
@@ -37,7 +33,8 @@ const categoryTree = [
     theme: 'rose',
     children: Array.from(vulnMap.entries())
       .sort((a, b) => b[1] - a[1])
-      .map(([label, count]) => ({ label, href: `/tags/${encodeURIComponent(label)}`, count })),
+      .slice(0, 10)
+      .map(([label, count]) => ({ label, href: '/cve', count })),
   },
   {
     label: 'CTF',
