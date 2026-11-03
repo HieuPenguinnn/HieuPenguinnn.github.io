@@ -275,6 +275,38 @@
  },
  {
   "cves": [
+   "CVE-2026-120442"
+  ],
+  "id": "CVE-2026-120442",
+  "title": "ape-volo-admin before 3.6.1 Hardcoded JWT Signing Key Authentication Bypass",
+  "vendor": "xianhc",
+  "product": "ape-volo-admin",
+  "repo": "https://github.com/xianhc/ape-volo-admin/issues/36",
+  "cwes": [
+   "1394"
+  ],
+  "category": "Authentication Bypass",
+  "severity": "critical",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/ape-volo-admin-hardcoded-jwt-secret-admin-token-forgery"
+ },
+ {
+  "cves": [
+   "CVE-2026-120446"
+  ],
+  "id": "CVE-2026-120446",
+  "title": "madong-admin-saas through 5.1.4 Missing Authentication via Platform Tenant Management API",
+  "vendor": "madong-code",
+  "product": "madong-admin-saas",
+  "repo": "https://github.com/madong-code/madong-admin-saas/issues/2",
+  "cwes": [
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "critical",
+  "writeup": ""
+ },
+ {
+  "cves": [
    "CVE-2026-108853"
   ],
   "id": "CVE-2026-108853",
@@ -1869,6 +1901,86 @@
  },
  {
   "cves": [
+   "CVE-2026-119707"
+  ],
+  "id": "CVE-2026-119707",
+  "title": "SonicJS through 3.0.0 Missing Authorization in Content Write API",
+  "vendor": "SonicJs-Org",
+  "product": "sonicjs",
+  "repo": "https://github.com/SonicJs-Org/sonicjs/issues/1125",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/sonicjs-content-api-write-acl-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-120426"
+  ],
+  "id": "CVE-2026-120426",
+  "title": "OpenCSG CSGHub through v2.6.0-ce Unauthenticated Private Repository File Read via Resolve Route",
+  "vendor": "OpenCSG",
+  "product": "CSGHub",
+  "repo": "https://github.com/OpenCSGs/csghub/issues/1586",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieund/csghub-private-repo-file-read-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-120445"
+  ],
+  "id": "CVE-2026-120445",
+  "title": "madong-admin-saas through 5.1.4 Incorrect Authorization via /platformapi AccessTokenMiddleware",
+  "vendor": "madong-code",
+  "product": "madong-admin-saas",
+  "repo": "https://github.com/madong-code/madong-admin-saas/issues/2",
+  "cwes": [
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-120460"
+  ],
+  "id": "CVE-2026-120460",
+  "title": "Jpom through 2.11.12 Cross-Workspace Authorization Bypass via Docker Controllers",
+  "vendor": "dromara",
+  "product": "Jpom",
+  "repo": "https://github.com/dromara/Jpom/issues/119",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-120461"
+  ],
+  "id": "CVE-2026-120461",
+  "title": "Jpom through 2.11.12 Cross-Workspace Authorization Bypass via /node/ssh_command/batch",
+  "vendor": "dromara",
+  "product": "Jpom",
+  "repo": "https://github.com/dromara/Jpom/issues/120",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
    "CVE-2026-108696"
   ],
   "id": "CVE-2026-108696",
@@ -3320,6 +3432,118 @@
   "category": "Missing Authorization",
   "severity": "medium",
   "writeup": "https://hackmd.io/@hieuPenguinnn/wharttest-scheduled-task-cross-project-missing-authz-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119708"
+  ],
+  "id": "CVE-2026-119708",
+  "title": "abp-next-admin 10.4.0 through 10.7.0 Cross-Tenant File Disclosure via Blob Download-By-Name",
+  "vendor": "colinin",
+  "product": "abp-next-admin",
+  "repo": "https://github.com/colinin/abp-next-admin/pull/1633",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/abp-next-admin-blob-download-by-name-cross-tenant-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-119709"
+  ],
+  "id": "CVE-2026-119709",
+  "title": "Grimoire before 1.0.0 Unauthenticated SSRF via /api/fetch-metadata",
+  "vendor": "goniszewski",
+  "product": "grimoire",
+  "repo": "https://github.com/goniszewski/grimoire/issues/237",
+  "cwes": [
+   "918"
+  ],
+  "category": "SSRF",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/grimoire-fetch-metadata-ssrf"
+ },
+ {
+  "cves": [
+   "CVE-2026-119763"
+  ],
+  "id": "CVE-2026-119763",
+  "title": "changelog.com before commit 7b35e829 Missing Authorization via Preview Routes",
+  "vendor": "thechangelog",
+  "product": "changelog.com",
+  "repo": "https://github.com/thechangelog/changelog.com/issues/581",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/changelog-com-preview-unpublished-content-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-120199"
+  ],
+  "id": "CVE-2026-120199",
+  "title": "LearnHouse before 1.1.1 Missing Authorization via Assignment Submissions API",
+  "vendor": "learnhouse",
+  "product": "learnhouse",
+  "repo": "https://github.com/learnhouse/learnhouse/issues/1184",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-120200"
+  ],
+  "id": "CVE-2026-120200",
+  "title": "Nexterm through 1.2.2-BETA Missing Authorization in Server Session Lifecycle Routes",
+  "vendor": "gnmyt",
+  "product": "Nexterm",
+  "repo": "https://github.com/gnmyt/Nexterm/issues/1944",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-120425"
+  ],
+  "id": "CVE-2026-120425",
+  "title": "Chatify before 1.6.4 Pusher Authorization Bypass via /chat/auth Endpoint",
+  "vendor": "munafio",
+  "product": "Chatify",
+  "repo": "https://github.com/munafio/chatify/issues/412",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/chatify-pusher-channel-authorization-bypass"
+ },
+ {
+  "cves": [
+   "CVE-2026-120427"
+  ],
+  "id": "CVE-2026-120427",
+  "title": "MrDoc through 1.1.1 Missing Authorization via get_doctemp Template Read",
+  "vendor": "zmister2016",
+  "product": "MrDoc",
+  "repo": "https://github.com/zmister2016/MrDoc/commit/ec93679499fb6ea88ce868ffc9169fe025917095",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/mrdoc-get-doctemp-missing-owner-check-cross-user-template-read"
  },
  {
   "cves": [
