@@ -1981,6 +1981,86 @@
  },
  {
   "cves": [
+   "CVE-2026-121555"
+  ],
+  "id": "CVE-2026-121555",
+  "title": "Foxel through 2.4.0 Unauthenticated File Read via /api/fs/stream and /api/fs/thumb",
+  "vendor": "DrizzleTime",
+  "product": "Foxel",
+  "repo": "https://github.com/DrizzleTime/Foxel/issues/152",
+  "cwes": [
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-121556"
+  ],
+  "id": "CVE-2026-121556",
+  "title": "FastBee through 2.1.0 IDOR via /iot/product By-ID Endpoints",
+  "vendor": "beecue",
+  "product": "FastBee",
+  "repo": "https://github.com/beecue/FastBee/issues/32",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-121940"
+  ],
+  "id": "CVE-2026-121940",
+  "title": "Stonewuu ai-fusion-video before 1.3.0 IDOR via Project, Asset and Script Controllers",
+  "vendor": "Stonewuu",
+  "product": "ai-fusion-video",
+  "repo": "https://github.com/Stonewuu/ai-fusion-video/issues/69",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/ai-fusion-video-idor-bola-project-asset"
+ },
+ {
+  "cves": [
+   "CVE-2026-121945"
+  ],
+  "id": "CVE-2026-121945",
+  "title": "CoopCycle coopcycle-web before 6.20.1 IDOR via Incident Resource and Action Endpoint",
+  "vendor": "CoopCycle",
+  "product": "coopcycle-web",
+  "repo": "https://github.com/coopcycle/coopcycle-web/issues/5390",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieund/coopcycle-incident-courier-cross-tenant-bola"
+ },
+ {
+  "cves": [
+   "CVE-2026-122224"
+  ],
+  "id": "CVE-2026-122224",
+  "title": "WebVirtCloud through commit bb920b0 Missing Authorization in REST API Migrate and Create Endpoints",
+  "vendor": "retspen",
+  "product": "webvirtcloud",
+  "repo": "https://github.com/retspen/webvirtcloud/issues/689",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/webvirtcloud-api-missing-authz-migrate-create"
+ },
+ {
+  "cves": [
    "CVE-2026-108696"
   ],
   "id": "CVE-2026-108696",
@@ -3547,6 +3627,70 @@
  },
  {
   "cves": [
+   "CVE-2026-121557"
+  ],
+  "id": "CVE-2026-121557",
+  "title": "WPPConnect Server through 2.10.74 Missing Authentication via /api/:session/chatwoot",
+  "vendor": "wppconnect",
+  "product": "wppconnect-server",
+  "repo": "https://github.com/wppconnect-team/wppconnect-server/issues/2701",
+  "cwes": [
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-121558"
+  ],
+  "id": "CVE-2026-121558",
+  "title": "AuditPilot before commit 4669c93 RAG Project-Scope Authorization Bypass via project_id",
+  "vendor": "Ricky-7-Yan",
+  "product": "intelligent-audit-system",
+  "repo": "https://github.com/Ricky-7-Yan/intelligent-audit-system/issues/7",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-121734"
+  ],
+  "id": "CVE-2026-121734",
+  "title": "ZaneOps 1.14.0 before 1.15.2 Cross-Workspace Information Disclosure via ReviewPreviewEnvDeployAPIView",
+  "vendor": "zane-ops",
+  "product": "zane-ops",
+  "repo": "https://github.com/zane-ops/zane-ops/commit/0f3e30403a605dc155a664bc70722c74159a6494",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-121938"
+  ],
+  "id": "CVE-2026-121938",
+  "title": "langchain4j-aideepin before 3.31.0 IDOR via GET /character/{uuid}",
+  "vendor": "moyangzhan",
+  "product": "langchain4j-aideepin",
+  "repo": "https://github.com/moyangzhan/langchain4j-aideepin/issues/116",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/langchain4j-aideepin-character-conversation-cross-user-idor"
+ },
+ {
+  "cves": [
    "CVE-2026-110232"
   ],
   "id": "CVE-2026-110232",
@@ -3592,6 +3736,22 @@
   "category": "Insecure Default",
   "severity": "low",
   "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-121937"
+  ],
+  "id": "CVE-2026-121937",
+  "title": "loonflow before r3.2.3 IDOR via ticket_flow_history Endpoint",
+  "vendor": "blackholll",
+  "product": "loonflow",
+  "repo": "https://github.com/blackholll/loonflow/issues/591",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "low",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/loonflow-ticket-flow-history-idor"
  },
  {
   "cves": [
