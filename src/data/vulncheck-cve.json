@@ -307,6 +307,38 @@
  },
  {
   "cves": [
+   "CVE-2026-125383"
+  ],
+  "id": "CVE-2026-125383",
+  "title": "INDOTALENT WHMS before 10.20261109 Hard-Coded JWT Signing Key Authentication Bypass",
+  "vendor": "go2ismail",
+  "product": "Asp.Net-Core-Inventory-Order-Management-System",
+  "repo": "https://github.com/go2ismail/Asp.Net-Core-Inventory-Order-Management-System/issues/48",
+  "cwes": [
+   "321"
+  ],
+  "category": "Hard-coded Key",
+  "severity": "critical",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125384"
+  ],
+  "id": "CVE-2026-125384",
+  "title": "INDOTALENT WHMS before 10.20261109 Default Administrator Credentials via UserAdminSeeder",
+  "vendor": "go2ismail",
+  "product": "Asp.Net-Core-Inventory-Order-Management-System",
+  "repo": "https://github.com/go2ismail/Asp.Net-Core-Inventory-Order-Management-System/issues/48",
+  "cwes": [
+   "1392"
+  ],
+  "category": "Missing Authentication",
+  "severity": "critical",
+  "writeup": ""
+ },
+ {
+  "cves": [
    "CVE-2026-108853"
   ],
   "id": "CVE-2026-108853",
@@ -2061,6 +2093,22 @@
  },
  {
   "cves": [
+   "CVE-2026-125382"
+  ],
+  "id": "CVE-2026-125382",
+  "title": "Map-OS 5.0.0 to before 5.2.2 Privilege Escalation via /api/v1/usuarios",
+  "vendor": "RamonSilva20",
+  "product": "mapos",
+  "repo": "https://github.com/RamonSilva20/mapos/pull/3043",
+  "cwes": [
+   "269"
+  ],
+  "category": "Privilege Management",
+  "severity": "high",
+  "writeup": ""
+ },
+ {
+  "cves": [
    "CVE-2026-108696"
   ],
   "id": "CVE-2026-108696",
@@ -3691,6 +3739,358 @@
  },
  {
   "cves": [
+   "CVE-2026-122317"
+  ],
+  "id": "CVE-2026-122317",
+  "title": "SplitPro through 2.1.6 Authorization Bypass via user.getUserDetails tRPC Query",
+  "vendor": "oss-apps",
+  "product": "SplitPro",
+  "repo": "https://github.com/oss-apps/split-pro/issues/786",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/splitpro-trpc-idor-user-expense-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-122326"
+  ],
+  "id": "CVE-2026-122326",
+  "title": "Chevereto before 4.5.8 Private Album Image Disclosure via get-album-contents",
+  "vendor": "Chevereto",
+  "product": "Chevereto",
+  "repo": "https://github.com/chevereto/chevereto/issues/136",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/chevereto-get-album-contents-private-album-image-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-122327"
+  ],
+  "id": "CVE-2026-122327",
+  "title": "Meelo through 3.13.1 Missing Authorization on Song, Track and Video Endpoints",
+  "vendor": "Arthi-chaud",
+  "product": "Meelo",
+  "repo": "https://github.com/Arthi-chaud/Meelo/issues/2185",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/meelo-catalog-metadata-write-missing-admin-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-123197"
+  ],
+  "id": "CVE-2026-123197",
+  "title": "WPPConnect Server through 2.10.76 Unauthenticated Sticker Media Disclosure via /files",
+  "vendor": "wppconnect",
+  "product": "wppconnect-server",
+  "repo": "https://github.com/wppconnect-team/wppconnect-server/issues/2708",
+  "cwes": [
+   "552"
+  ],
+  "category": "Missing Authentication",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/wppconnect-files-unauth-cross-session-sticker-media-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-123623"
+  ],
+  "id": "CVE-2026-123623",
+  "title": "Grida through 0.0.24 Missing Authorization in Forms File-Preview API",
+  "vendor": "gridaco",
+  "product": "grida",
+  "repo": "https://github.com/gridaco/grida/issues/1107",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/grida-forms-file-preview-missing-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-123624"
+  ],
+  "id": "CVE-2026-123624",
+  "title": "ChatWiki before 2.10.0 Cross-Tenant Fast Command Modification via saveFastCommand",
+  "vendor": "zhimaAi",
+  "product": "chatwiki",
+  "repo": "https://github.com/zhimaAi/chatwiki/issues/180",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/chatwiki-fast-command-cross-tenant-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-123782"
+  ],
+  "id": "CVE-2026-123782",
+  "title": "ChatWiki before 2.10.0 Cross-Tenant IDOR via SaveFormField and UpdateFormRequired",
+  "vendor": "zhimaAi",
+  "product": "chatwiki",
+  "repo": "https://github.com/zhimaAi/chatwiki/issues/182",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/chatwiki-form-field-cross-tenant-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-124025"
+  ],
+  "id": "CVE-2026-124025",
+  "title": "Faveo Helpdesk through 2.0.3 Cross-Department Ticket Disclosure via /ticket/print",
+  "vendor": "faveosuite",
+  "product": "faveo-helpdesk",
+  "repo": "https://github.com/faveosuite/faveo-helpdesk/issues/8369",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-124026"
+  ],
+  "id": "CVE-2026-124026",
+  "title": "Bar Assistant 6.0.0-rc1 before 6.11.0 Incorrect Authorization via Cocktail Copy",
+  "vendor": "karlomikus",
+  "product": "bar-assistant",
+  "repo": "https://github.com/karlomikus/bar-assistant/issues/641",
+  "cwes": [
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-124551"
+  ],
+  "id": "CVE-2026-124551",
+  "title": "ClassroomIO through 1.0.0 Cross-Organization Course Disclosure via Clone Endpoint",
+  "vendor": "classroomio",
+  "product": "classroomio",
+  "repo": "https://github.com/classroomio/classroomio/issues/1414",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/classroomio-course-clone-cross-org-content-exfiltration"
+ },
+ {
+  "cves": [
+   "CVE-2026-125372"
+  ],
+  "id": "CVE-2026-125372",
+  "title": "REBUILD before 4.5.3 Authorization Bypass via Feeds Details and Comments Endpoints",
+  "vendor": "getrebuild",
+  "product": "rebuild",
+  "repo": "https://github.com/getrebuild/rebuild/issues/1139",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125373"
+  ],
+  "id": "CVE-2026-125373",
+  "title": "IETF Datatracker before 12.83.0 Cross-NomCom Authorization Bypass via Nomcom Views",
+  "vendor": "ietf-tools",
+  "product": "datatracker",
+  "repo": "https://github.com/ietf-tools/datatracker/commit/f5bed82fee83d1dc28d89e15856fd329719ebda2",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125374"
+  ],
+  "id": "CVE-2026-125374",
+  "title": "Krayin CRM before 2.2.8 Broken Object Level Authorization via Lead Tag Attach/Detach",
+  "vendor": "krayin",
+  "product": "laravel-crm",
+  "repo": "https://github.com/krayin/laravel-crm/commit/3cfa2f763563723469dd1cb7ab53e51b269139bc",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125375"
+  ],
+  "id": "CVE-2026-125375",
+  "title": "MrDoc through 1.1.1 Missing Authorization via Project Document Sort Handlers",
+  "vendor": "zmister2016",
+  "product": "MrDoc",
+  "repo": "https://github.com/zmister2016/MrDoc/issues/209",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125376"
+  ],
+  "id": "CVE-2026-125376",
+  "title": "VanBlog through 0.54.0 Private Article Disclosure via Public Password Endpoint",
+  "vendor": "Mereithhh",
+  "product": "vanblog",
+  "repo": "https://github.com/Mereithhh/vanblog/issues/611",
+  "cwes": [
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125377"
+  ],
+  "id": "CVE-2026-125377",
+  "title": "Pig before 4.1.2 Missing Authorization Exposes OAuth2 Client Secrets via /client",
+  "vendor": "pig-mesh",
+  "product": "pig",
+  "repo": "https://github.com/pig-mesh/pig/issues/1298",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125378"
+  ],
+  "id": "CVE-2026-125378",
+  "title": "PowerDNS-Admin before 2026.11.0 Missing Authorization via Template Apply Endpoint",
+  "vendor": "PowerDNS-Admin",
+  "product": "PowerDNS-Admin",
+  "repo": "https://github.com/PowerDNS-Admin/PowerDNS-Admin/issues/1941",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125380"
+  ],
+  "id": "CVE-2026-125380",
+  "title": "DataRoom through 3.0.0 Incorrect Authorization via /dataRoom/dataset/run/test",
+  "vendor": "gcpaas",
+  "product": "DataRoom",
+  "repo": "https://github.com/gcpaas/DataRoom/issues/25",
+  "cwes": [
+   "863"
+  ],
+  "category": "Incorrect Authorization",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125381"
+  ],
+  "id": "CVE-2026-125381",
+  "title": "DataRoom through 3.0.0 SQL Injection via MyBatisService.generateSql",
+  "vendor": "gcpaas",
+  "product": "DataRoom",
+  "repo": "https://github.com/gcpaas/DataRoom/issues/25",
+  "cwes": [
+   "89"
+  ],
+  "category": "SQL Injection",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125385"
+  ],
+  "id": "CVE-2026-125385",
+  "title": "INDOTALENT WHMS before 10.20261109 Path Traversal via FileDocument/GetDocument and FileImage/GetImage",
+  "vendor": "go2ismail",
+  "product": "Asp.Net-Core-Inventory-Order-Management-System",
+  "repo": "https://github.com/go2ismail/Asp.Net-Core-Inventory-Order-Management-System/issues/48",
+  "cwes": [
+   "22"
+  ],
+  "category": "Path Traversal",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125386"
+  ],
+  "id": "CVE-2026-125386",
+  "title": "langchain4j-aideepin through 3.32.0 IDOR via /character/message reference endpoints",
+  "vendor": "moyangzhan",
+  "product": "langchain4j-aideepin",
+  "repo": "https://github.com/moyangzhan/langchain4j-aideepin/issues/118",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125387"
+  ],
+  "id": "CVE-2026-125387",
+  "title": "Faveo Helpdesk through 2.0.3 Cross-Department Ticket Tampering via TicketController",
+  "vendor": "faveosuite",
+  "product": "faveo-helpdesk",
+  "repo": "https://github.com/faveosuite/faveo-helpdesk/issues/8368",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
    "CVE-2026-110232"
   ],
   "id": "CVE-2026-110232",
@@ -3752,6 +4152,70 @@
   "category": "IDOR",
   "severity": "low",
   "writeup": "https://hackmd.io/@hieuPenguinnn/loonflow-ticket-flow-history-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-122324"
+  ],
+  "id": "CVE-2026-122324",
+  "title": "SplitPro through 2.1.6 Authorization Bypass via expense.getExpenseDetails",
+  "vendor": "oss-apps",
+  "product": "SplitPro",
+  "repo": "https://github.com/oss-apps/split-pro/issues/786",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "low",
+  "writeup": "https://hackmd.io/@hieund/splitpro-trpc-idor-user-expense-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-122325"
+  ],
+  "id": "CVE-2026-122325",
+  "title": "eventyay-exhibition through commit f68888e Cross-Event Attendee Data Disclosure via Lead Creation API",
+  "vendor": "fossasia",
+  "product": "eventyay-exhibition",
+  "repo": "https://github.com/fossasia/eventyay-exhibition/issues/343",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "low",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/eventyay-exhibition-cross-event-lead-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-123206"
+  ],
+  "id": "CVE-2026-123206",
+  "title": "EdgeChat before 2.20.3 Missing Authentication for Attachment Download via GET /files/:key",
+  "vendor": "aozorae",
+  "product": "EdgeChat",
+  "repo": "https://github.com/aozorae/Edgechat/issues/58",
+  "cwes": [
+   "306"
+  ],
+  "category": "Missing Authentication",
+  "severity": "low",
+  "writeup": "https://hackmd.io/@hieund/edgechat-files-unauthenticated-public-attachment-disclosure"
+ },
+ {
+  "cves": [
+   "CVE-2026-125379"
+  ],
+  "id": "CVE-2026-125379",
+  "title": "Movim through 0.35.5 Authorization Bypass via Post::ajaxGetPost Cached Post Read",
+  "vendor": "movim",
+  "product": "movim",
+  "repo": "https://github.com/movim/movim/commit/378e0368368d0dd9cb090b78e68a63064d47d512",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "low",
+  "writeup": ""
  },
  {
   "cves": [
