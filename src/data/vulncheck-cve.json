@@ -2109,6 +2109,22 @@
  },
  {
   "cves": [
+   "CVE-2026-125750"
+  ],
+  "id": "CVE-2026-125750",
+  "title": "Firekylin through 2.18.1 Improper Authorization via Admin REST API GET Actions",
+  "vendor": "firekylin",
+  "product": "Firekylin",
+  "repo": "https://github.com/firekylin/firekylin/issues/975",
+  "cwes": [
+   "862"
+  ],
+  "category": "Missing Authorization",
+  "severity": "high",
+  "writeup": "https://hackmd.io/@hieund/firekylin-admin-api-editor-missing-authz-secret-disclosure"
+ },
+ {
+  "cves": [
    "CVE-2026-108696"
   ],
   "id": "CVE-2026-108696",
@@ -4091,6 +4107,102 @@
  },
  {
   "cves": [
+   "CVE-2026-125747"
+  ],
+  "id": "CVE-2026-125747",
+  "title": "ZenTao PMS through 22.7 IDOR via Build Module Mutation Methods",
+  "vendor": "easysoft",
+  "product": "zentaopms",
+  "repo": "https://github.com/easysoft/zentaopms/issues/221",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/zentaopms-build-missing-object-authorization-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-125748"
+  ],
+  "id": "CVE-2026-125748",
+  "title": "Parabol before 15.21.2 Missing Authorization via addReactjiToReactable Mutation",
+  "vendor": "Parabol",
+  "product": "Parabol",
+  "repo": "https://github.com/ParabolInc/parabol/issues/13727",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieuPenguinnn/parabol-addreactjitoreactable-cross-meeting-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-125749"
+  ],
+  "id": "CVE-2026-125749",
+  "title": "TaxHacker through 0.8.5 IDOR via Settings Server Actions userId",
+  "vendor": "vas3k",
+  "product": "TaxHacker",
+  "repo": "https://github.com/vas3k/TaxHacker/issues/204",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/taxhacker-settings-crud-actions-cross-user-authz"
+ },
+ {
+  "cves": [
+   "CVE-2026-125752"
+  ],
+  "id": "CVE-2026-125752",
+  "title": "Meteroid before 2.2.0 Cross-Tenant Authorization Bypass via UpdateCouponStatus",
+  "vendor": "meteroid-oss",
+  "product": "Meteroid",
+  "repo": "https://github.com/meteroid-oss/meteroid/commit/ac3fe5c2bc72b277c5329e20eba384b8653805f2",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/meteroid-cross-tenant-apitoken-hash-and-coupon-status-idor"
+ },
+ {
+  "cves": [
+   "CVE-2026-126496"
+  ],
+  "id": "CVE-2026-126496",
+  "title": "1Panel-dev CordysCRM before 1.9.6 Authorization Bypass via /account/contact/get/{id}",
+  "vendor": "1Panel-dev",
+  "product": "CordysCRM",
+  "repo": "https://github.com/1Panel-dev/CordysCRM/issues/3891",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-126807"
+  ],
+  "id": "CVE-2026-126807",
+  "title": "WuzAPI through 1.1.0 Cross-Tenant Information Disclosure via /chat/history",
+  "vendor": "asternic",
+  "product": "wuzapi",
+  "repo": "https://github.com/asternic/wuzapi/issues/407",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "medium",
+  "writeup": "https://hackmd.io/@hieund/wuzapi-chat-history-index-cross-tenant-idor"
+ },
+ {
+  "cves": [
    "CVE-2026-110232"
   ],
   "id": "CVE-2026-110232",
@@ -4216,6 +4328,22 @@
   "category": "IDOR",
   "severity": "low",
   "writeup": ""
+ },
+ {
+  "cves": [
+   "CVE-2026-125751"
+  ],
+  "id": "CVE-2026-125751",
+  "title": "Meteroid before 2.2.0 Cross-Tenant API Token Hash Disclosure via GetApiTokenById",
+  "vendor": "meteroid-oss",
+  "product": "Meteroid",
+  "repo": "https://github.com/meteroid-oss/meteroid/commit/ac3fe5c2bc72b277c5329e20eba384b8653805f2",
+  "cwes": [
+   "639"
+  ],
+  "category": "IDOR",
+  "severity": "low",
+  "writeup": "https://hackmd.io/@hieund/meteroid-cross-tenant-apitoken-hash-and-coupon-status-idor"
  },
  {
   "cves": [
